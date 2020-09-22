@@ -5,6 +5,8 @@ export default React.createContext({
   setSearch: () => '',
   categories: [],
   setCategories: () => '',
+  subCategories: [],
+  setSubCategories: () => '',
   sort: [],
   setSort: () => ''
 })

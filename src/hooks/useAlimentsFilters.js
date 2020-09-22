@@ -5,14 +5,19 @@ import SearchContext from 'utils/searchContext'
 export default function useAlimentsFilters(aliments) {
   const [filteredAliments, setFilteredAliments] = useState([])
 
-  const { search, categories, sort } = useContext(SearchContext)
+  const { search, categories, subCategories, sort } = useContext(SearchContext)
 
   useEffect(() => {
     setFilteredAliments(
       aliments
         .filter(aliment => aliment.nom_francais.includes(search))
         .filter(aliment =>
-          categories.length ? categories.includes(aliment.sous_groupe) : true
+          categories.length ? categories.includes(aliment.groupe) : true
+        )
+        .filter(aliment =>
+          subCategories.length
+            ? subCategories.includes(aliment.sous_groupe)
+            : true
         )
         .sort((a, b) => {
           if (sort === 'score_asc') {
@@ -44,7 +49,7 @@ export default function useAlimentsFilters(aliments) {
           return true
         })
     )
-  }, [search, categories, sort, aliments])
+  }, [search, categories, subCategories, sort, aliments])
 
   return filteredAliments
 }

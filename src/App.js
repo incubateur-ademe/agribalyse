@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter as Router } from 'react-router-dom'
+
+import { GlobalStyle } from 'utils/styles'
 
 import Home from 'views/Home'
-import Aliment from 'views/Aliment'
 
 function App() {
   const [aliments, setAliments] = useState([])
@@ -16,14 +17,8 @@ function App() {
   return (
     <div>
       <Router>
-        <Switch>
-          <Route path='/aliments/:ciqual_code'>
-            <Aliment aliments={aliments} />
-          </Route>
-          <Route path={['/aliments', '/']}>
-            <Home aliments={aliments} />
-          </Route>
-        </Switch>
+        <GlobalStyle />
+        <Home aliments={aliments} />
       </Router>
     </div>
   )
