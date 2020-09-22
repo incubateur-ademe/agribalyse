@@ -9,7 +9,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 30vw;
+  height: 25vw;
   margin-bottom: 2em;
   padding: 2vw;
   background-color: red;

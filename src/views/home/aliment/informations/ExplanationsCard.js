@@ -23,12 +23,10 @@ export default function ExplanationsCard() {
         </p>
       </Card.Top>
       <Card.Bottom>
-        <Flex>
-          <Button noMargin>Documentation</Button>
-          <Button noMargin hollow>
-            Télécharger la base
-          </Button>
-        </Flex>
+        <Button expand>Documentation</Button>
+        <Button expand hollow>
+          Télécharger la base
+        </Button>
       </Card.Bottom>
     </Card>
   )

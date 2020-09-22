@@ -22,7 +22,7 @@ const Wrapper = styled(Link)`
 
 export default function Suggestion(props) {
   return (
-    <Wrapper to={`aliments/${props.aliment.ciqual_code}`}>
+    <Wrapper to={`/aliments/${props.aliment.ciqual_code}`}>
       {props.aliment.nom_francais}
     </Wrapper>
   )

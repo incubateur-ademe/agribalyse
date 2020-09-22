@@ -27,7 +27,7 @@ const Score = styled.div`
 `
 export default function AlimentItem(props) {
   return (
-    <Card width='25%' to={`/aliments/${props.aliment.ciqual_code}`}>
+    <Card width='33%' to={`/aliments/${props.aliment.ciqual_code}`}>
       <Card.Top>
         <Card.Title>{props.aliment.nom_francais}</Card.Title>
         <Card.Subtitle>{props.aliment.sous_groupe}</Card.Subtitle>
