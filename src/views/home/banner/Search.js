@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
+import { useHistory } from 'react-router-dom'
 
 import { colors } from 'utils/styles'
 
@@ -16,13 +17,18 @@ const Input = styled.input`
 export default function Search() {
   const { search, setSearch } = useContext(SearchContext)
 
+  let history = useHistory()
+
   return (
     <div>
       <Input
         type='text'
         value={search}
         placeholder={'Rechercher'}
-        onChange={e => setSearch(e.currentTarget.value)}
+        onChange={e => {
+          history.push('/')
+          setSearch(e.currentTarget.value)
+        }}
       />
     </div>
   )

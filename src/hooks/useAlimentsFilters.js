@@ -10,7 +10,26 @@ export default function useAlimentsFilters(aliments) {
   useEffect(() => {
     setFilteredAliments(
       aliments
-        .filter(aliment => aliment.nom_francais.includes(search))
+        .filter(aliment => {
+          const sentence = search
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')
+            .toLowerCase()
+            .split(' ')
+          let occurence = 0
+          for (let word of sentence) {
+            if (
+              aliment.nom_francais
+                .normalize('NFD')
+                .replace(/[\u0300-\u036f]/g, '')
+                .toLowerCase()
+                .includes(word)
+            ) {
+              occurence++
+            }
+          }
+          return occurence === sentence.length
+        })
         .filter(aliment =>
           categories.length ? categories.includes(aliment.groupe) : true
         )
