@@ -13,8 +13,27 @@ const Search = styled.div`
   font-weight: 500;
 `
 const Word = styled.span`
-  font-weight: 700;
-  color: ${colors.main};
+  position: relative;
+  display: inline-block;
+  padding: 0.4em 1.2em 0.4em 0.8em;
+  color: ${colors.white};
+  background-color: ${colors.main};
+  border-radius: 0.5em;
+  cursor: pointer;
+  transition: all 300ms ease-out;
+
+  &:hover {
+    background-color: ${colors.hoverMain};
+  }
+
+  &:before {
+    content: 'x';
+    position: absolute;
+    top: 0.1em;
+    right: 0.5em;
+    font-size: 12px;
+    color: ${colors.white};
+  }
 `
 const Categories = styled.div`
   display: flex;
@@ -24,6 +43,7 @@ const Categories = styled.div`
 export default function SearchRecap(props) {
   const {
     search,
+    setSearch,
     categories,
     setCategories,
     subCategories,
@@ -36,7 +56,8 @@ export default function SearchRecap(props) {
     <Wrapper>
       {search && (
         <Search>
-          Résultats de votre recherche pour <Word>{search}</Word> (
+          Résultats de votre recherche pour{' '}
+          <Word onClick={() => setSearch('')}>{search}</Word> (
           {props.numAliments} résultats){' '}
           {categories.length || subCategories.length ? 'dans :' : ':'}
         </Search>

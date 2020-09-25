@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import styled from 'styled-components'
 import { useHistory } from 'react-router-dom'
 
@@ -65,6 +65,10 @@ export default function Search() {
   const { search, setSearch } = useContext(SearchContext)
 
   const [value, setValue] = useState(search)
+
+  useEffect(() => {
+    setValue(search)
+  }, [search])
 
   const [focus, setFocus] = useState(false)
 

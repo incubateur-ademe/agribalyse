@@ -23,7 +23,9 @@ const Separator = styled.div`
   margin: 0 0.5em;
 `
 export default function BreadCrumb(props) {
-  const { setCategories, setSubCategories } = useContext(SearchContext)
+  const { setSearch, setCategories, setSubCategories } = useContext(
+    SearchContext
+  )
 
   let history = useHistory()
 
@@ -32,6 +34,7 @@ export default function BreadCrumb(props) {
       <Item
         onClick={() => {
           history.push('/aliments')
+          setSearch('')
           setCategories([])
           setSubCategories([])
         }}
@@ -42,6 +45,7 @@ export default function BreadCrumb(props) {
       <Item
         onClick={() => {
           history.push('/aliments')
+          setSearch('')
           setCategories([props.aliment.groupe])
           setSubCategories([])
         }}
@@ -52,6 +56,7 @@ export default function BreadCrumb(props) {
       <Item
         onClick={() => {
           history.push('/aliments')
+          setSearch('')
           setCategories([props.aliment.groupe])
           setSubCategories([props.aliment.sous_groupe])
         }}
