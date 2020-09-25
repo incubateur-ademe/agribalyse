@@ -2,6 +2,17 @@ import { createGlobalStyle } from 'styled-components'
 import styledNormalize from 'styled-normalize'
 
 export const colors = {
+  main: '#eb5b25',
+  hoverMain: '#d63100',
+  lightMain: '#ffd9cc',
+  secondary: '#eebe08',
+  hoverSecondary: '#edb10b',
+  background: '#fefae1',
+  black: 'rgb(33, 33, 33)',
+  white: '#f4f4f4',
+  text: 'rgb(66, 66, 66)'
+}
+/*export const colors = {
   main: 'rgb(210, 54, 105)',
   hoverMain: '#dc658d',
   lightMain: '#EECFD8',
@@ -9,13 +20,6 @@ export const colors = {
   black: 'rgb(33, 33, 33)',
   white: '#f4f4f4',
   text: 'rgb(66, 66, 66)'
-}
-/*export const colors = {
-  main: '#FF082D',
-  secondary: '#04071A',
-  background: '#04071A',
-  text: '#FF082D',
-  curators: '#01FFD6'
 }*/
 
 export const GlobalStyle = createGlobalStyle`
@@ -23,7 +27,8 @@ export const GlobalStyle = createGlobalStyle`
 
   html {
     box-sizing: border-box;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Montserrat', serif;
+    scroll-behavior: smooth;
   }
 
   body {

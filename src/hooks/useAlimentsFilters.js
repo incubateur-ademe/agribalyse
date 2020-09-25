@@ -51,19 +51,11 @@ export default function useAlimentsFilters(aliments) {
               ? -1
               : 1
           }
-          if (sort === 'co2_asc') {
-            return a['impact_environnemental']['Changement climatique'][
-              'synthese'
-            ] < b['impact_environnemental']['Changement climatique']['synthese']
-              ? -1
-              : 1
+          if (sort === 'alph_asc') {
+            return a.nom_francais.normalize('NFD') < b.nom_francais.normalize('NFD') ? -1 : 1
           }
-          if (sort === 'co2_desc') {
-            return a['impact_environnemental']['Changement climatique'][
-              'synthese'
-            ] > b['impact_environnemental']['Changement climatique']['synthese']
-              ? -1
-              : 1
+          if (sort === 'alph_desc') {
+            return a.nom_francais.normalize('NFD') > b.nom_francais.normalize('NFD') ? -1 : 1
           }
           return true
         })
