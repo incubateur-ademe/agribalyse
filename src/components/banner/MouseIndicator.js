@@ -40,7 +40,7 @@ const Svg = styled.svg`
   transform: translateX(-50%);
   width: 3vw;
   opacity: ${props => (props.visible ? 1 : 0)};
-  transition: all 300ms linear 3000ms;
+  transition: all 300ms linear ${props => (props.visible ? '3000ms' : '0ms')};
   animation: ${bounce} 5s infinite;
 `
 const Path = styled.path`
