@@ -41,20 +41,24 @@ export default function Indicateurs(props) {
 
   return (
     <Wrapper>
-      <Row>
-        <Head>Indicateur</Head>
-        <Head>Mesure</Head>
-        <Head>Unité</Head>
-      </Row>
-      {indicateurs.map(indicateur => (
+      <thead>
         <Row>
-          <Cell>{indicateur.name}</Cell>
-          <Cell>
-            <Value>{indicateur.synthese}</Value>
-          </Cell>
-          <Cell>{indicateur.unite}</Cell>
+          <Head>Indicateur</Head>
+          <Head>Mesure</Head>
+          <Head>Unité</Head>
         </Row>
-      ))}
+      </thead>
+      <tbody>
+        {indicateurs.map(indicateur => (
+          <Row key={indicateur.name}>
+            <Cell>{indicateur.name}</Cell>
+            <Cell>
+              <Value>{indicateur.synthese}</Value>
+            </Cell>
+            <Cell>{indicateur.unite}</Cell>
+          </Row>
+        ))}
+      </tbody>
     </Wrapper>
   )
 }

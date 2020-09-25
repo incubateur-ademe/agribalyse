@@ -12,11 +12,9 @@ const Aliments = styled.div`
   flex: 1;
   display: flex;
   flex-wrap: wrap;
-  margin: 0 1em;
+  margin: 0 -1em;
 `
-const Title = styled.h3`
-  margin-left: 2em;
-`
+const Title = styled.h3``
 export default function RelatedAliments(props) {
   const numRelatedAliments = 3
 
@@ -43,7 +41,10 @@ export default function RelatedAliments(props) {
       <Title>Produit de la même catégorie ({props.aliment.groupe})</Title>
       <Aliments>
         {relatedAliments.map(
-          aliment => aliment && <AlimentItem aliment={aliment} />
+          aliment =>
+            aliment && (
+              <AlimentItem key={aliment.ciqual_code} aliment={aliment} />
+            )
         )}
       </Aliments>
     </Wrapper>

@@ -9,7 +9,7 @@ export const colors = {
   hoverSecondary: '#edb10b',
   background: '#fefae1',
   black: 'rgb(33, 33, 33)',
-  white: '#f4f4f4',
+  white: '#fdfdfd',
   text: 'rgb(66, 66, 66)'
 }
 /*export const colors = {
@@ -43,6 +43,5 @@ export const GlobalStyle = createGlobalStyle`
 
   h1, h2, h3, h4, h5, h6 {
     margin-top: 0;
-    color: ${colors.main};
   }
 `

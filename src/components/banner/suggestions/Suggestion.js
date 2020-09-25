@@ -9,15 +9,18 @@ const Wrapper = styled(Link)`
   margin: 0 0.5vw 1vw;
   padding: 0.8em 1.6em;
   font-size: 0.8vw;
-  font-weight: 500;
-  color: ${colors.white};
-  background-color: ${colors.main};
+  font-weight: 700;
+  color: ${colors.main};
+  background-color: ${colors.white};
+  border: 1px solid ${colors.white};
+  border-radius: 1em;
   cursor: pointer;
   text-decoration: none;
   transition: all 300ms ease-out;
 
   &:hover {
-    background-color: ${colors.hoverMain};
+    color: ${colors.white};
+    background-color: ${colors.main};
   }
 `
 

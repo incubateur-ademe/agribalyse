@@ -3,9 +3,17 @@ import styled from 'styled-components'
 
 import { colors } from 'utils/styles'
 
-const Wrapper = styled.button`
+const StyledA = styled.a`
+  display: block;
+  text-decoration: none;
+`
+const Wrapper = styled.div``
+const Content = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: ${props => (props.expand ? '100%' : 'auto')};
-  margin-bottom: ${props => (props.noMargin ? '0' : '0.5em')};
+  height: 100%;
   padding: 0.8em 1.6em;
   font-weight: 500;
   color: ${props =>
@@ -14,9 +22,10 @@ const Wrapper = styled.button`
       : props.hollow
       ? colors.secondary
       : colors.white};
-  border: 1px solid ${props => (props.white ? colors.white : colors.secondary)};
   background-color: ${props =>
     props.hollow ? colors.white : colors.secondary};
+  border: 1px solid ${props => (props.white ? colors.white : colors.secondary)};
+  border-radius: 1em;
   opacity: ${props => (props.disabled ? 0.5 : 1)};
   pointer-events: ${props => (props.disabled ? 'none' : 'inherit')};
   cursor: pointer;
@@ -33,16 +42,34 @@ const Wrapper = styled.button`
   }
 `
 export default function Suggestion(props) {
-  return (
-    <Wrapper
-      onClick={props.onClick}
+  return props.href ? (
+    <StyledA
+      href={props.href}
+      target='_blank'
+      rel='noopener noreferrer'
       disabled={props.disabled}
-      white={props.white}
-      hollow={props.hollow}
-      expand={props.expand}
-      noMargin={props.noMargin}
     >
-      {props.children}
+      <Content
+        onClick={props.onClick}
+        disabled={props.disabled}
+        white={props.white}
+        hollow={props.hollow}
+        expand={props.expand}
+      >
+        {props.children}
+      </Content>
+    </StyledA>
+  ) : (
+    <Wrapper>
+      <Content
+        onClick={props.onClick}
+        disabled={props.disabled}
+        white={props.white}
+        hollow={props.hollow}
+        expand={props.expand}
+      >
+        {props.children}
+      </Content>
     </Wrapper>
   )
 }

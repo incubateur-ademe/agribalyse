@@ -44,6 +44,7 @@ export default function SearchRecap(props) {
       <Categories>
         {categories.map(category => (
           <Category
+            key={category}
             category={category}
             onClick={() => {
               history.push('/aliments')
@@ -54,6 +55,7 @@ export default function SearchRecap(props) {
         ))}
         {subCategories.map(category => (
           <Category
+            key={category}
             category={category}
             onClick={() => {
               history.push('/aliments')

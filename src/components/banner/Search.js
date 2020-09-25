@@ -19,26 +19,35 @@ const Input = styled.input`
   width: 48vw;
   color: ${colors.black};
   background-color: ${colors.white};
-  border: none;
-  border-bottom: 2px solid ${colors.main};
-  padding: 0.3em 2.5em 0.3em 1em;
+  border: 2px solid ${colors.white};
+  border-radius: 1em;
+  padding: 0.4em 2.5em 0.4em 1em;
   font-size: 1.5vw;
+  outline: none;
+  transition: all 300ms ease-out;
+
+  &:focus {
+    border: 2px solid ${colors.hoverMain};
+  }
 `
 const Button = styled.a`
-  display: block;
-  padding: 0.7em 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1em;
   font-size: 1vw;
   font-weight: 500;
   text-decoration: none;
-  color: ${colors.main};
+  color: ${colors.white};
   background-color: transparent;
-  border: 2px solid ${colors.main};
+  border: 2px solid ${colors.white};
+  border-radius: 1em;
   cursor: pointer;
   transition: all 300ms ease-out;
 
   &:hover {
-    color: ${colors.white};
-    background-color: ${colors.main};
+    color: ${colors.main};
+    background-color: ${colors.white};
   }
 `
 export default function Search() {
@@ -66,7 +75,7 @@ export default function Search() {
           }}
         />
         <Arrow
-          display={value.length > 2}
+          visible={value.length > 2}
           onClick={() => {
             history.push('/aliments')
             setSearch(value)

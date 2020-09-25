@@ -9,8 +9,8 @@ const Svg = styled.svg`
   right: 0.7vw;
   transform: translateY(-50%);
   height: 2vw;
-  opacity: ${props => (props.display ? 1 : 0.2)};
-  pointer-events: ${props => (props.display ? 'inherit' : 'none')};
+  opacity: ${props => (props.visible ? 1 : 0.2)};
+  pointer-events: ${props => (props.visible ? 'inherit' : 'none')};
   cursor: pointer;
   transition: opacity 300ms ease-out;
   &:hover {
@@ -29,7 +29,7 @@ export default function Arrow(props) {
       x='0px'
       y='0px'
       viewBox='0 0 492.004 492.004'
-      display={props.display}
+      visible={props.visible}
       onClick={props.onClick}
     >
       <Path

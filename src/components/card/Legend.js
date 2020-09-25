@@ -15,7 +15,8 @@ export default styled.h3`
   background-color: rgba(255, 255, 255, 0.5);
   transition: all 300ms ease-out;
 
-  a:hover > & {
+  a:hover > &,
+  div:hover > & {
     background-color: rgba(255, 255, 255, 0.7);
   }
 `

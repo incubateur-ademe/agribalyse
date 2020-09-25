@@ -27,7 +27,7 @@ const Value = styled.div`
   text-align: right;
 `
 
-export default function StepsCard(props) {
+export default function AlimentsCard(props) {
   const [ingredients, setIngredients] = useState([])
 
   useEffect(() => {
@@ -51,18 +51,22 @@ export default function StepsCard(props) {
       <Card.Top>
         <Card.Title>Impact par ingrédients</Card.Title>
         <Table>
-          <Row>
-            <Head>Ingredient</Head>
-            <Head right>Valeur</Head>
-          </Row>
-          {ingredients.map(ingredient => (
+          <thead>
             <Row>
-              <Cell>{ingredient.name}</Cell>
-              <Cell>
-                <Value>{ingredient.value}</Value>
-              </Cell>
+              <Head>Ingredient</Head>
+              <Head right>Valeur</Head>
             </Row>
-          ))}
+          </thead>
+          <tbody>
+            {ingredients.map(ingredient => (
+              <Row key={ingredient.name}>
+                <Cell>{ingredient.name}</Cell>
+                <Cell>
+                  <Value>{ingredient.value}</Value>
+                </Cell>
+              </Row>
+            ))}
+          </tbody>
         </Table>
       </Card.Top>
     </Card>

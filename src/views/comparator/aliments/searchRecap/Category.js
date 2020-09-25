@@ -9,6 +9,7 @@ const Wrapper = styled.div`
   font-size: 12px;
   color: ${colors.white};
   background-color: ${colors.main};
+  border-radius: 1em;
   cursor: pointer;
   text-decoration: none;
   transition: background-color 300ms ease-out;

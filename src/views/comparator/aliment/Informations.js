@@ -9,7 +9,11 @@ import Indicateurs from './informations/Indicateurs'
 const Wrapper = styled.div`
   margin-bottom: 4em;
 `
-const Title = styled.h1``
+const Title = styled.h1`
+  max-width: 800px;
+  font-size: 40px;
+  font-weight: 900;
+`
 const Category = styled.p``
 const Cards = styled.div`
   display: flex;

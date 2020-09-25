@@ -6,6 +6,13 @@ import { colors } from 'utils/styles'
 
 const Wrapper = styled.div`
   background-color: ${colors.lightMain};
+  /*background: linear-gradient(
+    0deg,
+    ${colors.white} 0%,
+    ${colors.background} 10%,
+    ${colors.background} 90%,
+    ${colors.white} 100%
+  );*/
 `
 const Sizer = styled.div`
   max-width: 1200px;

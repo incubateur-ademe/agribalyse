@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import ButtonLink from 'components/ButtonLink'
+import Button from 'components/Button'
 
 const Wrapper = styled.div``
 const Sizer = styled.div`
@@ -20,7 +20,7 @@ const Columns = styled.div`
 `
 const Column = styled.div`
   flex: 1;
-  margin: 0 2em 2em;
+  margin: 0 2em 4em;
   text-align: center;
 `
 const Buttons = styled.div`
@@ -30,6 +30,7 @@ const Buttons = styled.div`
   margin: 0 auto;
 
   a {
+    flex: 1;
     margin: 0 2em 2em;
   }
 `
@@ -56,19 +57,19 @@ export default function Presentation() {
           </Column>
         </Columns>
         <Buttons>
-          <ButtonLink
+          <Button
             expand
             href='https://ecolab.gitbook.io/documentation-agribalyse/acces-donnees'
           >
             Télécharger les données
-          </ButtonLink>
-          <ButtonLink
+          </Button>
+          <Button
             expand
             hollow
             href='https://ecolab.gitbook.io/documentation-agribalyse'
           >
             Information, conditions d’usage et documentation
-          </ButtonLink>
+          </Button>
         </Buttons>
       </Sizer>
     </Wrapper>

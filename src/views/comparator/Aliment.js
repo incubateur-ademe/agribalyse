@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { useParams } from 'react-router-dom'
 
 import Loader from 'components/misc/Loader'
+import BreadCrumb from './aliment/BreadCrumb'
 import Informations from './aliment/Informations'
 import RelatedAliments from './aliment/RelatedAliments'
 
@@ -25,6 +26,7 @@ export default function Aliment(props) {
     <Wrapper>
       {currentAliment ? (
         <>
+          <BreadCrumb aliment={currentAliment} />
           <Informations aliment={currentAliment} />
           <RelatedAliments aliments={props.aliments} aliment={currentAliment} />
         </>

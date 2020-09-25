@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 
+import SearchContext from 'utils/searchContext'
 import boissons from 'assets/groupes/boissons.jpg'
 import condiments from 'assets/groupes/condiments.jpg'
 import confiseries from 'assets/groupes/confiseries.jpg'
@@ -29,6 +30,8 @@ const CategoryWrapper = styled.div`
   margin: 0 -1em;
 `
 export default function Categories(props) {
+  const { setCategories, setSubCategories } = useContext(SearchContext)
+
   const getImage = category => {
     return category === 'aides culinaires et ingrédients divers'
       ? condiments
@@ -64,7 +67,11 @@ export default function Categories(props) {
             <Card
               key={category.title}
               width='25%'
-              to={`/aliments?category=${category.title}`}
+              to={`/aliments`}
+              onClick={() => {
+                setCategories([category.title])
+                setSubCategories([])
+              }}
             >
               <Card.Image src={getImage(category.title)} />
               <Card.Legend>{category.title}</Card.Legend>
