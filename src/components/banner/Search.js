@@ -30,6 +30,17 @@ const Input = styled.input`
     border: 2px solid ${colors.hoverMain};
   }
 `
+const EnterIndicator = styled.div`
+  position: absolute;
+  top: calc(100% + 0.3rem);
+  right: 2rem;
+  color: ${colors.white};
+  font-size: 12px;
+  opacity: ${props => (props.visible ? 1 : 0)};
+  pointer-events: ${props => (props.visible ? 'inherit' : 'none')};
+  cursor: pointer;
+  transition: opacity 300ms ease-out;
+`
 const Button = styled.a`
   display: flex;
   justify-content: center;
@@ -55,6 +66,8 @@ export default function Search() {
 
   const [value, setValue] = useState(search)
 
+  const [focus, setFocus] = useState(false)
+
   let history = useHistory()
 
   return (
@@ -73,6 +86,8 @@ export default function Search() {
               setSearch(value)
             }
           }}
+          onFocus={() => setFocus(true)}
+          onBlur={() => setFocus(false)}
         />
         <Arrow
           visible={value.length > 2}
@@ -81,6 +96,15 @@ export default function Search() {
             setSearch(value)
           }}
         />
+        <EnterIndicator
+          visible={value.length > 2 && focus}
+          onClick={() => {
+            history.push('/aliments')
+            setSearch(value)
+          }}
+        >
+          Appuyez sur Entrée
+        </EnterIndicator>
       </InputWrapper>
       <Button
         href='https://ecolab.gitbook.io/documentation-agribalyse/acces-donnees'

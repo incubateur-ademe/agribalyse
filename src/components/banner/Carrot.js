@@ -6,7 +6,7 @@ const Svg = styled.svg`
   bottom: ${props => (props.small ? '2vw' : '5vw')};
   right: ${props => (props.small ? '2vw' : '5vw')};
   width: ${props => (props.small ? '5vw' : '15vw')};
-  transition: all 500ms ease-out;
+  transition: all 500ms linear;
 `
 const Path = styled.path`
   fill: none;
@@ -16,8 +16,8 @@ const Path = styled.path`
   stroke: white;
   stroke-dasharray: ${props => props.length};
   stroke-dashoffset: ${props => (props.visible ? 0 : props.length)};
-  transition: stroke-dashoffset 700ms linear
-    ${props => (props.opacity === 0.7 ? '1700ms' : '1000ms')};
+  transition: stroke-dashoffset 500ms linear
+    ${props => (props.opacity === 0.7 ? '1700ms' : '1200ms')};
 `
 const Line = styled.line`
   fill: none;
@@ -27,8 +27,8 @@ const Line = styled.line`
   stroke: white;
   stroke-dasharray: ${props => props.length};
   stroke-dashoffset: ${props => (props.visible ? 0 : props.length)};
-  transition: stroke-dashoffset 700ms linear
-    ${props => (props.opacity === 0.7 ? '1700ms' : '1000ms')};
+  transition: stroke-dashoffset 500ms linear
+    ${props => (props.opacity === 0.7 ? '1700ms' : '1200ms')};
 `
 export default function Carrot(props) {
   return (
