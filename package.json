@@ -17,7 +17,7 @@
     "styled-normalize": "^8.0.7"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "HTTPS=true node server.js",
     "serve": "HTTPS=true node server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
