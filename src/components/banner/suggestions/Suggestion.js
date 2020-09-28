@@ -11,6 +11,7 @@ const Wrapper = styled(Link)`
   font-size: 0.8vw;
   font-weight: 700;
   color: ${colors.main};
+  text-align: center;
   background-color: ${colors.white};
   border: 1px solid ${colors.white};
   border-radius: 1em;
@@ -38,7 +39,7 @@ const Wrapper = styled(Link)`
 export default function Suggestion(props) {
   return (
     <Wrapper to={`/aliments/${props.aliment.ciqual_code}`}>
-      {props.aliment.nom_francais.substring(0, 40)}
+      {props.aliment.nom_francais}
     </Wrapper>
   )
 }
