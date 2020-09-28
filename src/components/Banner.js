@@ -110,9 +110,13 @@ export default function Banner(props) {
 
   return (
     <Wrapper windowHeight={windowSize.height} small={small}>
-      <Link to='/'>
+      <a
+        href='https://ecolab.ademe.fr/agribalyse'
+        target='_blank'
+        rel='noopener noreferrer'
+      >
         <Logo src={logo} alt={'Agrybalise'} small={small} />
-      </Link>
+      </a>
       <Carrot small={small} visible={props.aliments.length} />
       <MouseIndicator
         visible={
