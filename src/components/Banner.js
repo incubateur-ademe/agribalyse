@@ -103,15 +103,15 @@ export default function Banner(props) {
 
   useEffect(() => {
     let scrollTarget =
-      windowSize.width < breakpoints.medium
+      window.innerWidth < breakpoints.medium
         ? 0
-        : windowSize.width < breakpoints.large
+        : window.innerWidth < breakpoints.large
         ? 0.24
         : 0.2
-    if (window.scrollY > windowSize.width * scrollTarget) {
-      window.scrollTo(0, windowSize.width * scrollTarget)
+    if (window.scrollY > window.innerWidth * scrollTarget) {
+      window.scrollTo(0, window.innerWidth * scrollTarget)
     }
-  }, [location.pathname, windowSize])
+  }, [location.pathname])
 
   const [small, setSmall] = useState(
     resultsPage && resultsPage.isExact && props.aliments.length
