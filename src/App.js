@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 import { GlobalStyle } from 'utils/styles'
-import SearchContext from 'utils/searchContext'
 
+import SearchProvider from 'components/providers/SearchProvider'
 import Home from 'views/Home'
 import Comparator from 'views/Comparator'
 import Banner from 'components/Banner'
@@ -37,11 +37,6 @@ function App() {
     setAllCategories(tempCategories)
   }, [aliments])
 
-  const [search, setSearch] = useState('')
-  const [categories, setCategories] = useState([])
-  const [subCategories, setSubCategories] = useState([])
-  const [sort, setSort] = useState('alph_asc')
-
   useEffect(() => {
     fetch('/data/Agribalyse.json')
       .then(res => res.json())
@@ -52,18 +47,7 @@ function App() {
     <div>
       <Router>
         <GlobalStyle />
-        <SearchContext.Provider
-          value={{
-            search,
-            setSearch,
-            categories,
-            setCategories,
-            subCategories,
-            setSubCategories,
-            sort,
-            setSort
-          }}
-        >
+        <SearchProvider>
           <Banner aliments={aliments} />
           <Switch>
             <Route path='/aliments/:ciqual_code?'>
@@ -73,9 +57,8 @@ function App() {
               <Home categories={allCategories} />
             </Route>
           </Switch>
-
-          <Contact />
-        </SearchContext.Provider>
+        </SearchProvider>
+        <Contact />
       </Router>
     </div>
   )
