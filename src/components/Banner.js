@@ -9,6 +9,7 @@ import Carrot from './banner/Carrot'
 import Search from './banner/Search'
 import Suggestions from './banner/Suggestions'
 import MouseIndicator from './banner/MouseIndicator'
+import MobileBackButton from './banner/MobileBackButton'
 
 const Wrapper = styled.div`
   position: relative;
@@ -52,6 +53,11 @@ const Title = styled.h1`
     width: auto;
     font-size: 4.8vw;
   }
+
+  ${mq.small} {
+    font-size: 7vw;
+    text-align: center;
+  }
 `
 const Logo = styled.img`
   position: absolute;
@@ -69,6 +75,11 @@ const Logo = styled.img`
     top: ${props => (props.small ? '0.5vw' : '2vw')};
     right: ${props => (props.small ? '0.5vw' : '2vw')};
     width: ${props => (props.small ? '4.5vw' : '100px')};
+  }
+  ${mq.small} {
+    top: ${props => (props.small ? '1vw' : '2vw')};
+    right: ${props => (props.small ? '1vw' : '2vw')};
+    width: ${props => (props.small ? '8vw' : '20vw')};
   }
 `
 const Loader = styled.div`
@@ -128,6 +139,7 @@ export default function Banner(props) {
         <Suggestions small={small} aliments={props.aliments} />
       </ContentWrapper>
       <Loader visible={!props.aliments.length}>Chargement...</Loader>
+      <MobileBackButton small={small} />
     </Wrapper>
   )
 }

@@ -2,13 +2,17 @@ import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { useHistory } from 'react-router-dom'
 
-import { colors } from 'utils/styles'
+import { colors, mq } from 'utils/styles'
 import SearchContext from 'utils/searchContext'
 
 const Wrapper = styled.div`
   display: flex;
   margin: 0.5rem 0 1rem;
   font-size: 14px;
+
+  ${mq.small} {
+    display: none;
+  }
 `
 const Item = styled.div`
   font-weight: 500;

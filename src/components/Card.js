@@ -27,6 +27,9 @@ const StyledLink = styled(Link)`
   ${mq.mediumPortrait} {
     width: calc(50% - 2em);
   }
+  ${mq.small} {
+    width: calc(100% - 1em);
+  }
 `
 const StyledA = styled.a`
   display: block;
@@ -44,6 +47,9 @@ const StyledA = styled.a`
   ${mq.mediumPortrait} {
     width: calc(50% - 2em);
   }
+  ${mq.small} {
+    width: calc(100% - 1em);
+  }
 `
 const Wrapper = styled.div`
   display: block;
@@ -52,6 +58,9 @@ const Wrapper = styled.div`
 
   ${mq.mediumPortrait} {
     width: calc(50% - 2em);
+  }
+  ${mq.small} {
+    width: calc(100% - 1em);
   }
 `
 const Content = styled.div`

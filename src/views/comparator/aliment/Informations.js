@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import { mq } from 'utils/styles'
+
 import EnvironmentCard from './informations/EnvironmentCard'
 import StepsCard from './informations/StepsCard'
 import AlimentsCard from './informations/AlimentsCard'
@@ -12,20 +14,36 @@ const Wrapper = styled.div`
 const Flex = styled.div`
   display: flex;
   justify-content: space-between;
+
+  ${mq.small} {
+    flex-direction: column;
+  }
 `
 const Title = styled.h1`
   flex: 1;
   max-width: 800px;
   font-size: 40px;
   font-weight: 900;
+
+  ${mq.small} {
+    font-size: 32px;
+  }
 `
 const Ciqual = styled.div`
   margin-top: 0.3em;
+
+  ${mq.small} {
+    margin: 0 0 0.5em;
+  }
 `
 const Code = styled.span`
   font-weight: 900;
 `
-const Category = styled.p``
+const Category = styled.p`
+  ${mq.small} {
+    margin-bottom: 2em;
+  }
+`
 const Cards = styled.div`
   display: flex;
   flex-wrap: wrap;

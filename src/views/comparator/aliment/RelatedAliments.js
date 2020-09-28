@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
-import { colors, breakpoints } from 'utils/styles'
+import { colors, breakpoints, mq } from 'utils/styles'
 import useWindowSize from 'hooks/useWindowSize'
 import AlimentItem from 'components/AlimentItem'
 
 const Wrapper = styled.div`
   padding: 2em;
   background-color: ${colors.lightMain};
+
+  ${mq.small} {
+    margin: 0 -1em;
+    padding: 2em 1em;
+  }
 `
 const Aliments = styled.div`
   flex: 1;
@@ -25,9 +30,9 @@ export default function RelatedAliments(props) {
         ? 3
         : windowSize.width < breakpoints.mediumPortrait
         ? 4
-        : windowSize.width > breakpoints.xlarge
-        ? 5
-        : 3
+        : windowSize.width < breakpoints.xlarge
+        ? 3
+        : 5
     )
   }, [windowSize])
 

@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { useHistory } from 'react-router-dom'
 
-import { colors } from 'utils/styles'
+import { colors, mq } from 'utils/styles'
 import SearchContext from 'utils/searchContext'
 import SubCategory from './category/SubCategory'
 
@@ -18,6 +18,10 @@ const Title = styled.div`
 
   &:hover {
     background-color: ${colors.background};
+  }
+
+  ${mq.medium} {
+    padding: 0.5rem 1rem 0.8rem;
   }
 `
 const SubCategories = styled.ul`

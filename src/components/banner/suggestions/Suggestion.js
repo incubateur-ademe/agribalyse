@@ -29,6 +29,10 @@ const Wrapper = styled(Link)`
   ${mq.mediumPortrait} {
     font-size: 1.5vw;
   }
+  ${mq.small} {
+    font-size: 3vw;
+    margin: 1vw;
+  }
 `
 
 export default function Suggestion(props) {

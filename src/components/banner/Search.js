@@ -18,6 +18,13 @@ const Wrapper = styled.div`
     width: 86vw;
     margin-bottom: ${props => (props.small ? 0 : '3vw')};
   }
+
+  ${mq.small} {
+    width: auto;
+    opacity: ${props => (props.small ? 0 : 1)};
+    pointer-events: ${props => (props.small ? 'none' : 'inherit')};
+    transition: opacity 300ms;
+  }
 `
 const InputWrapper = styled.div`
   position: relative;
@@ -39,13 +46,17 @@ const Input = styled.input`
   outline: none;
   transition: all 300ms ease-out;
 
+  &:focus {
+    border: 2px solid ${colors.hoverMain};
+  }
+
   ${mq.mediumPortrait} {
     width: 100%;
     font-size: ${props => (props.small ? '2vw' : '3vw')};
   }
 
-  &:focus {
-    border: 2px solid ${colors.hoverMain};
+  ${mq.small} {
+    font-size: 4vw;
   }
 `
 const EnterIndicator = styled.div`
@@ -58,6 +69,10 @@ const EnterIndicator = styled.div`
   pointer-events: ${props => (props.visible ? 'inherit' : 'none')};
   cursor: pointer;
   transition: opacity 300ms ease-out;
+
+  ${mq.medium} {
+    display: none;
+  }
 `
 const Button = styled.a`
   display: flex;
@@ -81,6 +96,14 @@ const Button = styled.a`
 
   ${mq.mediumPortrait} {
     font-size: ${props => (props.small ? '2vw' : '1.5vw')};
+  }
+
+  ${mq.small} {
+    position: absolute;
+    bottom: 5vw;
+    left: 3vw;
+    padding: 0.5em 1em;
+    font-size: 3.5vw;
   }
 `
 export default function Search(props) {

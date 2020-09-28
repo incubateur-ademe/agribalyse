@@ -22,6 +22,9 @@ const Score = styled.div`
   ${mq.mediumPortrait} {
     font-size: 12vw;
   }
+  ${mq.small} {
+    font-size: 30vw;
+  }
 `
 const CO2 = styled.div`
   font-size: 18px;

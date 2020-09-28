@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
-import { colors } from 'utils/styles'
+import { colors, mq } from 'utils/styles'
 
 const Wrapper = styled.table`
   border-collapse: collapse;
   margin: 0 0 2em;
+
+  ${mq.small} {
+    width: 100%;
+    table-layout: fixed;
+  }
 `
 const Row = styled.tr`
   &:nth-child(2n) {
@@ -14,7 +19,7 @@ const Row = styled.tr`
 `
 const Head = styled.th`
   padding: 1em;
-  text-align: left;
+  text-align: ${props => (props.right ? 'right' : 'left')};
 `
 const Cell = styled.td`
   padding: 1em;
@@ -44,7 +49,7 @@ export default function Indicateurs(props) {
       <thead>
         <Row>
           <Head>Indicateur</Head>
-          <Head>Mesure</Head>
+          <Head right>Mesure</Head>
           <Head>Unité</Head>
         </Row>
       </thead>

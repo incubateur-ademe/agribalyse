@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
-import { colors } from 'utils/styles'
+import { colors, breakpoints } from 'utils/styles'
+import useWindowSize from 'hooks/useWindowSize'
 
 const Wrapper = styled.div`
   display: flex;
@@ -28,7 +29,11 @@ const Page = styled.div`
   }
 `
 export default function Pagination(props) {
-  const numPageEachSide = 4
+  const [numPageEachSide, setNumPageEachSide] = useState(0)
+  const windowSize = useWindowSize()
+  useEffect(() => {
+    setNumPageEachSide(windowSize.width < breakpoints.small ? 1 : 4)
+  }, [windowSize])
 
   const [visiblePages, setVisiblePages] = useState([])
 
@@ -58,7 +63,7 @@ export default function Pagination(props) {
     tempVisiblepage.push(props.page)
     tempVisiblepage.sort((a, b) => (a < b ? -1 : 1))
     setVisiblePages(tempVisiblepage)
-  }, [props.total, props.page])
+  }, [props.total, props.page, numPageEachSide])
 
   return visiblePages.length > 1 ? (
     <Wrapper>

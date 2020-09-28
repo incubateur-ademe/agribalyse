@@ -20,7 +20,7 @@ export default function Comparator(props) {
           <Aliment aliments={props.aliments} />
         </Route>
         <Route path={['/aliments']}>
-          <Aliments aliments={props.aliments} />
+          <Aliments aliments={props.aliments} categories={props.categories} />
         </Route>
       </Switch>
     </Wrapper>

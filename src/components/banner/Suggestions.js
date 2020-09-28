@@ -17,6 +17,11 @@ const Wrapper = styled.div`
   ${mq.mediumPortrait} {
     width: auto;
   }
+  ${mq.small} {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 `
 export default function Suggestions(props) {
   const [suggestions, setSuggestions] = useState([])
