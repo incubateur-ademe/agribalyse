@@ -54,7 +54,8 @@ export default function BreadCrumb(props) {
           setSubCategories([])
         }}
       >
-        {props.aliment.groupe}
+        {props.aliment.groupe.charAt(0).toUpperCase() +
+          props.aliment.groupe.slice(1)}
       </Item>
       <Separator>></Separator>
       <Item
@@ -65,7 +66,8 @@ export default function BreadCrumb(props) {
           setSubCategories([props.aliment.sous_groupe])
         }}
       >
-        {props.aliment.sous_groupe}
+        {props.aliment.sous_groupe.charAt(0).toUpperCase() +
+          props.aliment.sous_groupe.slice(1)}
       </Item>
     </Wrapper>
   )
