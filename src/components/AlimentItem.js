@@ -79,7 +79,10 @@ export default function AlimentItem(props) {
         <Fiability>
           Donnée fiable à{' '}
           <b>
-            {Math.floor(((props.aliment['DQR']['overall'] - 1) * 100) / 4)}%
+            {Math.floor(
+              100 - ((props.aliment['DQR']['overall'] - 1) * 100) / 4
+            )}
+            %
           </b>
           <DQR>
             (DQR : <DQRNumber>{props.aliment['DQR']['overall']}</DQRNumber>)
