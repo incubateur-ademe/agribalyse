@@ -52,10 +52,22 @@ export default function useAlimentsFilters(aliments) {
               : 1
           }
           if (sort === 'alph_asc') {
-            return a.nom_francais.normalize('NFD') < b.nom_francais.normalize('NFD') ? -1 : 1
+            return a.nom_francais.normalize('NFD') <
+              b.nom_francais.normalize('NFD')
+              ? -1
+              : 1
           }
           if (sort === 'alph_desc') {
-            return a.nom_francais.normalize('NFD') > b.nom_francais.normalize('NFD') ? -1 : 1
+            return a.nom_francais.normalize('NFD') >
+              b.nom_francais.normalize('NFD')
+              ? -1
+              : 1
+          }
+          if (sort === 'dqr_asc') {
+            return a['DQR']['overall'] < b['DQR']['overall'] ? -1 : 1
+          }
+          if (sort === 'dqr_desc') {
+            return a['DQR']['overall'] > b['DQR']['overall'] ? -1 : 1
           }
           return true
         })

@@ -16,6 +16,9 @@ export default function Sort() {
       <Option value={'alph_desc'}>Ordre alphabétique (Z > A)</Option>
       <Option value={'score_asc'}>Score (Du plus bas au plus haut)</Option>
       <Option value={'score_desc'}>Score (Du plus haut au plus bas)</Option>
+      <Option value={'alph_desc'}>Ordre alphabétique (Z > A)</Option>
+      <Option value={'dqr_asc'}>DQR (Du plus bas au plus haut)</Option>
+      <Option value={'dqr_desc'}>DQR (Du plus haut au plus bas)</Option>
     </Select>
   )
 }
