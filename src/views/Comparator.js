@@ -17,10 +17,12 @@ export default function Comparator(props) {
       <Filters aliments={props.aliments} categories={props.categories} />
       <Switch>
         <Route path='/aliments/:ciqual_code'>
-          <Aliment aliments={props.aliments} />
+          {props.aliments.length && <Aliment aliments={props.aliments} />}
         </Route>
         <Route path={['/aliments']}>
-          <Aliments aliments={props.aliments} categories={props.categories} />
+          {props.aliments.length && (
+            <Aliments aliments={props.aliments} categories={props.categories} />
+          )}
         </Route>
       </Switch>
     </Wrapper>

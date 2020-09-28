@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import styled from 'styled-components'
 import { Link, useLocation, useRouteMatch } from 'react-router-dom'
 
 import { colors, breakpoints, mq } from 'utils/styles'
+import SearchContext from 'utils/searchContext'
 import useWindowSize from 'hooks/useWindowSize'
 import logo from 'assets/logo.png'
 import Carrot from './banner/Carrot'
@@ -113,11 +114,21 @@ export default function Banner(props) {
     }
   }, [location.pathname])
 
+  const { setSearch, setCategories, setSubCategories } = useContext(
+    SearchContext
+  )
+
   const [small, setSmall] = useState(
     resultsPage && resultsPage.isExact && props.aliments.length
   )
   useEffect(() => {
     setSmall(resultsPage && resultsPage.isExact && props.aliments.length)
+
+    if (!(resultsPage && resultsPage.isExact)) {
+      setSearch('')
+      setCategories([])
+      setSubCategories([])
+    }
   }, [resultsPage, props.aliments])
 
   return (
