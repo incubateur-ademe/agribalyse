@@ -58,7 +58,7 @@ export default function SearchRecap(props) {
         <Search>
           Résultats de votre recherche pour{' '}
           <Word onClick={() => setSearch('')}>{search}</Word> (
-          {props.numAliments} résultats){' '}
+          {props.numAliments} résultat{props.numAliments > 1 && 's'}){' '}
           {categories.length || subCategories.length ? 'dans :' : ':'}
         </Search>
       )}

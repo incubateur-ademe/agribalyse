@@ -10,6 +10,7 @@ import Search from './banner/Search'
 import Suggestions from './banner/Suggestions'
 import MouseIndicator from './banner/MouseIndicator'
 import MobileBackButton from './banner/MobileBackButton'
+import Loader from './banner/Loader'
 
 const Wrapper = styled.div`
   position: relative;
@@ -90,18 +91,7 @@ const Logo = styled.img`
     width: ${props => (props.small ? '8vw' : '20vw')};
   }
 `
-const Loader = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 4vw;
-  font-weight: 900;
-  color: ${colors.white};
-  opacity: ${props => (props.visible ? 1 : 0)};
-  pointer-events: none;
-  transition: opacity 500ms linear;
-`
+
 export default function Banner(props) {
   let location = useLocation()
 
@@ -146,7 +136,7 @@ export default function Banner(props) {
         <Search small={small} />
         <Suggestions small={small} aliments={props.aliments} />
       </ContentWrapper>
-      <Loader visible={!props.aliments.length}>Chargement...</Loader>
+      <Loader visible={!props.aliments.length} />
       <MobileBackButton small={small} />
     </Wrapper>
   )
