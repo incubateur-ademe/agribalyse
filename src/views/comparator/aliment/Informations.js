@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 import { mq } from 'utils/styles'
 
+import MobileBack from './informations/MobileBack'
 import EnvironmentCard from './informations/EnvironmentCard'
 import StepsCard from './informations/StepsCard'
 import AlimentsCard from './informations/AlimentsCard'
@@ -19,8 +20,11 @@ const Flex = styled.div`
     flex-direction: column;
   }
 `
-const Title = styled.h1`
+const TitleWrapper = styled.div`
   flex: 1;
+  display: flex;
+`
+const Title = styled.h1`
   max-width: 800px;
   font-size: 40px;
   font-weight: 900;
@@ -53,7 +57,10 @@ export default function Informations(props) {
   return (
     <Wrapper>
       <Flex>
-        <Title>{props.aliment.nom_francais}</Title>
+        <TitleWrapper>
+          <MobileBack />
+          <Title>{props.aliment.nom_francais}</Title>
+        </TitleWrapper>
         <Ciqual>
           Code Ciqual : <Code>{props.aliment.ciqual_code}</Code>
         </Ciqual>
