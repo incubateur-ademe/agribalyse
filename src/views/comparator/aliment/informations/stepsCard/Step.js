@@ -26,6 +26,7 @@ const Graph = styled.div`
   height: 2.5em;
   background-color: ${colors.lightMain};
   border-radius: 1em;
+  overflow: hidden;
   cursor: pointer;
 `
 const Bar = styled.div`
@@ -36,7 +37,6 @@ const Bar = styled.div`
   width: ${props => props.percent}%;
   height: 2.5em;
   background-color: ${colors.main};
-  border-radius: 1em;
   transition: all 300ms linear ${props => props.delay * 300 + 1500}ms;
 `
 const SvgWrapper = styled.div`
