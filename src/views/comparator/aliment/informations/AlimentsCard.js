@@ -64,7 +64,11 @@ export default function AlimentsCard(props) {
                         ]['synthese']) *
                         1000
                     ) / 10}
-                    %
+                    <span
+                      dangerouslySetInnerHTML={{
+                        __html: '&nbsp;%'
+                      }}
+                    />
                   </Value>
                 </Cell>
               </Row>
