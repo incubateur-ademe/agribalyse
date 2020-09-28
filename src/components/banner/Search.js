@@ -58,6 +58,10 @@ const Input = styled.input`
   ${mq.small} {
     font-size: 4vw;
   }
+  ${mq.large} {
+    width: 40vw;
+    font-size: 1vw;
+  }
 `
 const EnterIndicator = styled.div`
   position: absolute;
@@ -104,6 +108,9 @@ const Button = styled.a`
     left: 3vw;
     padding: 0.5em 1em;
     font-size: 3.5vw;
+  }
+  ${mq.large} {
+    font-size: 0.7vw;
   }
 `
 export default function Search(props) {

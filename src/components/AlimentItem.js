@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { colors } from 'utils/styles'
+import { colors, breakpoints } from 'utils/styles'
+import useWindowSize from 'hooks/useWindowSize'
 
 import Card from 'components/Card'
 import Button from 'components/Button'
@@ -37,8 +38,12 @@ const ScoreNumber = styled.span`
   color: ${colors.main};
 `
 export default function AlimentItem(props) {
+  const windowSize = useWindowSize()
   return (
-    <Card to={`/aliments/${props.aliment.ciqual_code}`}>
+    <Card
+      width={windowSize.width < breakpoints.large ? '33.33%' : '25%'}
+      to={`/aliments/${props.aliment.ciqual_code}`}
+    >
       <Card.Top>
         <Sizer>
           <Card.Title>{props.aliment.nom_francais}</Card.Title>

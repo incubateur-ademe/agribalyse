@@ -30,6 +30,9 @@ const Wrapper = styled.div`
   ${mq.mediumPortrait} {
     height: ${props => (props.small ? '10vw' : props.windowHeight + 'px')};
   }
+  ${mq.large} {
+    height: ${props => (props.small ? '20vw' : props.windowHeight + 'px')};
+  }
 `
 const ContentWrapper = styled.div`
   opacity: ${props => (props.visible ? 1 : 0)};
@@ -57,6 +60,11 @@ const Title = styled.h1`
   ${mq.small} {
     font-size: 7vw;
     text-align: center;
+  }
+
+  ${mq.large} {
+    width: 40vw;
+    font-size: 2vw;
   }
 `
 const Logo = styled.img`

@@ -17,6 +17,7 @@ export const breakpoints = {
   small: 640,
   mediumPortrait: 1000,
   medium: 1260,
+  large: 1800,
   xlarge: 2000
 }
 export const mq = {
@@ -24,6 +25,7 @@ export const mq = {
   medium: `@media screen and (max-width: ${breakpoints.medium}px)`,
   mediumLandscape: `@media screen and (orientation: landscape) and (max-width: ${breakpoints.medium}px)`,
   mediumPortrait: `@media screen and (orientation: portrait) and (max-width: ${breakpoints.medium}px)`,
+  large: `@media screen and (min-width: ${breakpoints.large}px)`,
   xlarge: `@media screen and (min-width: ${breakpoints.xlarge}px)`
 }
 

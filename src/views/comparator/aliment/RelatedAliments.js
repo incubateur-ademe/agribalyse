@@ -30,9 +30,9 @@ export default function RelatedAliments(props) {
         ? 3
         : windowSize.width < breakpoints.mediumPortrait
         ? 4
-        : windowSize.width < breakpoints.xlarge
+        : windowSize.width < breakpoints.large
         ? 3
-        : 5
+        : 4
     )
   }, [windowSize])
 

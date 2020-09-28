@@ -34,6 +34,9 @@ const Wrapper = styled(Link)`
     font-size: 3vw;
     margin: 1vw;
   }
+  ${mq.large} {
+    font-size: 0.6vw;
+  }
 `
 
 export default function Suggestion(props) {

@@ -22,6 +22,9 @@ const Wrapper = styled.div`
     justify-content: center;
     align-items: center;
   }
+  ${mq.large} {
+    width: 55vw;
+  }
 `
 export default function Suggestions(props) {
   const [suggestions, setSuggestions] = useState([])
