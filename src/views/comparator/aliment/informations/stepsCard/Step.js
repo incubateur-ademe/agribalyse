@@ -6,6 +6,7 @@ import { colors } from 'utils/styles'
 import Agriculture from './step/Agriculture'
 import Transformation from './step/Transformation'
 import Emballage from './step/Emballage'
+import Transport from './step/Transport'
 import Distribution from './step/Distribution'
 import Consommation from './step/Consommation'
 
@@ -71,7 +72,7 @@ export default function Step(props) {
     ) : delay === 2 ? (
       <Emballage white={white} />
     ) : delay === 3 ? (
-      <Transformation white={white} />
+      <Transport white={white} />
     ) : delay === 4 ? (
       <Distribution white={white} />
     ) : (
