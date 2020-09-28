@@ -56,7 +56,16 @@ export default function AlimentsCard(props) {
               <Row key={ingredient.name}>
                 <Cell>{ingredient.name}</Cell>
                 <Cell>
-                  <Value>{Math.floor(ingredient.value * 100)}%</Value>
+                  <Value>
+                    {Math.round(
+                      (ingredient.value /
+                        props.aliment['impact_environnemental'][
+                          'Score unique EF'
+                        ]['synthese']) *
+                        1000
+                    ) / 10}
+                    %
+                  </Value>
                 </Cell>
               </Row>
             ))}

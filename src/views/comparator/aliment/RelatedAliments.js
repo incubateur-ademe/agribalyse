@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
-import { colors } from 'utils/styles'
+import { colors, breakpoints } from 'utils/styles'
+import useWindowSize from 'hooks/useWindowSize'
 import AlimentItem from 'components/AlimentItem'
 
 const Wrapper = styled.div`
@@ -16,7 +17,19 @@ const Aliments = styled.div`
 `
 const Title = styled.h3``
 export default function RelatedAliments(props) {
-  const numRelatedAliments = 3
+  const [numRelatedAliments, setnumRelatedAliments] = useState(0)
+  const windowSize = useWindowSize()
+  useEffect(() => {
+    setnumRelatedAliments(
+      windowSize.width < breakpoints.small
+        ? 3
+        : windowSize.width < breakpoints.mediumPortrait
+        ? 4
+        : windowSize.width > breakpoints.xlarge
+        ? 5
+        : 3
+    )
+  }, [windowSize])
 
   const [relatedAliments, setRelatedAliments] = useState([])
 

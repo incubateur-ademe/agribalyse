@@ -22,9 +22,6 @@ const Wrapper = styled.div`
   background-color: ${colors.main};
   transition: all 700ms ease-in-out;
 
-  ${mq.medium} {
-    transition: all 300ms ease-in-out;
-  }
   ${mq.mediumLandscape} {
     height: ${props => (props.small ? '5.5vw' : props.windowHeight + 'px')};
     padding: 0 ${props => (props.small ? '2em' : '3vw')};

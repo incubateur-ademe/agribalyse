@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import CountUp from 'react-countup'
 
-import { colors } from 'utils/styles'
+import { colors, mq } from 'utils/styles'
 
 import Card from 'components/Card'
 import Callout from 'components/Callout'
@@ -17,6 +17,10 @@ const Score = styled.div`
 
   span {
     color: ${colors.main};
+  }
+
+  ${mq.mediumPortrait} {
+    font-size: 12vw;
   }
 `
 const CO2 = styled.div`

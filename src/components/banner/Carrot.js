@@ -8,10 +8,11 @@ const Svg = styled.svg`
   bottom: ${props => (props.small ? '2vw' : '5vw')};
   right: ${props => (props.small ? '2vw' : '5vw')};
   width: ${props => (props.small ? '5vw' : '15vw')};
+  pointer-events: none;
   transition: all 500ms linear;
 
   ${mq.medium} {
-    display: ${props => (props.small ? 'none' : 'block')};
+    opacity: ${props => (props.small ? 0 : 1)};
   }
 `
 const Path = styled.path`

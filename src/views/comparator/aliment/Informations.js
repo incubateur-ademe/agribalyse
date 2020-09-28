@@ -14,6 +14,7 @@ const Flex = styled.div`
   justify-content: space-between;
 `
 const Title = styled.h1`
+  flex: 1;
   max-width: 800px;
   font-size: 40px;
   font-weight: 900;
