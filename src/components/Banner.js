@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { Link, useLocation, useRouteMatch } from 'react-router-dom'
 
-import { colors, mq } from 'utils/styles'
+import { colors, breakpoints, mq } from 'utils/styles'
 import useWindowSize from 'hooks/useWindowSize'
 import logo from 'assets/logo.png'
 import Carrot from './banner/Carrot'
@@ -102,10 +102,16 @@ export default function Banner(props) {
   let presentationPage = useRouteMatch('/presentation')
 
   useEffect(() => {
-    if (window.scrollY > windowSize.width * 0.24) {
-      window.scrollTo(0, windowSize.width * 0.24)
+    let scrollTarget =
+      windowSize.width < breakpoints.medium
+        ? 0
+        : windowSize.width < breakpoints.large
+        ? 0.24
+        : 0.2
+    if (window.scrollY > windowSize.width * scrollTarget) {
+      window.scrollTo(0, windowSize.width * scrollTarget)
     }
-  }, [location, windowSize])
+  }, [location.pathname, windowSize])
 
   const [small, setSmall] = useState(
     resultsPage && resultsPage.isExact && props.aliments.length
