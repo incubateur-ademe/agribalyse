@@ -39,7 +39,7 @@ export default function Subcategory(props) {
         )
       }}
     >
-      {props.subCategory}
+      {props.subCategory.charAt(0).toUpperCase() + props.subCategory.slice(1)}
     </Wrapper>
   )
 }

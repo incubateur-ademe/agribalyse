@@ -47,7 +47,8 @@ export default function Category(props) {
           setSubCategories([])
         }}
       >
-        {props.category.title}
+        {props.category.title.charAt(0).toUpperCase() +
+          props.category.title.slice(1)}
       </Title>
       <SubCategories
         open={categories.find(category => category === props.category.title)}
