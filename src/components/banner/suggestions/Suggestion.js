@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
-import { colors } from 'utils/styles'
+import { colors, mq } from 'utils/styles'
 
 const Wrapper = styled(Link)`
   display: block;
@@ -22,12 +22,19 @@ const Wrapper = styled(Link)`
     color: ${colors.white};
     background-color: ${colors.main};
   }
+
+  ${mq.medium} {
+    font-size: 1vw;
+  }
+  ${mq.mediumPortrait} {
+    font-size: 1.5vw;
+  }
 `
 
 export default function Suggestion(props) {
   return (
     <Wrapper to={`/aliments/${props.aliment.ciqual_code}`}>
-      {props.aliment.nom_francais}
+      {props.aliment.nom_francais.substring(0, 40)}
     </Wrapper>
   )
 }

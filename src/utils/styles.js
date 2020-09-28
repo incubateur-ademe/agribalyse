@@ -12,15 +12,16 @@ export const colors = {
   white: '#fdfdfd',
   text: 'rgb(66, 66, 66)'
 }
-/*export const colors = {
-  main: 'rgb(210, 54, 105)',
-  hoverMain: '#dc658d',
-  lightMain: '#EECFD8',
-  background: '#fefae1',
-  black: 'rgb(33, 33, 33)',
-  white: '#f4f4f4',
-  text: 'rgb(66, 66, 66)'
-}*/
+
+export const mq = {
+  small: '@media screen and (max-width: 640px)',
+  medium: '@media screen and (max-width: 1260px)',
+  mediumLandscape:
+    '@media screen and (orientation: landscape) and (max-width: 1260px)',
+  mediumPortrait:
+    '@media screen and (orientation: portrait) and (max-width: 1260px)',
+  xlarge: '@media screen and (min-width: 2000px)'
+}
 
 export const GlobalStyle = createGlobalStyle`
   ${styledNormalize}

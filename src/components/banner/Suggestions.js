@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
+import { mq } from 'utils/styles'
 import Suggestion from './suggestions/Suggestion'
 
 const Wrapper = styled.div`
@@ -8,6 +9,14 @@ const Wrapper = styled.div`
   flex-wrap: wrap;
   width: 49vw;
   margin: 0 -0.5vw;
+
+  ${mq.medium} {
+    width: 70vw;
+    display: ${props => (props.small ? 'none' : 'flex')};
+  }
+  ${mq.mediumPortrait} {
+    width: auto;
+  }
 `
 export default function Suggestions(props) {
   const [suggestions, setSuggestions] = useState([])
@@ -31,7 +40,7 @@ export default function Suggestions(props) {
   }, [props.aliments, suggestionsData])
 
   return (
-    <Wrapper>
+    <Wrapper small={props.small}>
       {suggestions.map((suggestion, index) => (
         <Suggestion key={suggestion.ciqual_code + index} aliment={suggestion} />
       ))}

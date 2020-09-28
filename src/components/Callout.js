@@ -6,6 +6,10 @@ const Callout = styled.div`
   padding: 1em;
   font-size: 14px;
   background-color: ${colors.background};
+
+  p {
+    margin: 0;
+  }
 `
 
 export default Callout

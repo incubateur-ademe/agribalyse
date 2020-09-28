@@ -5,9 +5,13 @@ import Step from './stepsCard/Step'
 
 export default function StepsCard(props) {
   return (
-    <Card width='33%'>
+    <Card width={props.large ? '50%' : '33.333%'}>
       <Card.Top>
-        <Card.Title>Impact par étapes du cycle de vie</Card.Title>
+        <Card.Title>
+          Impact par
+          <br />
+          étapes du cycle de vie
+        </Card.Title>
       </Card.Top>
       <Card.Bottom>
         <Step

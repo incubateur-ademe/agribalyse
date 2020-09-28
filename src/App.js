@@ -7,6 +7,7 @@ import SearchContext from 'utils/searchContext'
 import Home from 'views/Home'
 import Comparator from 'views/Comparator'
 import Banner from 'components/Banner'
+import Contact from 'components/Contact'
 
 function App() {
   const [aliments, setAliments] = useState([])
@@ -68,10 +69,12 @@ function App() {
             <Route path='/aliments/:ciqual_code?'>
               <Comparator aliments={aliments} categories={allCategories} />
             </Route>
-            <Route path={['/']}>
+            <Route path={['/presentation']}>
               <Home categories={allCategories} />
             </Route>
           </Switch>
+
+          <Contact />
         </SearchContext.Provider>
       </Router>
     </div>

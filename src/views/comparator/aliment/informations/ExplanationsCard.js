@@ -5,7 +5,7 @@ import Button from 'components/Button'
 
 export default function ExplanationsCard() {
   return (
-    <Card width='33%'>
+    <Card>
       <Card.Top>
         <Card.Title>Comment comprendre ces données ?</Card.Title>
         <p>

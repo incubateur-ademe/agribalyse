@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { Link, useLocation, useRouteMatch } from 'react-router-dom'
 
-import { colors } from 'utils/styles'
+import { colors, mq } from 'utils/styles'
 import useWindowSize from 'hooks/useWindowSize'
 import logo from 'assets/logo.png'
 import Carrot from './banner/Carrot'
@@ -20,19 +20,18 @@ const Wrapper = styled.div`
   margin-bottom: 2em;
   padding: 0 3vw;
   background-color: ${colors.main};
-  /*background: linear-gradient(
-    0deg,
-    ${colors.white} 0%,
-    ${colors.main} 70%,
-    ${colors.main} 100%
-  );
-  background: linear-gradient(
-    0deg,
-    rgba(235, 91, 37, 0.7) 0%,
-    rgba(235, 91, 37, 1) 100%
-  );*/
-
   transition: all 700ms ease-in-out;
+
+  ${mq.medium} {
+    transition: all 300ms ease-in-out;
+  }
+  ${mq.mediumLandscape} {
+    height: ${props => (props.small ? '5.5vw' : props.windowHeight + 'px')};
+    padding: 0 ${props => (props.small ? '2em' : '3vw')};
+  }
+  ${mq.mediumPortrait} {
+    height: ${props => (props.small ? '10vw' : props.windowHeight + 'px')};
+  }
 `
 const ContentWrapper = styled.div`
   opacity: ${props => (props.visible ? 1 : 0)};
@@ -41,18 +40,39 @@ const ContentWrapper = styled.div`
 `
 const StyledLink = styled(Link)`
   text-decoration: none;
+
+  ${mq.medium} {
+    display: ${props => (props.small ? 'none' : 'block')};
+  }
 `
 const Title = styled.h1`
   width: 48vw;
   font-size: 2.4vw;
   font-weight: 900;
   color: ${colors.white};
+
+  ${mq.mediumPortrait} {
+    width: auto;
+    font-size: 4.8vw;
+  }
 `
 const Logo = styled.img`
   position: absolute;
-  top: 2em;
-  right: 2em;
+  top: 2vw;
+  right: 2vw;
   width: 100px;
+  transition: all 300ms ease-out;
+
+  ${mq.mediumPortrait} {
+    top: ${props => (props.small ? '2vw' : '2vw')};
+    right: ${props => (props.small ? '2vw' : '2vw')};
+    width: ${props => (props.small ? '6vw' : '100px')};
+  }
+  ${mq.mediumLandscape} {
+    top: ${props => (props.small ? '0.5vw' : '2vw')};
+    right: ${props => (props.small ? '0.5vw' : '2vw')};
+    width: ${props => (props.small ? '4.5vw' : '100px')};
+  }
 `
 const Loader = styled.div`
   position: absolute;
@@ -71,7 +91,9 @@ export default function Banner(props) {
 
   const windowSize = useWindowSize()
 
-  let match = useRouteMatch('/aliments/:ciqual_code?')
+  let resultsPage = useRouteMatch('/aliments/:ciqual_code?')
+
+  let presentationPage = useRouteMatch('/presentation')
 
   useEffect(() => {
     if (window.scrollY > windowSize.width * 0.24) {
@@ -79,27 +101,30 @@ export default function Banner(props) {
     }
   }, [location, windowSize])
 
+  const [small, setSmall] = useState(
+    resultsPage && resultsPage.isExact && props.aliments.length
+  )
+  useEffect(() => {
+    setSmall(resultsPage && resultsPage.isExact && props.aliments.length)
+  }, [resultsPage, props.aliments])
+
   return (
-    <Wrapper
-      windowHeight={windowSize.height}
-      small={match && match.isExact && props.aliments.length}
-    >
+    <Wrapper windowHeight={windowSize.height} small={small}>
       <Link to='/'>
-        <Logo src={logo} alt={'Agrybalise'} />
+        <Logo src={logo} alt={'Agrybalise'} small={small} />
       </Link>
-      <Carrot
-        small={match && match.isExact && props.aliments.length}
-        visible={props.aliments.length}
-      />
+      <Carrot small={small} visible={props.aliments.length} />
       <MouseIndicator
-        visible={props.aliments.length && !(match && match.isExact)}
+        visible={
+          props.aliments.length && presentationPage && presentationPage.isExact
+        }
       />
       <ContentWrapper visible={props.aliments.length}>
-        <StyledLink to='/'>
+        <StyledLink to='/' small={small}>
           <Title>Découvrez l’impact environnemental de votre assiette</Title>
         </StyledLink>
-        <Search />
-        <Suggestions aliments={props.aliments} />
+        <Search small={small} />
+        <Suggestions small={small} aliments={props.aliments} />
       </ContentWrapper>
       <Loader visible={!props.aliments.length}>Chargement...</Loader>
     </Wrapper>

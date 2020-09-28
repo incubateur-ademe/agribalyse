@@ -14,10 +14,6 @@ const Row = styled.tr`
     background-color: ${colors.lightMain};
   }
 `
-const Head = styled.th`
-  padding: 1em;
-  text-align: ${props => (props.right ? 'right' : 'left')};
-`
 const Cell = styled.td`
   padding: 1em;
 `
@@ -47,22 +43,20 @@ export default function AlimentsCard(props) {
   }, [props.aliment])
 
   return (
-    <Card width='33%'>
+    <Card>
       <Card.Top>
-        <Card.Title>Impact par ingrédients</Card.Title>
+        <Card.Title>
+          Impact par
+          <br />
+          ingrédients
+        </Card.Title>
         <Table>
-          <thead>
-            <Row>
-              <Head>Ingredient</Head>
-              <Head right>Valeur</Head>
-            </Row>
-          </thead>
           <tbody>
             {ingredients.map(ingredient => (
               <Row key={ingredient.name}>
                 <Cell>{ingredient.name}</Cell>
                 <Cell>
-                  <Value>{ingredient.value}</Value>
+                  <Value>{ingredient.value}%</Value>
                 </Cell>
               </Row>
             ))}

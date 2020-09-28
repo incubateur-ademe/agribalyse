@@ -35,22 +35,25 @@ const ScoreNumber = styled.span`
   line-height: 0.7;
   color: ${colors.main};
 `
-const DQR = styled.p`
-  font-size: 14px;
+const Fiability = styled.div`
+  line-height: 1.3;
+  text-align: center;
+`
+const DQR = styled.div`
+  font-size: 18px;
   text-align: center;
 `
 const DQRNumber = styled.span`
-  font-weight: 700;
+  font-weight: 900;
 `
 export default function AlimentItem(props) {
   return (
-    <Card width='33%' to={`/aliments/${props.aliment.ciqual_code}`}>
+    <Card to={`/aliments/${props.aliment.ciqual_code}`}>
       <Card.Top>
         <Sizer>
           <Card.Title>{props.aliment.nom_francais}</Card.Title>
           <Subtitle>
             <span>{props.aliment.sous_groupe}</span>
-            <span>{props.aliment.ciqual_code}</span>
           </Subtitle>
         </Sizer>
       </Card.Top>
@@ -73,10 +76,15 @@ export default function AlimentItem(props) {
           </Button>
         </Flex>
 
-        <DQR>
-          Niveau de fiabilité de la donnée :{' '}
-          <DQRNumber>{props.aliment['DQR']['overall']}/5</DQRNumber>
-        </DQR>
+        <Fiability>
+          Donnée fiable à{' '}
+          <b>
+            {Math.floor(((props.aliment['DQR']['overall'] - 1) * 100) / 4)}%
+          </b>
+          <DQR>
+            (DQR : <DQRNumber>{props.aliment['DQR']['overall']}</DQRNumber>)
+          </DQR>
+        </Fiability>
       </Card.Bottom>
     </Card>
   )

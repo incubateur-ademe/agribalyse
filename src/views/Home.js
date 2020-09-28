@@ -4,7 +4,6 @@ import Presentation from './home/Presentation'
 import Video from './home/Video'
 import Categories from './home/Categories'
 import Examples from './home/Examples'
-import Contact from './home/Contact'
 
 export default function Home(props) {
   return (
@@ -13,7 +12,6 @@ export default function Home(props) {
       <Video />
       <Categories categories={props.categories} />
       <Examples />
-      <Contact />
     </>
   )
 }

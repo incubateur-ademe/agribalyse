@@ -1,12 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import { mq } from 'utils/styles'
+
 const Svg = styled.svg`
   position: absolute;
   bottom: ${props => (props.small ? '2vw' : '5vw')};
   right: ${props => (props.small ? '2vw' : '5vw')};
   width: ${props => (props.small ? '5vw' : '15vw')};
   transition: all 500ms linear;
+
+  ${mq.medium} {
+    display: ${props => (props.small ? 'none' : 'block')};
+  }
 `
 const Path = styled.path`
   fill: none;
@@ -34,7 +40,6 @@ export default function Carrot(props) {
   return (
     <Svg viewBox='0 0 172.35 172.42' small={props.small}>
       <Path
-        className='pathOne'
         opacity={0.7}
         length={62.801273345947266}
         visible={props.visible}
@@ -42,7 +47,6 @@ export default function Carrot(props) {
         transform='translate(-83.91 -84.22)'
       />
       <Path
-        className='pathTwo'
         opacity={0.7}
         length={59.57373809814453}
         visible={props.visible}
@@ -50,7 +54,6 @@ export default function Carrot(props) {
         transform='translate(-83.91 -84.22)'
       />
       <Path
-        className='pathThree'
         opacity={1}
         length={452.3635559082031}
         visible={props.visible}
@@ -58,7 +61,6 @@ export default function Carrot(props) {
         transform='translate(-83.91 -84.22)'
       />
       <Line
-        className='lineOne'
         opacity={1}
         length={53.386558532714844}
         visible={props.visible}

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react'
 import styled from 'styled-components'
 import { useHistory } from 'react-router-dom'
 
-import { colors } from 'utils/styles'
+import { colors, mq } from 'utils/styles'
 import SearchContext from 'utils/searchContext'
 
 import Arrow from './search/Arrow'
@@ -10,10 +10,23 @@ import Arrow from './search/Arrow'
 const Wrapper = styled.div`
   display: flex;
   margin-bottom: 2vw;
+
+  ${mq.mediumLandscape} {
+    margin-bottom: ${props => (props.small ? 0 : '2vw')};
+  }
+  ${mq.mediumPortrait} {
+    width: 86vw;
+    margin-bottom: ${props => (props.small ? 0 : '3vw')};
+  }
 `
 const InputWrapper = styled.div`
   position: relative;
   margin-right: 2vw;
+
+  ${mq.mediumPortrait} {
+    flex: 1;
+    margin-right: 3vw;
+  }
 `
 const Input = styled.input`
   width: 48vw;
@@ -25,6 +38,11 @@ const Input = styled.input`
   font-size: 1.5vw;
   outline: none;
   transition: all 300ms ease-out;
+
+  ${mq.mediumPortrait} {
+    width: 100%;
+    font-size: ${props => (props.small ? '2vw' : '3vw')};
+  }
 
   &:focus {
     border: 2px solid ${colors.hoverMain};
@@ -60,8 +78,12 @@ const Button = styled.a`
     color: ${colors.main};
     background-color: ${colors.white};
   }
+
+  ${mq.mediumPortrait} {
+    font-size: ${props => (props.small ? '2vw' : '1.5vw')};
+  }
 `
-export default function Search() {
+export default function Search(props) {
   const { search, setSearch } = useContext(SearchContext)
 
   const [value, setValue] = useState(search)
@@ -75,7 +97,7 @@ export default function Search() {
   let history = useHistory()
 
   return (
-    <Wrapper>
+    <Wrapper small={props.small}>
       <InputWrapper>
         <Input
           type='text'
@@ -92,6 +114,7 @@ export default function Search() {
           }}
           onFocus={() => setFocus(true)}
           onBlur={() => setFocus(false)}
+          small={props.small}
         />
         <Arrow
           visible={value.length > 2}
@@ -114,6 +137,7 @@ export default function Search() {
         href='https://ecolab.gitbook.io/documentation-agribalyse/acces-donnees'
         target='_blank'
         rel='noopener noreferrer'
+        small={props.small}
       >
         Télécharger les données
       </Button>
