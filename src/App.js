@@ -51,7 +51,6 @@ function App() {
     return match && parseInt(match[2]) < 12
   }
 
-  console.log(outdatedBrowser())
   return (
     <Router>
       <GlobalStyle />
