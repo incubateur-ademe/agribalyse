@@ -4,10 +4,12 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { GlobalStyle } from 'utils/styles'
 
 import SearchProvider from 'components/providers/SearchProvider'
-import Home from 'views/Home'
-import Comparator from 'views/Comparator'
+
+import OutdatedBrowser from 'components/OutdatedBrowser'
 import Banner from 'components/Banner'
 import Contact from 'components/Contact'
+import Home from 'views/Home'
+import Comparator from 'views/Comparator'
 
 function App() {
   const [aliments, setAliments] = useState([])
@@ -43,24 +45,35 @@ function App() {
       .then(data => setAliments(data))
   }, [])
 
+  const outdatedBrowser = uaString => {
+    uaString = uaString || window.navigator.userAgent
+    var match = /\b(MSIE |Trident.*?rv:|Edge\/)(\d+)/.exec(uaString)
+    return match && parseInt(match[2]) < 12
+  }
+
+  console.log(outdatedBrowser())
   return (
-    <div>
-      <Router>
-        <GlobalStyle />
-        <SearchProvider>
-          <Banner aliments={aliments} />
-          <Switch>
-            <Route path='/aliments/:ciqual_code?'>
-              <Comparator aliments={aliments} categories={allCategories} />
-            </Route>
-            <Route path={['/presentation']}>
-              <Home categories={allCategories} />
-            </Route>
-          </Switch>
-        </SearchProvider>
-        <Contact />
-      </Router>
-    </div>
+    <Router>
+      <GlobalStyle />
+      {outdatedBrowser() ? (
+        <OutdatedBrowser />
+      ) : (
+        <>
+          <SearchProvider>
+            <Banner aliments={aliments} />
+            <Switch>
+              <Route path='/aliments/:ciqual_code?'>
+                <Comparator aliments={aliments} categories={allCategories} />
+              </Route>
+              <Route path={['/presentation']}>
+                <Home categories={allCategories} />
+              </Route>
+            </Switch>
+          </SearchProvider>
+          <Contact />
+        </>
+      )}
+    </Router>
   )
 }
 
