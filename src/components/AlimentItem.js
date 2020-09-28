@@ -5,6 +5,7 @@ import { colors } from 'utils/styles'
 
 import Card from 'components/Card'
 import Button from 'components/Button'
+import DQR from 'components/DQR'
 
 const Sizer = styled.div`
   min-height: 7em;
@@ -35,17 +36,6 @@ const ScoreNumber = styled.span`
   line-height: 0.7;
   color: ${colors.main};
 `
-const Fiability = styled.div`
-  line-height: 1.3;
-  text-align: center;
-`
-const DQR = styled.div`
-  font-size: 18px;
-  text-align: center;
-`
-const DQRNumber = styled.span`
-  font-weight: 900;
-`
 export default function AlimentItem(props) {
   return (
     <Card to={`/aliments/${props.aliment.ciqual_code}`}>
@@ -75,19 +65,7 @@ export default function AlimentItem(props) {
             + Infos
           </Button>
         </Flex>
-
-        <Fiability>
-          Donnée fiable à{' '}
-          <b>
-            {Math.floor(
-              100 - ((props.aliment['DQR']['overall'] - 1) * 100) / 4
-            )}
-            %
-          </b>
-          <DQR>
-            (DQR : <DQRNumber>{props.aliment['DQR']['overall']}</DQRNumber>)
-          </DQR>
-        </Fiability>
+        <DQR dqr={props.aliment['DQR']['overall']} />
       </Card.Bottom>
     </Card>
   )

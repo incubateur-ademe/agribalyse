@@ -56,7 +56,7 @@ export default function AlimentsCard(props) {
               <Row key={ingredient.name}>
                 <Cell>{ingredient.name}</Cell>
                 <Cell>
-                  <Value>{ingredient.value}%</Value>
+                  <Value>{Math.floor(ingredient.value * 100)}%</Value>
                 </Cell>
               </Row>
             ))}
