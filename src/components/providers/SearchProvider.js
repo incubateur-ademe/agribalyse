@@ -42,7 +42,7 @@ export default function SearchProvider(props) {
     if (sort) {
       tempSearch += `order=${encodeURIComponent(sort)}`
     }
-    history.push({
+    history.replace({
       search: tempSearch
     })
   }, [search, categories, subCategories, sort, history])

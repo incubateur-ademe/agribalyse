@@ -16,6 +16,7 @@ const StyledLink = styled(Link)`
   width: calc(${props => props.width || '33.333%'} - 2em);
   margin: 0 1em 2em;
   text-decoration: none;
+  border-radius: 1em;
   transition: box-shadow 150ms linear;
 
   &:hover {
@@ -36,6 +37,7 @@ const StyledA = styled.a`
   width: calc(${props => props.width || '33.333%'} - 2em);
   margin: 0 1em 2em;
   text-decoration: none;
+  border-radius: 1em;
   transition: box-shadow 150ms linear;
 
   &:hover {
@@ -55,6 +57,7 @@ const Wrapper = styled.div`
   display: block;
   width: calc(${props => props.width || '33.333%'} - 2em);
   margin: 0 1em 2em;
+  border-radius: 1em;
 
   ${mq.mediumPortrait} {
     width: calc(50% - 2em);
@@ -71,6 +74,7 @@ const Content = styled.div`
   height: 100%;
   background-color: ${colors.white};
   border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 1em;
 `
 const Card = function Card(props) {
   return props.to ? (

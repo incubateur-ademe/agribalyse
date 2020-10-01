@@ -12,14 +12,6 @@ import Indicateurs from './informations/Indicateurs'
 const Wrapper = styled.div`
   margin-bottom: 4em;
 `
-const Flex = styled.div`
-  display: flex;
-  justify-content: space-between;
-
-  ${mq.small} {
-    flex-direction: column;
-  }
-`
 const TitleWrapper = styled.div`
   flex: 1;
   display: flex;
@@ -34,11 +26,7 @@ const Title = styled.h1`
   }
 `
 const Ciqual = styled.div`
-  margin-top: 0.3em;
-
-  ${mq.small} {
-    margin: 0 0 0.5em;
-  }
+  margin-bottom: 1em;
 `
 const Code = styled.span`
   font-weight: 900;
@@ -56,15 +44,13 @@ const Cards = styled.div`
 export default function Informations(props) {
   return (
     <Wrapper>
-      <Flex>
-        <TitleWrapper>
-          <MobileBack />
-          <Title>{props.aliment.nom_francais}</Title>
-        </TitleWrapper>
-        <Ciqual>
-          Code Ciqual : <Code>{props.aliment.ciqual_code}</Code>
-        </Ciqual>
-      </Flex>
+      <TitleWrapper>
+        <MobileBack />
+        <Title>{props.aliment.nom_francais}</Title>
+      </TitleWrapper>
+      <Ciqual>
+        Code Ciqual : <Code>{props.aliment.ciqual_code}</Code>
+      </Ciqual>
       <Category>
         <b>
           {props.aliment.sous_groupe.charAt(0).toUpperCase() +

@@ -15,7 +15,7 @@ const Wrapper = styled.li`
   transition: background-color 300ms ease-out;
 
   &:hover {
-    background-color: ${colors.background};
+    background-color: ${colors.lightSecondary};
   }
 
   ${mq.medium} {

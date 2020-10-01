@@ -7,7 +7,6 @@ import SearchProvider from 'components/providers/SearchProvider'
 
 import OutdatedBrowser from 'components/OutdatedBrowser'
 import Banner from 'components/Banner'
-import Contact from 'components/Contact'
 import Home from 'views/Home'
 import Comparator from 'views/Comparator'
 
@@ -64,12 +63,11 @@ function App() {
               <Route path='/aliments/:ciqual_code?'>
                 <Comparator aliments={aliments} categories={allCategories} />
               </Route>
-              <Route path={['/presentation']}>
-                <Home categories={allCategories} />
+              <Route path={['/']}>
+                <Home />
               </Route>
             </Switch>
           </SearchProvider>
-          <Contact />
         </>
       )}
     </Router>

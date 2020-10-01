@@ -9,7 +9,7 @@ import usecaseyuka from 'assets/usecase-yuka.png'
 import Card from 'components/Card'
 
 const Wrapper = styled.div`
-  background-color: ${colors.background};
+  background-color: ${colors.lightSecondary};
   /*background: linear-gradient(
     0deg,
     ${colors.white} 0%,

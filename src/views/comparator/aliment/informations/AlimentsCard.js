@@ -1,27 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import styled from 'styled-components'
 
-import { colors } from 'utils/styles'
 import Card from 'components/Card'
-
-const Table = styled.table`
-  border-collapse: collapse;
-  width: 100%;
-  margin: 0;
-`
-const Row = styled.tr`
-  &:nth-child(2n) {
-    background-color: ${colors.lightMain};
-  }
-`
-const Cell = styled.td`
-  padding: 1em;
-`
-const Value = styled.div`
-  font-weight: 900;
-  font-family: 'Montserrat', sans-serif;
-  text-align: right;
-`
+import Step from 'components/Step'
 
 export default function AlimentsCard(props) {
   const [ingredients, setIngredients] = useState([])
@@ -50,31 +30,20 @@ export default function AlimentsCard(props) {
           <br />
           ingrédients
         </Card.Title>
-        <Table>
-          <tbody>
-            {ingredients.map(ingredient => (
-              <Row key={ingredient.name}>
-                <Cell>{ingredient.name}</Cell>
-                <Cell>
-                  <Value>
-                    {Math.round(
-                      (ingredient.value /
-                        props.aliment['impact_environnemental'][
-                          'Score unique EF'
-                        ]['synthese']) *
-                        1000
-                    ) / 10}
-                    <span
-                      dangerouslySetInnerHTML={{
-                        __html: '&nbsp;%'
-                      }}
-                    />
-                  </Value>
-                </Cell>
-              </Row>
-            ))}
-          </tbody>
-        </Table>
+        {ingredients.map((ingredient, index) => (
+          <Step
+            key={ingredient.name}
+            value={ingredient.value}
+            max={
+              props.aliment['impact_environnemental']['Score unique EF'][
+                'synthese'
+              ]
+            }
+            title={ingredient.name}
+            delay={index + 6}
+            secondary
+          />
+        ))}
       </Card.Top>
     </Card>
   )

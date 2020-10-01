@@ -7,7 +7,9 @@ export const colors = {
   lightMain: '#ffd9cc',
   secondary: '#eebe08',
   hoverSecondary: '#edb10b',
-  background: '#fefae1',
+  lightSecondary: '#fefae1',
+  ternary: '#749353',
+  lightTernary: '#d1e2be',
   black: 'rgb(33, 33, 33)',
   white: '#fdfdfd',
   text: 'rgb(66, 66, 66)'

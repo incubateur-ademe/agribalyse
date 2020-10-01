@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Card from 'components/Card'
-import Step from './stepsCard/Step'
+import Step from 'components/Step'
 
 export default function StepsCard(props) {
   return (
@@ -12,8 +12,7 @@ export default function StepsCard(props) {
           <br />
           étapes du cycle de vie
         </Card.Title>
-      </Card.Top>
-      <Card.Bottom>
+
         <Step
           value={
             props.aliment['impact_environnemental']['Score unique EF'][
@@ -98,7 +97,7 @@ export default function StepsCard(props) {
           title={'Consommation'}
           delay={5}
         />
-      </Card.Bottom>
+      </Card.Top>
     </Card>
   )
 }

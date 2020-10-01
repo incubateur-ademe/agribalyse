@@ -169,7 +169,7 @@ export default function Search(props) {
         rel='noopener noreferrer'
         small={props.small}
       >
-        Télécharger les données
+        Documentation et accès aux données
       </Button>
     </Wrapper>
   )

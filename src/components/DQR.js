@@ -34,7 +34,7 @@ const Tooltip = styled.div`
   padding: 1em;
   font-size: 14px;
   border: 1px solid rgba(0, 0, 0, 0.12);
-  background: ${colors.background};
+  background: ${colors.lightSecondary};
   box-shadow: ${props =>
     `0 0 8px 0 rgba(0, 0, 0, 0.08), 0 0 15px 0 rgba(0, 0, 0, 0.02),
       0 0 20px 4px rgba(0, 0, 0, 0.06)`};
@@ -60,11 +60,10 @@ export default function DQR(props) {
         onMouseLeave={() => setVisible(false)}
       >
         Ce chiffre correspond au <b>"Data Quality Ratio"</b> (DQR), il indique
-        le niveau de confiance que l'on peut avoir dans la donnée (sa mesure,
-        les hypothèses prises...). Plus le DQR est proche de 1, plus la donnée
-        est fiable, voire excellente; plus la valeur se rapproche de 5, plus la
-        donnée du score rend compte d'une incertitude importante.{' '}
-        <b>Une donnée avec un DQR {'<'} 3 est considérée comme fiable.</b>
+        le niveau de confiance que l'on peut avoir dans le score. Plus le DQR
+        est proche de 1, plus la donnée est fiable; plus la valeur se rapproche
+        de 5, plus le score rend compte d'une incertitude importante.{' '}
+        <b>Une donnée avec un DQR >= 4 est considérée comme peu fiable. </b>
       </Tooltip>
     </Wrapper>
   )

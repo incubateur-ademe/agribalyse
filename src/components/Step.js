@@ -12,7 +12,7 @@ import Consommation from './step/Consommation'
 
 const Wrapper = styled.div`
   flex: 1;
-  margin-bottom: 1em;
+  margin: 1em 0;
 
   &:last-child {
     margin-bottom: 0;
@@ -24,7 +24,8 @@ const Title = styled.h5`
 const Graph = styled.div`
   position: relative;
   height: 2.5em;
-  background-color: ${colors.lightMain};
+  background-color: ${props =>
+    props.secondary ? colors.lightTernary : colors.lightMain};
   border-radius: 1em;
   overflow: hidden;
   cursor: pointer;
@@ -36,7 +37,8 @@ const Bar = styled.div`
   overflow: hidden;
   width: ${props => props.percent}%;
   height: 2.5em;
-  background-color: ${colors.main};
+  background-color: ${props =>
+    props.secondary ? colors.ternary : colors.main};
   transition: all 300ms linear ${props => props.delay * 300 + 1500}ms;
 `
 const SvgWrapper = styled.div`
@@ -45,14 +47,21 @@ const SvgWrapper = styled.div`
 const Percent = styled.div`
   display: flex;
   align-items: center;
+  height: 100%;
   padding: 0.5em 0.7em;
   font-weight: 900;
   line-height: 1;
-  color: ${props => (props.hover ? colors.black : colors.main)};
+  color: ${props =>
+    props.hover
+      ? colors.black
+      : props.secondary
+      ? colors.ternary
+      : colors.main};
   font-family: 'Montserrat', sans-serif;
 `
 const WhitePercent = styled(Percent)`
   min-width: 200px;
+  height: 100%;
   white-space: nowrap;
   color: ${props => (props.hover ? colors.black : colors.white)};
 `
@@ -68,31 +77,45 @@ export default function Step(props) {
 
   const selectSvg = (delay, white) =>
     delay === 0 ? (
-      <Agriculture white={white} />
+      <SvgWrapper>
+        <Agriculture white={white} />
+      </SvgWrapper>
     ) : delay === 1 ? (
-      <Transformation white={white} />
+      <SvgWrapper>
+        <Transformation white={white} />
+      </SvgWrapper>
     ) : delay === 2 ? (
-      <Emballage white={white} />
+      <SvgWrapper>
+        <Emballage white={white} />
+      </SvgWrapper>
     ) : delay === 3 ? (
-      <Transport white={white} />
+      <SvgWrapper>
+        <Transport white={white} />
+      </SvgWrapper>
     ) : delay === 4 ? (
-      <Distribution white={white} />
-    ) : (
-      <Consommation white={white} />
-    )
+      <SvgWrapper>
+        <Distribution white={white} />
+      </SvgWrapper>
+    ) : delay === 5 ? (
+      <SvgWrapper>
+        <Consommation white={white} />
+      </SvgWrapper>
+    ) : null
+
   return (
     <Wrapper>
       <Title> {props.title}</Title>
       <Graph
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
+        secondary={props.secondary}
       >
-        <Percent hover={hover}>
-          <SvgWrapper>{selectSvg(props.delay, false)}</SvgWrapper> {percent} %
+        <Percent hover={hover} secondary={props.secondary}>
+          {selectSvg(props.delay, false)} {percent} %
         </Percent>
-        <Bar percent={percent} delay={props.delay}>
+        <Bar percent={percent} delay={props.delay} secondary={props.secondary}>
           <WhitePercent hover={hover}>
-            <SvgWrapper>{selectSvg(props.delay, true)}</SvgWrapper> {percent} %
+            {selectSvg(props.delay, true)} {percent} %
           </WhitePercent>
         </Bar>
       </Graph>

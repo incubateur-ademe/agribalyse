@@ -9,8 +9,8 @@ const Wrapper = styled.div`
   /*background: linear-gradient(
     0deg,
     ${colors.white} 0%,
-    ${colors.background} 10%,
-    ${colors.background} 90%,
+    ${colors.lightSecondary} 10%,
+    ${colors.lightSecondary} 90%,
     ${colors.white} 100%
   );*/
 `

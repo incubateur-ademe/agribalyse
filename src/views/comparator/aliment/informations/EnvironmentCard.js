@@ -36,9 +36,6 @@ const CO2Title = styled.h5`
 const CO2Number = styled.span`
   font-weight: 900;
 `
-const DQRWrapper = styled.div`
-  margin-bottom: 1em;
-`
 export default function EnvironmentCard(props) {
   return (
     <Card width={props.large ? '50%' : '33.333%'}>
@@ -57,9 +54,7 @@ export default function EnvironmentCard(props) {
             useEasing={false}
           />
         </Score>
-        <DQRWrapper>
-          <DQR large dqr={props.aliment['DQR']['overall']} />
-        </DQRWrapper>
+
         <Callout>
           <p>
             Sans unité,{' '}
@@ -72,6 +67,7 @@ export default function EnvironmentCard(props) {
             « PEF » <b>(Product Environmental Footprint)</b>.
           </p>
         </Callout>
+        <DQR large dqr={props.aliment['DQR']['overall']} />
       </Card.Top>
       <Card.Bottom>
         <CO2>

@@ -129,7 +129,7 @@ export default function Banner(props) {
       setCategories([])
       setSubCategories([])
     }
-  }, [resultsPage, props.aliments])
+  }, [resultsPage, props.aliments, setSearch, setCategories, setSubCategories])
 
   return (
     <Wrapper windowHeight={windowSize.height} small={small}>
