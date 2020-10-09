@@ -1,10 +1,7 @@
-<<<<<<< HEAD
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-=======
+
 l'application en production : http://app.agribalyse.fr/
 
 
->>>>>>> c390db979aae095aaf8cabe66c6285a4103dcff8
 
 ## Available Scripts
 
