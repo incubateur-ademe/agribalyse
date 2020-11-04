@@ -9,7 +9,6 @@ import logo from 'assets/logo.png'
 import Carrot from './banner/Carrot'
 import Search from './banner/Search'
 import Suggestions from './banner/Suggestions'
-import MouseIndicator from './banner/MouseIndicator'
 import MobileBackButton from './banner/MobileBackButton'
 import Loader from './banner/Loader'
 
@@ -93,15 +92,11 @@ const Logo = styled.img`
   }
 `
 
-export default function Banner(props) {
-  let location = useLocation()
-
+export default function Banner() {
   const windowSize = useWindowSize()
 
-  let resultsPage = useRouteMatch('/aliments/:ciqual_code?')
-
-  let presentationPage = useRouteMatch('/presentation')
-
+  const [loaded, setLoaded] = useState(false)
+  let location = useLocation()
   useEffect(() => {
     let scrollTarget =
       window.innerWidth < breakpoints.medium
@@ -117,19 +112,17 @@ export default function Banner(props) {
   const { setSearch, setCategories, setSubCategories } = useContext(
     SearchContext
   )
-
-  const [small, setSmall] = useState(
-    resultsPage && resultsPage.isExact && props.aliments.length
-  )
+  let resultsPage = useRouteMatch('/aliments/:code_agb?')
+  const [small, setSmall] = useState(resultsPage && resultsPage.isExact)
   useEffect(() => {
-    setSmall(resultsPage && resultsPage.isExact && props.aliments.length)
+    setSmall(resultsPage && resultsPage.isExact)
 
     if (!(resultsPage && resultsPage.isExact)) {
       setSearch('')
       setCategories([])
       setSubCategories([])
     }
-  }, [resultsPage, props.aliments, setSearch, setCategories, setSubCategories])
+  }, [resultsPage, setSearch, setCategories, setSubCategories])
 
   return (
     <Wrapper windowHeight={windowSize.height} small={small}>
@@ -140,20 +133,15 @@ export default function Banner(props) {
       >
         <Logo src={logo} alt={'Agrybalise'} small={small} />
       </a>
-      <Carrot small={small} visible={props.aliments.length} />
-      <MouseIndicator
-        visible={
-          props.aliments.length && presentationPage && presentationPage.isExact
-        }
-      />
-      <ContentWrapper visible={props.aliments.length}>
+      <Carrot small={small} />
+      <ContentWrapper visible={loaded}>
         <StyledLink to='/' small={small}>
           <Title>Découvrez l’impact environnemental de votre assiette</Title>
         </StyledLink>
         <Search small={small} />
-        <Suggestions small={small} aliments={props.aliments} />
+        <Suggestions small={small} setLoaded={setLoaded} />
       </ContentWrapper>
-      <Loader visible={!props.aliments.length} />
+      <Loader visible={!loaded && !small} />
       <MobileBackButton small={small} />
     </Wrapper>
   )

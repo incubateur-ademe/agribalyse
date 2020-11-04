@@ -42,13 +42,14 @@ export default function AlimentItem(props) {
   return (
     <Card
       width={windowSize.width < breakpoints.large ? '33.33%' : '25%'}
-      to={`/aliments/${props.aliment.ciqual_code}`}
+      to={`/aliments/${props.aliment['Code_AGB']}`}
+      disabled={props.loading}
     >
       <Card.Top>
         <Sizer>
-          <Card.Title>{props.aliment.nom_francais}</Card.Title>
+          <Card.Title>{props.aliment['Nom_du_Produit_en_Français']}</Card.Title>
           <Subtitle>
-            <span>{props.aliment.sous_groupe}</span>
+            <span>{props.aliment[`Sous-groupe_d'aliment`]}</span>
           </Subtitle>
         </Sizer>
       </Card.Top>
@@ -59,18 +60,22 @@ export default function AlimentItem(props) {
             <br />
             environnemental
             <ScoreNumber>
-              {
-                props.aliment['impact_environnemental']['Score unique EF'][
-                  'synthese'
-                ]
-              }
+              {Math.round(
+                props.aliment['Score_unique_EF_(mPt/kg_de_produit)'] * 100
+              ) / 100}
             </ScoreNumber>
           </Score>
           <Button noMargin right>
             + Infos
           </Button>
         </Flex>
-        <DQR dqr={props.aliment['DQR']['overall']} />
+        <DQR
+          dqr={
+            props.aliment[
+              'DQR_-_Note_de_qualité_de_la_donnée_(1_excellente___5_très_faible)'
+            ]
+          }
+        />
       </Card.Bottom>
     </Card>
   )

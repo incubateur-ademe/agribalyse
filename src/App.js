@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 import { GlobalStyle } from 'utils/styles'
@@ -11,39 +11,6 @@ import Home from 'views/Home'
 import Comparator from 'views/Comparator'
 
 function App() {
-  const [aliments, setAliments] = useState([])
-
-  const [allCategories, setAllCategories] = useState([])
-  useEffect(() => {
-    let tempCategories = []
-
-    for (let aliment of aliments) {
-      if (!tempCategories.find(category => category.title === aliment.groupe)) {
-        tempCategories.push({
-          title: aliment.groupe,
-          subCategories: []
-        })
-      }
-
-      if (
-        !tempCategories
-          .find(category => category.title === aliment.groupe)
-          .subCategories.find(category => category === aliment.sous_groupe)
-      ) {
-        tempCategories
-          .find(category => category.title === aliment.groupe)
-          .subCategories.push(aliment.sous_groupe)
-      }
-    }
-    setAllCategories(tempCategories)
-  }, [aliments])
-
-  useEffect(() => {
-    fetch('/data/Agribalyse.json')
-      .then(res => res.json())
-      .then(data => setAliments(data))
-  }, [])
-
   const outdatedBrowser = uaString => {
     uaString = uaString || window.navigator.userAgent
     var match = /\b(MSIE |Trident.*?rv:|Edge\/)(\d+)/.exec(uaString)
@@ -58,10 +25,10 @@ function App() {
       ) : (
         <>
           <SearchProvider>
-            <Banner aliments={aliments} />
+            <Banner />
             <Switch>
-              <Route path='/aliments/:ciqual_code?'>
-                <Comparator aliments={aliments} categories={allCategories} />
+              <Route path='/aliments/:code_agb?'>
+                <Comparator />
               </Route>
               <Route path={['/']}>
                 <Home />

@@ -6,7 +6,11 @@ import { colors, mq } from 'utils/styles'
 import SearchContext from 'utils/searchContext'
 import SubCategory from './category/SubCategory'
 
-const Wrapper = styled.li``
+const Wrapper = styled.li`
+  pointer-events: ${props => (props.loading ? 'none' : 'inherit')};
+  opacity: ${props => (props.loading ? 0.5 : 1)};
+  transition: opacity 300ms ease-in-out;
+`
 const Title = styled.div`
   margin: 0;
   padding: 0.3rem 1rem 0.5rem;
@@ -31,33 +35,33 @@ const SubCategories = styled.ul`
   list-style: none;
 `
 export default function Category(props) {
-  const { categories, setCategories, setSubCategories } = useContext(
+  const { categories, setCategories, setSubCategories, loading } = useContext(
     SearchContext
   )
 
   let history = useHistory()
 
   return (
-    <Wrapper>
+    <Wrapper loading={loading}>
       <Title
-        current={categories.find(category => category === props.category.title)}
+        current={categories.find(category => category === props.category.value)}
         onClick={() => {
           history.push('/aliments')
           setCategories(
-            categories.find(category => category === props.category.title)
+            categories.find(category => category === props.category.value)
               ? []
-              : [props.category.title]
+              : [props.category.value]
           )
           setSubCategories([])
         }}
       >
-        {props.category.title.charAt(0).toUpperCase() +
-          props.category.title.slice(1)}
+        {props.category.value.charAt(0).toUpperCase() +
+          props.category.value.slice(1)}
       </Title>
       <SubCategories
-        open={categories.find(category => category === props.category.title)}
+        open={categories.find(category => category === props.category.value)}
       >
-        {props.category.subCategories.map((subCategory, index) => (
+        {props.category.aggs.map((subCategory, index) => (
           <SubCategory key={index} subCategory={subCategory} />
         ))}
       </SubCategories>

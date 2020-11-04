@@ -32,7 +32,7 @@ export default function BreadCrumb(props) {
   )
 
   let history = useHistory()
-
+  console.log(props.aliment)
   return (
     <Wrapper>
       <Item
@@ -50,24 +50,24 @@ export default function BreadCrumb(props) {
         onClick={() => {
           history.push('/aliments')
           setSearch('')
-          setCategories([props.aliment.groupe])
+          setCategories([props.aliment[`Groupe_d'aliment`]])
           setSubCategories([])
         }}
       >
-        {props.aliment.groupe.charAt(0).toUpperCase() +
-          props.aliment.groupe.slice(1)}
+        {props.aliment[`Groupe_d'aliment`].charAt(0).toUpperCase() +
+          props.aliment[`Groupe_d'aliment`].slice(1)}
       </Item>
       <Separator>></Separator>
       <Item
         onClick={() => {
           history.push('/aliments')
           setSearch('')
-          setCategories([props.aliment.groupe])
-          setSubCategories([props.aliment.sous_groupe])
+          setCategories([props.aliment[`Groupe_d'aliment`]])
+          setSubCategories([props.aliment[`Sous-groupe_d'aliment`]])
         }}
       >
-        {props.aliment.sous_groupe.charAt(0).toUpperCase() +
-          props.aliment.sous_groupe.slice(1)}
+        {props.aliment[`Sous-groupe_d'aliment`].charAt(0).toUpperCase() +
+          props.aliment[`Sous-groupe_d'aliment`].slice(1)}
       </Item>
     </Wrapper>
   )

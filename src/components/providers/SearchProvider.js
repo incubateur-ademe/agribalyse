@@ -23,29 +23,46 @@ export default function SearchProvider(props) {
           .filter(subCategory => subCategory)
       : []
   )
-  const [sort, setSort] = useState(query.get('order') || 'alph_asc')
+  const [sort, setSort] = useState(
+    query.get('order') || 'Nom_du_Produit_en_Français'
+  )
+  const [page, setPage] = useState(Number(query.get('page')) || 1)
+  const [size, setSize] = useState(Number(query.get('size')) || 20)
 
   useEffect(() => {
-    let tempSearch = '?'
+    let tempSearch = []
 
     if (search) {
-      tempSearch += `search=${encodeURIComponent(search)}&`
+      tempSearch.push(`search=${encodeURIComponent(search)}`)
     }
     if (categories.length) {
-      tempSearch += `categories=${encodeURIComponent(categories[0])}&`
+      tempSearch.push(`categories=${encodeURIComponent(categories[0])}`)
     }
     if (subCategories.length) {
-      tempSearch += `subCategories=${encodeURIComponent(
-        subCategories.concat(',')
-      )}&`
+      tempSearch.push(
+        `subCategories=${encodeURIComponent(subCategories.concat(','))}`
+      )
     }
     if (sort) {
-      tempSearch += `order=${encodeURIComponent(sort)}`
+      tempSearch.push(`sort=${encodeURIComponent(sort)}`)
+    }
+    if (page) {
+      tempSearch.push(`page=${encodeURIComponent(page)}`)
+    }
+    if (size) {
+      tempSearch.push(`size=${encodeURIComponent(size)}`)
     }
     history.replace({
-      search: tempSearch
+      search: '?' + tempSearch.join('&')
     })
-  }, [search, categories, subCategories, sort, history])
+  }, [search, categories, subCategories, sort, history, page, size])
+
+  useEffect(() => {
+    setPage(1)
+  }, [search, categories, subCategories, sort, size])
+
+  const [loading, setLoading] = useState(false)
+
   return (
     <SearchContext.Provider
       value={{
@@ -56,7 +73,13 @@ export default function SearchProvider(props) {
         subCategories,
         setSubCategories,
         sort,
-        setSort
+        setSort,
+        page,
+        setPage,
+        size,
+        setSize,
+        loading,
+        setLoading
       }}
     >
       {props.children}

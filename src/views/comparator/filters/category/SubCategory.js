@@ -30,20 +30,23 @@ export default function Subcategory(props) {
   return (
     <Wrapper
       current={subCategories.find(
-        subCategory => subCategory === props.subCategory
+        subCategory => subCategory === props.subCategory.value
       )}
       onClick={() => {
         history.push('/aliments')
         setSubCategories(
-          subCategories.find(subCategory => subCategory === props.subCategory)
+          subCategories.find(
+            subCategory => subCategory === props.subCategory.value
+          )
             ? subCategories.filter(
-                subCategory => subCategory !== props.subCategory
+                subCategory => subCategory !== props.subCategory.value
               )
-            : [...subCategories, props.subCategory]
+            : [...subCategories, props.subCategory.value]
         )
       }}
     >
-      {props.subCategory.charAt(0).toUpperCase() + props.subCategory.slice(1)}
+      {props.subCategory.value.charAt(0).toUpperCase() +
+        props.subCategory.value.slice(1)}
     </Wrapper>
   )
 }

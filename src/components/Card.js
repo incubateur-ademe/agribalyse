@@ -18,6 +18,9 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   border-radius: 1em;
   transition: box-shadow 150ms linear;
+  opacity: ${props => (props.disabled ? 0.3 : 1)};
+  pointer-events: ${props => (props.disabled ? 'none' : 'inherit')};
+  transition: opacity 300ms ease-in-out;
 
   &:hover {
     box-shadow: ${props =>
@@ -39,6 +42,9 @@ const StyledA = styled.a`
   text-decoration: none;
   border-radius: 1em;
   transition: box-shadow 150ms linear;
+  opacity: ${props => (props.disabled ? 0.3 : 1)};
+  pointer-events: ${props => (props.disabled ? 'none' : 'inherit')};
+  transition: opacity 300ms ease-in-out;
 
   &:hover {
     box-shadow: ${props =>
@@ -58,6 +64,9 @@ const Wrapper = styled.div`
   width: calc(${props => props.width || '33.333%'} - 2em);
   margin: 0 1em 2em;
   border-radius: 1em;
+  opacity: ${props => (props.disabled ? 0.3 : 1)};
+  pointer-events: ${props => (props.disabled ? 'none' : 'inherit')};
+  transition: opacity 300ms ease-in-out;
 
   ${mq.mediumPortrait} {
     width: calc(50% - 2em);
@@ -78,11 +87,17 @@ const Content = styled.div`
 `
 const Card = function Card(props) {
   return props.to ? (
-    <StyledLink to={props.to} width={props.width} onClick={props.onClick}>
+    <StyledLink
+      disabled={props.disabled}
+      to={props.to}
+      width={props.width}
+      onClick={props.onClick}
+    >
       <Content>{props.children}</Content>
     </StyledLink>
   ) : props.href ? (
     <StyledA
+      disabled={props.disabled}
       href={props.href}
       target='_blank'
       rel='noopener noreferrer'
@@ -91,7 +106,11 @@ const Card = function Card(props) {
       <Content>{props.children}</Content>
     </StyledA>
   ) : (
-    <Wrapper width={props.width} onClick={props.onClick}>
+    <Wrapper
+      disabled={props.disabled}
+      width={props.width}
+      onClick={props.onClick}
+    >
       <Content>{props.children}</Content>
     </Wrapper>
   )

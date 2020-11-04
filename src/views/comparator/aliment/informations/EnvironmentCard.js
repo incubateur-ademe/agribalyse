@@ -43,11 +43,11 @@ export default function EnvironmentCard(props) {
         <Card.Title>Score environnemental "PEF"</Card.Title>
         <Score large={props.large}>
           <CountUp
-            end={Number(
-              props.aliment['impact_environnemental']['Score unique EF'][
-                'synthese'
-              ]
-            )}
+            end={
+              Math.round(
+                props.aliment['Score_unique_EF_(mPt/kg_de_produit)'] * 100
+              ) / 100
+            }
             decimals={2}
             duration={1}
             delay={0.25}
@@ -67,17 +67,20 @@ export default function EnvironmentCard(props) {
             « PEF » <b>(Product Environmental Footprint)</b>.
           </p>
         </Callout>
-        <DQR large dqr={props.aliment['DQR']['overall']} />
+        <DQR
+          large
+          dqr={
+            props.aliment[
+              'DQR_-_Note_de_qualité_de_la_donnée_(1_excellente___5_très_faible)'
+            ]
+          }
+        />
       </Card.Top>
       <Card.Bottom>
         <CO2>
           <CO2Title>Détail changement climatique :</CO2Title>
           <CO2Number>
-            {
-              props.aliment['impact_environnemental']['Changement climatique'][
-                'synthese'
-              ]
-            }
+            {props.aliment[`Changement_climatique_(kg_CO2_eq/kg_de_produit)`]}
           </CO2Number>{' '}
           kg CO2 eq/kg de produit
         </CO2>

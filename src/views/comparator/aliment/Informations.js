@@ -6,7 +6,7 @@ import { mq } from 'utils/styles'
 import MobileBack from './informations/MobileBack'
 import EnvironmentCard from './informations/EnvironmentCard'
 import StepsCard from './informations/StepsCard'
-import AlimentsCard from './informations/AlimentsCard'
+import IngredientsCard from './informations/IngredientsCard'
 import Indicateurs from './informations/Indicateurs'
 
 const Wrapper = styled.div`
@@ -46,41 +46,37 @@ export default function Informations(props) {
     <Wrapper>
       <TitleWrapper>
         <MobileBack />
-        <Title>{props.aliment.nom_francais}</Title>
+        <Title>{props.aliment[`Nom_du_Produit_en_Français`]}</Title>
       </TitleWrapper>
       <Ciqual>
-        Code Ciqual : <Code>{props.aliment.ciqual_code}</Code>
+        Code Ciqual : <Code>{props.aliment['Code_CIQUAL']}</Code>
       </Ciqual>
       <Category>
         <b>
-          {props.aliment.sous_groupe.charAt(0).toUpperCase() +
-            props.aliment.sous_groupe.slice(1)}
+          {props.aliment[`Sous-groupe_d'aliment`].charAt(0).toUpperCase() +
+            props.aliment[`Sous-groupe_d'aliment`].slice(1)}
         </b>{' '}
         (
-        {props.aliment.groupe.charAt(0).toUpperCase() +
-          props.aliment.groupe.slice(1)}
+        {props.aliment[`Groupe_d'aliment`].charAt(0).toUpperCase() +
+          props.aliment[`Groupe_d'aliment`].slice(1)}
         )
       </Category>
       <Cards>
         <EnvironmentCard
           aliment={props.aliment}
-          large={
-            !props.aliment['impact_environnemental']['Score unique EF'][
-              'ingredients'
-            ]
-          }
+          large={!props.ingredients.length}
         />
         <StepsCard
           aliment={props.aliment}
-          large={
-            !props.aliment['impact_environnemental']['Score unique EF'][
-              'ingredients'
-            ]
-          }
+          indicateurs={props.indicateurs}
+          large={!props.ingredients.length}
         />
-        {props.aliment['impact_environnemental']['Score unique EF'][
-          'ingredients'
-        ] && <AlimentsCard aliment={props.aliment} />}
+        {props.ingredients.length && (
+          <IngredientsCard
+            aliment={props.aliment}
+            ingredients={props.ingredients}
+          />
+        )}
       </Cards>
       <Indicateurs aliment={props.aliment} />
     </Wrapper>

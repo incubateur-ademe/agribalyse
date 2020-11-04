@@ -1,12 +1,16 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import styled from 'styled-components'
 
 import { colors, breakpoints } from 'utils/styles'
 import useWindowSize from 'hooks/useWindowSize'
+import SearchContext from 'utils/searchContext'
 
 const Wrapper = styled.div`
   display: flex;
   justify-content: center;
+  pointer-events: ${props => (props.loading ? 'none' : 'inherit')};
+  opacity: ${props => (props.loading ? 0.5 : 1)};
+  transition: opacity 300ms ease-in-out;
 `
 const Page = styled.div`
   display: flex;
@@ -29,63 +33,62 @@ const Page = styled.div`
   }
 `
 export default function Pagination(props) {
+  const { page, setPage, size, loading } = useContext(SearchContext)
+
   const [numPageEachSide, setNumPageEachSide] = useState(0)
   const windowSize = useWindowSize()
   useEffect(() => {
     setNumPageEachSide(windowSize.width < breakpoints.small ? 1 : 4)
   }, [windowSize])
 
-  const [visiblePages, setVisiblePages] = useState([])
-
+  const [numPagesTotal, setNumPagesTotal] = useState(0)
   useEffect(() => {
-    let numPageBefore =
-      props.page > numPageEachSide ? numPageEachSide : props.page
+    setNumPagesTotal(Math.ceil(props.total / size))
+  }, [props.total, size])
+
+  //Rigolo à faire. Moins sympa à maintenir
+  const [visiblePages, setVisiblePages] = useState([])
+  useEffect(() => {
+    let numPageBefore = page > numPageEachSide ? numPageEachSide : page - 1
     let numPageAfter =
-      props.total - props.page > numPageEachSide * 2 - numPageBefore
+      numPagesTotal - page > numPageEachSide * 2 - numPageBefore
         ? numPageEachSide * 2 - numPageBefore
-        : props.total - props.page
+        : numPagesTotal - page
 
     if (numPageAfter < numPageEachSide) {
       numPageBefore =
-        props.page > numPageEachSide * 2 - numPageAfter
+        page > numPageEachSide * 2 - numPageAfter
           ? numPageEachSide * 2 - numPageAfter
-          : props.page
+          : page - 1
     }
-
     let tempVisiblepage = []
 
-    for (let i = 0; i < numPageBefore; i++) {
-      tempVisiblepage.push(props.page - i - 1)
+    for (let i = 1; i <= numPageBefore; i++) {
+      tempVisiblepage.push(page - i)
     }
     for (let i = 0; i < numPageAfter; i++) {
-      tempVisiblepage.push(props.page + i + 1)
+      tempVisiblepage.push(page + i + 1)
     }
-    tempVisiblepage.push(props.page)
+    tempVisiblepage.push(page)
     tempVisiblepage.sort((a, b) => (a < b ? -1 : 1))
     setVisiblePages(tempVisiblepage)
-  }, [props.total, props.page, numPageEachSide])
+  }, [numPagesTotal, page, numPageEachSide])
 
   return visiblePages.length > 1 ? (
-    <Wrapper>
-      <Page
-        disabled={props.page === 0}
-        onClick={() => props.setPage(props.page - 1)}
-      >
+    <Wrapper loading={loading}>
+      <Page disabled={page === 1} onClick={() => setPage(page - 1)}>
         {'<'}
       </Page>
       {visiblePages.map(number => (
         <Page
           key={number}
-          current={number === props.page}
-          onClick={() => props.setPage(number)}
+          current={number === page}
+          onClick={() => setPage(number)}
         >
           {number}
         </Page>
       ))}
-      <Page
-        disabled={props.page === props.total}
-        onClick={() => props.setPage(props.page + 1)}
-      >
+      <Page disabled={page === numPagesTotal} onClick={() => setPage(page + 1)}>
         {'>'}
       </Page>
     </Wrapper>
