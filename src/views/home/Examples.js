@@ -39,10 +39,7 @@ export default function Examples() {
       <Sizer>
         <Title>Exemples de cas d'usage</Title>
         <Cards>
-          <Card
-            width='33%'
-            href='https://ecolab.gitbook.io/documentation-agribalyse/usage-des-donnees/ecoconception'
-          >
+          <Card href='https://ecolab.gitbook.io/documentation-agribalyse/usage-des-donnees/ecoconception'>
             <Card.Image src={usecasevaches} />
             <Card.Top>
               <Card.Title>Ecoconception</Card.Title>
@@ -52,20 +49,14 @@ export default function Examples() {
               </Text>
             </Card.Top>
           </Card>
-          <Card
-            width='33%'
-            href='https://ecolab.gitbook.io/documentation-agribalyse/usage-des-donnees/restauration-collective'
-          >
+          <Card href='https://ecolab.gitbook.io/documentation-agribalyse/usage-des-donnees/restauration-collective'>
             <Card.Image src={usecaserie} />
             <Card.Top>
               <Card.Title>Restauration collective</Card.Title>
               <Text>Aider vos convives dans leurs choix</Text>
             </Card.Top>
           </Card>
-          <Card
-            width='33%'
-            href='https://ecolab.gitbook.io/documentation-agribalyse/usage-des-donnees/information-environnementale'
-          >
+          <Card href='https://ecolab.gitbook.io/documentation-agribalyse/usage-des-donnees/information-environnementale'>
             <Card.Image src={usecaseyuka} />
             <Card.Top>
               <Card.Title>

@@ -71,14 +71,16 @@ export default function Informations(props) {
           indicateurs={props.indicateurs}
           large={!props.ingredients.length}
         />
-        {props.ingredients.length && (
+        {props.ingredients.length ? (
           <IngredientsCard
             aliment={props.aliment}
             ingredients={props.ingredients}
           />
+        ) : (
+          ''
         )}
       </Cards>
-      <Indicateurs aliment={props.aliment} />
+      <Indicateurs aliment={props.aliment} indicateurs={props.indicateurs} />
     </Wrapper>
   )
 }

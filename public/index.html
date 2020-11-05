@@ -2,12 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
-      content="Web site created using create-react-app"
+      content="Découvrez l’impact environnemental de votre assiette"
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
@@ -25,24 +25,29 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900"
       rel="stylesheet"
     />
 
-
     <!-- Matomo -->
     <script type="text/javascript">
-      var _paq = window._paq || [];
+      var _paq = window._paq || []
       /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-      _paq.push(['trackPageView']);
-      _paq.push(['enableLinkTracking']);
-      (function() {
-        var u="//stats.data.gouv.fr/";
-        _paq.push(['setTrackerUrl', u+'matomo.php']);
-        _paq.push(['setSiteId', '144']);
-        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-      })();
+      _paq.push(['trackPageView'])
+      _paq.push(['enableLinkTracking'])
+      ;(function() {
+        var u = '//stats.data.gouv.fr/'
+        _paq.push(['setTrackerUrl', u + 'matomo.php'])
+        _paq.push(['setSiteId', '144'])
+        var d = document,
+          g = d.createElement('script'),
+          s = d.getElementsByTagName('script')[0]
+        g.type = 'text/javascript'
+        g.async = true
+        g.defer = true
+        g.src = u + 'matomo.js'
+        s.parentNode.insertBefore(g, s)
+      })()
     </script>
     <!-- End Matomo Code -->
 

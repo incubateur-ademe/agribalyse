@@ -1,8 +1,8 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { QueryParamProvider } from 'use-query-params'
 
 import { GlobalStyle } from 'utils/styles'
-
 import SearchProvider from 'components/providers/SearchProvider'
 
 import OutdatedBrowser from 'components/OutdatedBrowser'
@@ -19,24 +19,26 @@ function App() {
 
   return (
     <Router>
-      <GlobalStyle />
-      {outdatedBrowser() ? (
-        <OutdatedBrowser />
-      ) : (
-        <>
-          <SearchProvider>
-            <Banner />
-            <Switch>
-              <Route path='/aliments/:code_agb?'>
-                <Comparator />
-              </Route>
-              <Route path={['/']}>
-                <Home />
-              </Route>
-            </Switch>
-          </SearchProvider>
-        </>
-      )}
+      <QueryParamProvider ReactRouterRoute={Route}>
+        <GlobalStyle />
+        {outdatedBrowser() ? (
+          <OutdatedBrowser />
+        ) : (
+          <>
+            <SearchProvider>
+              <Banner />
+              <Switch>
+                <Route path='/aliments/:code_agb?'>
+                  <Comparator />
+                </Route>
+                <Route path={['/']}>
+                  <Home />
+                </Route>
+              </Switch>
+            </SearchProvider>
+          </>
+        )}
+      </QueryParamProvider>
     </Router>
   )
 }

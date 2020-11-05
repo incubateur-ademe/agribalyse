@@ -116,12 +116,6 @@ export default function Banner() {
   const [small, setSmall] = useState(resultsPage && resultsPage.isExact)
   useEffect(() => {
     setSmall(resultsPage && resultsPage.isExact)
-
-    if (!(resultsPage && resultsPage.isExact)) {
-      setSearch('')
-      setCategories([])
-      setSubCategories([])
-    }
   }, [resultsPage, setSearch, setCategories, setSubCategories])
 
   return (

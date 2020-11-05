@@ -5,7 +5,7 @@ import Step from 'components/Step'
 
 export default function StepsCard(props) {
   return (
-    <Card width={props.large ? '50%' : '33.333%'}>
+    <Card large={props.large}>
       <Card.Top>
         <Card.Title>
           Impact par

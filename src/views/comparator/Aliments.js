@@ -16,6 +16,10 @@ import Loader from 'components/misc/Loader'
 const Wrapper = styled.div`
   flex: 1;
   margin: 0 1em 2em;
+
+  ${mq.small} {
+    margin: 0 0.4em 2em;
+  }
 `
 const AlimentsWrapper = styled.div`
   display: flex;

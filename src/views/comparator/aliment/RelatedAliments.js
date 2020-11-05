@@ -23,18 +23,18 @@ const Aliments = styled.div`
 `
 const Title = styled.h3``
 export default function RelatedAliments(props) {
-  const [numRelatedAliments, setnumRelatedAliments] = useState(4)
+  const [numRelatedAliments, setnumRelatedAliments] = useState(3)
   const windowSize = useWindowSize()
   useEffect(() => {
-    /*setnumRelatedAliments(
-      windowSize.width < breakpoints.small
-        ? 3
-        : windowSize.width < breakpoints.mediumPortrait
+    setnumRelatedAliments(
+      windowSize.width < breakpoints.mediumPortrait
         ? 4
         : windowSize.width < breakpoints.large
         ? 3
-        : 4
-    )*/
+        : windowSize.width < breakpoints.xlarge
+        ? 4
+        : 5
+    )
   }, [windowSize])
 
   const [alimentsOfSameGroup, setAlimentsOfSameGroup] = useState([])

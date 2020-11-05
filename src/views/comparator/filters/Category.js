@@ -39,14 +39,17 @@ export default function Category(props) {
     SearchContext
   )
 
-  let history = useHistory()
+  const history = useHistory()
 
   return (
     <Wrapper loading={loading}>
       <Title
         current={categories.find(category => category === props.category.value)}
         onClick={() => {
-          history.push('/aliments')
+          history.replace({
+            pathname: '/aliments',
+            search: history.location.search
+          })
           setCategories(
             categories.find(category => category === props.category.value)
               ? []

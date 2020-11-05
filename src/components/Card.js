@@ -13,7 +13,7 @@ import Bottom from './card/Bottom'
 
 const StyledLink = styled(Link)`
   display: block;
-  width: calc(${props => props.width || '33.333%'} - 2em);
+  width: calc(${props => (props.large ? '50%' : '33.333%')} - 2em);
   margin: 0 1em 2em;
   text-decoration: none;
   border-radius: 1em;
@@ -23,21 +23,36 @@ const StyledLink = styled(Link)`
   transition: opacity 300ms ease-in-out;
 
   &:hover {
-    box-shadow: ${props =>
-      `0 0 8px 0 rgba(0, 0, 0, 0.08), 0 0 15px 0 rgba(0, 0, 0, 0.02),
-      0 0 20px 4px rgba(0, 0, 0, 0.06)`};
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.08), 0 0 15px 0 rgba(0, 0, 0, 0.02),
+      0 0 20px 4px rgba(0, 0, 0, 0.06);
   }
 
+  ${mq.large} {
+    width: calc(
+      ${props => (props.small ? '25%' : props.large ? '50%' : '33.333%')} - 2em
+    );
+  }
+  ${mq.xlarge} {
+    width: calc(
+      ${props => (props.small ? '20%' : props.large ? '50%' : '33.333%')} - 2em
+    );
+  }
   ${mq.mediumPortrait} {
     width: calc(50% - 2em);
   }
+  ${props =>
+    props.small &&
+    `${mq.mediumLandscape} {
+      width: calc(33.333% - 2em);
+    }`}
   ${mq.small} {
-    width: calc(100% - 1em);
+    width: calc(${props => (props.small ? '50%' : '100%')} - 0.8em);
+    margin: 0 0.4em 0.8em;
   }
 `
 const StyledA = styled.a`
   display: block;
-  width: calc(${props => props.width || '33.333%'} - 2em);
+  width: calc(${props => (props.large ? '50%' : '33.333%')} - 2em);
   margin: 0 1em 2em;
   text-decoration: none;
   border-radius: 1em;
@@ -47,32 +62,61 @@ const StyledA = styled.a`
   transition: opacity 300ms ease-in-out;
 
   &:hover {
-    box-shadow: ${props =>
-      `0 0 8px 0 rgba(0, 0, 0, 0.08), 0 0 15px 0 rgba(0, 0, 0, 0.02),
-      0 0 20px 4px rgba(0, 0, 0, 0.06)`};
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.08), 0 0 15px 0 rgba(0, 0, 0, 0.02),
+      0 0 20px 4px rgba(0, 0, 0, 0.06);
   }
 
+  ${mq.large} {
+    width: calc(
+      ${props => (props.small ? '25%' : props.large ? '50%' : '33.333%')} - 2em
+    );
+  }
+  ${mq.xlarge} {
+    width: calc(
+      ${props => (props.small ? '20%' : props.large ? '50%' : '33.333%')} - 2em
+    );
+  }
   ${mq.mediumPortrait} {
     width: calc(50% - 2em);
   }
+  ${props =>
+    props.small &&
+    `${mq.mediumLandscape} {
+      width: calc(33.333% - 2em);
+    }`}
   ${mq.small} {
-    width: calc(100% - 1em);
+    width: calc(${props => (props.small ? '50%' : '100%')} - 2em);
   }
 `
 const Wrapper = styled.div`
   display: block;
-  width: calc(${props => props.width || '33.333%'} - 2em);
+  width: calc(${props => (props.large ? '50%' : '33.333%')} - 2em);
   margin: 0 1em 2em;
   border-radius: 1em;
   opacity: ${props => (props.disabled ? 0.3 : 1)};
   pointer-events: ${props => (props.disabled ? 'none' : 'inherit')};
   transition: opacity 300ms ease-in-out;
 
+  ${mq.large} {
+    width: calc(
+      ${props => (props.small ? '25%' : props.large ? '50%' : '33.333%')} - 2em
+    );
+  }
+  ${mq.xlarge} {
+    width: calc(
+      ${props => (props.small ? '20%' : props.large ? '50%' : '33.333%')} - 2em
+    );
+  }
   ${mq.mediumPortrait} {
     width: calc(50% - 2em);
   }
+  ${props =>
+    props.small &&
+    `${mq.mediumLandscape} {
+      width: calc(33.333% - 2em);
+    }`}
   ${mq.small} {
-    width: calc(100% - 1em);
+    width: calc(${props => (props.small ? '50%' : '100%')} - 2em);
   }
 `
 const Content = styled.div`
@@ -90,7 +134,8 @@ const Card = function Card(props) {
     <StyledLink
       disabled={props.disabled}
       to={props.to}
-      width={props.width}
+      small={props.small}
+      large={props.large}
       onClick={props.onClick}
     >
       <Content>{props.children}</Content>
@@ -101,14 +146,16 @@ const Card = function Card(props) {
       href={props.href}
       target='_blank'
       rel='noopener noreferrer'
-      width={props.width}
+      small={props.small}
+      large={props.large}
     >
       <Content>{props.children}</Content>
     </StyledA>
   ) : (
     <Wrapper
       disabled={props.disabled}
-      width={props.width}
+      small={props.small}
+      large={props.large}
       onClick={props.onClick}
     >
       <Content>{props.children}</Content>

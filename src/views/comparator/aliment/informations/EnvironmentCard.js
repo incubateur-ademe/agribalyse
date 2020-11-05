@@ -9,22 +9,26 @@ import Callout from 'components/Callout'
 import DQR from 'components/DQR'
 
 const Score = styled.div`
-  margin: ${props => (props.large ? '0.1em' : '0.3em 0 0.4em')};
-  font-size: ${props => (props.large ? '11vw' : '7vw')};
-  font-weight: 900;
-  font-family: 'Montserrat', sans-serif;
+  margin: 2em 0 3em;
   text-align: center;
 
   span {
+    font-size: ${props => (props.large ? '11vw' : '7vw')};
+    font-weight: 900;
+    font-family: 'Montserrat', sans-serif;
     color: ${colors.main};
-  }
 
-  ${mq.mediumPortrait} {
-    font-size: 12vw;
+    ${mq.mediumPortrait} {
+      font-size: 12vw;
+    }
+    ${mq.small} {
+      font-size: 30vw;
+    }
   }
-  ${mq.small} {
-    font-size: 30vw;
-  }
+`
+const Unit = styled.div`
+  font-size: 18px;
+  text-align: center;
 `
 const CO2 = styled.div`
   font-size: 18px;
@@ -38,7 +42,7 @@ const CO2Number = styled.span`
 `
 export default function EnvironmentCard(props) {
   return (
-    <Card width={props.large ? '50%' : '33.333%'}>
+    <Card large={props.large}>
       <Card.Top>
         <Card.Title>Score environnemental "PEF"</Card.Title>
         <Score large={props.large}>
@@ -53,8 +57,8 @@ export default function EnvironmentCard(props) {
             delay={0.25}
             useEasing={false}
           />
+          <Unit>par kg de produit</Unit>
         </Score>
-
         <Callout>
           <p>
             Sans unité,{' '}
@@ -80,7 +84,10 @@ export default function EnvironmentCard(props) {
         <CO2>
           <CO2Title>Détail changement climatique :</CO2Title>
           <CO2Number>
-            {props.aliment[`Changement_climatique_(kg_CO2_eq/kg_de_produit)`]}
+            {Math.round(
+              props.aliment[`Changement_climatique_(kg_CO2_eq/kg_de_produit)`] *
+                100
+            ) / 100}
           </CO2Number>{' '}
           kg CO2 eq/kg de produit
         </CO2>

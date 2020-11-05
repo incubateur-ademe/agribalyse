@@ -8,8 +8,7 @@ import SearchContext from 'utils/searchContext'
 const Wrapper = styled.li`
   padding: 0.3rem 1rem 0.3rem 2rem;
   font-size: 14px;
-  font-weight: 300;
-  font-weight: ${props => (props.current ? '700' : '300')};
+  font-weight: ${props => (props.current ? '700' : '400')};
   color: ${props => (props.current ? colors.main : colors.text)};
   cursor: pointer;
   transition: background-color 300ms ease-out;
@@ -25,7 +24,7 @@ const Wrapper = styled.li`
 export default function Subcategory(props) {
   const { subCategories, setSubCategories } = useContext(SearchContext)
 
-  let history = useHistory()
+  const history = useHistory()
 
   return (
     <Wrapper
@@ -33,7 +32,10 @@ export default function Subcategory(props) {
         subCategory => subCategory === props.subCategory.value
       )}
       onClick={() => {
-        history.push('/aliments')
+        history.replace({
+          pathname: '/aliments',
+          search: history.location.search
+        })
         setSubCategories(
           subCategories.find(
             subCategory => subCategory === props.subCategory.value

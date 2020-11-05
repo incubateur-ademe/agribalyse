@@ -28,7 +28,15 @@ export default {
       .then(this.handleErrors)
       .then(res => res.json())
   },
-  fetchAliments({ code_agb, page, size, categories, subCategories, sort }) {
+  fetchAliments({
+    code_agb,
+    page,
+    size,
+    search,
+    categories,
+    subCategories,
+    sort
+  }) {
     let request = aliments + '?'
 
     if (sort) {
@@ -43,6 +51,9 @@ export default {
     }
     if (size) {
       request += `&size=${size}`
+    }
+    if (search) {
+      request += `&q=${search}`
     }
     if (categories && categories.length) {
       if (subCategories && subCategories.length) {

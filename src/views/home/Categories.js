@@ -32,7 +32,7 @@ export default function Categories() {
       <Sizer>
         <CategoryWrapper>
           <Card
-            width='25%'
+            small
             to={`/aliments`}
             onClick={() => {
               setCategories(['entrées et plats composés'])
@@ -43,7 +43,7 @@ export default function Categories() {
             <Card.Legend>Plats composés</Card.Legend>
           </Card>
           <Card
-            width='25%'
+            small
             to={`/aliments`}
             onClick={() => {
               setCategories(['fruits, légumes, légumineuses et oléagineux'])
@@ -54,7 +54,7 @@ export default function Categories() {
             <Card.Legend>Fruits et légumes</Card.Legend>
           </Card>
           <Card
-            width='25%'
+            small
             to={`/aliments`}
             onClick={() => {
               setCategories(['viandes, œufs, poissons'])
@@ -65,7 +65,7 @@ export default function Categories() {
             <Card.Legend>Viandes et poissons</Card.Legend>
           </Card>
           <Card
-            width='25%'
+            small
             to={`/aliments`}
             onClick={() => {
               setCategories(['produits sucrés'])
@@ -76,7 +76,7 @@ export default function Categories() {
             <Card.Legend>Confiseries</Card.Legend>
           </Card>
           <Card
-            width='25%'
+            small
             to={`/aliments`}
             onClick={() => {
               setCategories(['aides culinaires et ingrédients divers'])
@@ -87,7 +87,7 @@ export default function Categories() {
             <Card.Legend>Condiments</Card.Legend>
           </Card>
           <Card
-            width='25%'
+            small
             to={`/aliments`}
             onClick={() => {
               setCategories(['boissons'])
@@ -98,7 +98,7 @@ export default function Categories() {
             <Card.Legend>Boissons</Card.Legend>
           </Card>
           <Card
-            width='25%'
+            small
             to={`/aliments`}
             onClick={() => {
               setCategories(['produits céréaliers'])
@@ -109,7 +109,7 @@ export default function Categories() {
             <Card.Legend>Desserts</Card.Legend>
           </Card>
           <Card
-            width='25%'
+            small
             to={`/aliments`}
             onClick={() => {
               setCategories(['lait et produits laitiers'])
