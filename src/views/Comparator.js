@@ -23,7 +23,7 @@ export default function Comparator() {
       <Filters categories={categories} />
       <Switch>
         <Route path='/aliments/:code_agb'>
-          <Aliment />}
+          <Aliment />
         </Route>
         <Route path={['/aliments']}>
           <Aliments categories={categories} />

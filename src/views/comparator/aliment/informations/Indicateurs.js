@@ -44,7 +44,9 @@ export default function Indicateurs(props) {
           <Cell>Score unique EF</Cell>
           <Cell>
             <Value>
-              {props.aliment[`Score_unique_EF_(mPt/kg_de_produit)`]}
+              {Math.round(
+                props.aliment[`Score_unique_EF_(mPt/kg_de_produit)`] * 100
+              ) / 100}
             </Value>
           </Cell>
           <Cell>mPt/kg de produit</Cell>
@@ -53,7 +55,11 @@ export default function Indicateurs(props) {
           <Cell>Changement climatique</Cell>
           <Cell>
             <Value>
-              {props.aliment[`Changement_climatique_(kg_CO2_eq/kg_de_produit)`]}
+              {Math.round(
+                props.aliment[
+                  `Changement_climatique_(kg_CO2_eq/kg_de_produit)`
+                ] * 100
+              ) / 100}
             </Value>
           </Cell>
           <Cell>kg CO2 eq/kg de produit</Cell>
@@ -62,11 +68,11 @@ export default function Indicateurs(props) {
           <Cell>Appauvrissement de la couche d'ozone</Cell>
           <Cell>
             <Value>
-              {
+              {Math.round(
                 props.aliment[
                   `Appauvrissement_de_la_couche_d'ozone_(E-06_kg_CVC11_eq/kg_de_produit)`
-                ]
-              }
+                ] * 100
+              ) / 100}
             </Value>
           </Cell>
           <Cell>E-06 kg CVC11 eq/kg de produit</Cell>
@@ -75,11 +81,11 @@ export default function Indicateurs(props) {
           <Cell>Rayonnements ionisants</Cell>
           <Cell>
             <Value>
-              {
+              {Math.round(
                 props.aliment[
                   `Rayonnements_ionisants_(kBq_U-235_eq/kg_de_produit)`
-                ]
-              }
+                ] * 100
+              ) / 100}
             </Value>
           </Cell>
           <Cell>kBq U-235 eq/kg de produit</Cell>
@@ -88,11 +94,11 @@ export default function Indicateurs(props) {
           <Cell>Formation photochimique d'ozone</Cell>
           <Cell>
             <Value>
-              {
+              {Math.round(
                 props.aliment[
                   `Formation_photochimique_d'ozone_(E-03_kg_NMVOC_eq/kg_de_produit)`
-                ]
-              }
+                ] * 100
+              ) / 100}
             </Value>
           </Cell>
           <Cell>E-03 kg NMVOC eq/kg de produit</Cell>
@@ -101,7 +107,10 @@ export default function Indicateurs(props) {
           <Cell>Particules</Cell>
           <Cell>
             <Value>
-              {props.aliment[`Particules_(E-06_disease_inc_/kg_de_produit)`]}
+              {Math.round(
+                props.aliment[`Particules_(E-06_disease_inc_/kg_de_produit)`] *
+                  100
+              ) / 100}
             </Value>
           </Cell>
           <Cell>E-06 disease inc./kg de produit</Cell>
@@ -110,11 +119,11 @@ export default function Indicateurs(props) {
           <Cell>Acidification terrestre et eaux douces</Cell>
           <Cell>
             <Value>
-              {
+              {Math.round(
                 props.aliment[
                   `Acidification_terrestre_et_eaux_douces_(mol_H+_eq/kg_de_produit)`
-                ]
-              }
+                ] * 100
+              ) / 100}
             </Value>
           </Cell>
           <Cell>mol H+ eq/kg de produit</Cell>
@@ -123,11 +132,11 @@ export default function Indicateurs(props) {
           <Cell>Eutrophisation terreste</Cell>
           <Cell>
             <Value>
-              {
+              {Math.round(
                 props.aliment[
                   `Eutrophisation_terreste_(mol_N_eq/kg_de_produit)`
-                ]
-              }
+                ] * 100
+              ) / 100}
             </Value>
           </Cell>
           <Cell>mol N eq/kg de produit</Cell>
@@ -136,11 +145,11 @@ export default function Indicateurs(props) {
           <Cell>Eutrophisation eaux douces</Cell>
           <Cell>
             <Value>
-              {
+              {Math.round(
                 props.aliment[
                   `Eutrophisation_eaux_douces_(E-03_kg_P_eq/kg_de_produit)`
-                ]
-              }
+                ] * 100
+              ) / 100}
             </Value>
           </Cell>
           <Cell>E-03 kg P eq/kg de produit</Cell>
@@ -149,11 +158,11 @@ export default function Indicateurs(props) {
           <Cell>Eutrophisation marine</Cell>
           <Cell>
             <Value>
-              {
+              {Math.round(
                 props.aliment[
                   `Eutrophisation_marine_(E-03_kg_N_eq/kg_de_produit)`
-                ]
-              }
+                ] * 100
+              ) / 100}
             </Value>
           </Cell>
           <Cell>E-03 kg N eq/kg de produit</Cell>
@@ -162,7 +171,9 @@ export default function Indicateurs(props) {
           <Cell>Utilisation du sol</Cell>
           <Cell>
             <Value>
-              {props.aliment[`Utilisation_du_sol_(Pt/kg_de_produit)`]}
+              {Math.round(
+                props.aliment[`Utilisation_du_sol_(Pt/kg_de_produit)`] * 100
+              ) / 100}
             </Value>
           </Cell>
           <Cell>Pt/kg de produit</Cell>
@@ -171,11 +182,11 @@ export default function Indicateurs(props) {
           <Cell>Écotoxicité pour écosystèmes aquatiques d'eau douce</Cell>
           <Cell>
             <Value>
-              {
+              {Math.round(
                 props.aliment[
                   `Écotoxicité_pour_écosystèmes_aquatiques_d'eau_douce_(CTUe/kg_de_produit)`
-                ]
-              }
+                ] * 100
+              ) / 100}
             </Value>
           </Cell>
           <Cell>CTUe/kg de produit</Cell>
@@ -184,11 +195,11 @@ export default function Indicateurs(props) {
           <Cell>Épuisement des ressources eau</Cell>
           <Cell>
             <Value>
-              {
+              {Math.round(
                 props.aliment[
                   `Épuisement_des_ressources_eau_(m3_depriv_/kg_de_produit)`
-                ]
-              }
+                ] * 100
+              ) / 100}
             </Value>
           </Cell>
           <Cell>m3 depriv./kg de produit</Cell>
@@ -197,11 +208,11 @@ export default function Indicateurs(props) {
           <Cell>Épuisement des ressources énergétiques</Cell>
           <Cell>
             <Value>
-              {
+              {Math.round(
                 props.aliment[
                   `Épuisement_des_ressources_énergétiques_(MJ/kg_de_produit)`
-                ]
-              }
+                ] * 100
+              ) / 100}
             </Value>
           </Cell>
           <Cell>MJ/kg de produit</Cell>
@@ -210,11 +221,11 @@ export default function Indicateurs(props) {
           <Cell>Épuisement des ressources minéraux</Cell>
           <Cell>
             <Value>
-              {
+              {Math.round(
                 props.aliment[
                   `Épuisement_des_ressources_minéraux_(E-06_kg_Sb_eq/kg_de_produit)`
-                ]
-              }
+                ] * 100
+              ) / 100}
             </Value>
           </Cell>
           <Cell>E-06 kg Sb eq/kg de produit</Cell>
