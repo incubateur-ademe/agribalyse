@@ -60,7 +60,7 @@ function App() {
           <SearchProvider>
             <Banner aliments={aliments} />
             <Switch>
-              <Route path='/aliments/:ciqual_code?'>
+              <Route path='/aliments/:ciqual_code?/:nom_francais'>
                 <Comparator aliments={aliments} categories={allCategories} />
               </Route>
               <Route path={['/']}>
