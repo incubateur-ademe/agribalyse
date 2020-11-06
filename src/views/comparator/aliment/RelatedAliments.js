@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
 import { colors, breakpoints, mq } from 'utils/styles'
+import api from 'utils/api'
 import useWindowSize from 'hooks/useWindowSize'
 import AlimentItem from 'components/AlimentItem'
 
@@ -22,46 +23,53 @@ const Aliments = styled.div`
 `
 const Title = styled.h3``
 export default function RelatedAliments(props) {
-  const [numRelatedAliments, setnumRelatedAliments] = useState(0)
+  const [numRelatedAliments, setnumRelatedAliments] = useState(3)
   const windowSize = useWindowSize()
   useEffect(() => {
     setnumRelatedAliments(
-      windowSize.width < breakpoints.small
-        ? 3
-        : windowSize.width < breakpoints.mediumPortrait
+      windowSize.width < breakpoints.mediumPortrait
         ? 4
         : windowSize.width < breakpoints.large
         ? 3
-        : 4
+        : windowSize.width < breakpoints.xlarge
+        ? 4
+        : 5
     )
   }, [windowSize])
 
-  const [relatedAliments, setRelatedAliments] = useState([])
-
+  const [alimentsOfSameGroup, setAlimentsOfSameGroup] = useState([])
   useEffect(() => {
-    let tempsAliments = [
-      ...props.aliments.filter(
-        aliment => aliment.groupe === props.aliment.groupe
-      )
-    ]
-    let tempsRelatedAliments = []
+    api
+      .fetchAliments({ categories: [props.aliment[`Groupe_d'aliment`]] })
+      .then(aliments => setAlimentsOfSameGroup(aliments.results))
+  }, [props.aliment])
 
-    for (let i = 0; i < numRelatedAliments; i++) {
-      const index = Math.floor(Math.random() * tempsAliments.length)
-      tempsRelatedAliments.push(tempsAliments[index])
-      tempsAliments.splice(index, 1)
+  const [relatedAliments, setRelatedAliments] = useState([])
+  useEffect(() => {
+    if (alimentsOfSameGroup) {
+      let tempsAlimentsOfSameGroup = [...alimentsOfSameGroup]
+      let tempsRelatedAliments = []
+      for (let i = 0; i < numRelatedAliments; i++) {
+        const index = Math.floor(
+          Math.random() * tempsAlimentsOfSameGroup.length
+        )
+        tempsRelatedAliments.push(tempsAlimentsOfSameGroup[index])
+        tempsAlimentsOfSameGroup.splice(index, 1)
+      }
+      setRelatedAliments(tempsRelatedAliments)
     }
-    setRelatedAliments(tempsRelatedAliments)
-  }, [props.aliments, props.aliment, numRelatedAliments])
+  }, [alimentsOfSameGroup, numRelatedAliments])
 
   return (
     <Wrapper>
-      <Title>Produit de la même catégorie ({props.aliment.groupe})</Title>
+      <Title>
+        Produit de la même catégorie ({props.aliment[`Groupe_d'aliment`]})
+      </Title>
       <Aliments>
         {relatedAliments.map(
           aliment =>
             aliment && (
-              <AlimentItem key={aliment.ciqual_code} aliment={aliment} />
+              <AlimentItem key={aliment[`Code_AGB`]} aliment={aliment} />
             )
         )}
       </Aliments>

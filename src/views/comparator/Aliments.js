@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import styled from 'styled-components'
 
 import { mq } from 'utils/styles'
-import useAlimentsFilters from 'hooks/useAlimentsFilters'
+import api from 'utils/api'
+import SearchContext from 'utils/searchContext'
 
 import Button from 'components/Button'
 import AlimentItem from 'components/AlimentItem'
@@ -10,10 +11,15 @@ import SearchRecap from './aliments/SearchRecap'
 import MobileFilters from './aliments/MobileFilters'
 import Sort from './aliments/Sort'
 import Pagination from './aliments/Pagination'
+import Loader from 'components/misc/Loader'
 
 const Wrapper = styled.div`
   flex: 1;
   margin: 0 1em 2em;
+
+  ${mq.small} {
+    margin: 0 0.4em 2em;
+  }
 `
 const AlimentsWrapper = styled.div`
   display: flex;
@@ -50,21 +56,40 @@ const MobileFiltersButton = styled.div`
   }
 `
 export default function Aliments(props) {
-  const filteredAliments = useAlimentsFilters(props.aliments)
-
-  const perPage = 21
-
-  const [page, setPage] = useState(0)
-
+  const {
+    search,
+    categories,
+    subCategories,
+    sort,
+    page,
+    size,
+    loading,
+    setLoading
+  } = useContext(SearchContext)
+  const [aliments, setAliments] = useState()
   useEffect(() => {
-    setPage(0)
-  }, [filteredAliments])
+    setLoading(true)
+    api
+      .fetchAliments({
+        search,
+        categories,
+        subCategories,
+        sort,
+        page,
+        size
+      })
+      .then(aliments => {
+        setAliments(aliments)
+        setLoading(false)
+      })
+  }, [search, categories, subCategories, sort, page, size, setLoading])
 
   const [mobileFiltersVisible, setMobileFiltersVisible] = useState(false)
-  return (
+
+  return aliments ? (
     <Wrapper>
       <Flex>
-        <SearchRecap numAliments={filteredAliments.length} />
+        <SearchRecap numAliments={aliments.total} />
         <MobileFilters
           visible={mobileFiltersVisible}
           categories={props.categories}
@@ -84,22 +109,17 @@ export default function Aliments(props) {
       </Flex>
 
       <AlimentsWrapper>
-        {filteredAliments.map(
-          (aliment, index) =>
-            page * perPage <= index &&
-            (page + 1) * perPage > index && (
-              <AlimentItem
-                aliment={aliment}
-                key={aliment.ciqual_code + index}
-              />
-            )
-        )}
+        {aliments.results.map(aliment => (
+          <AlimentItem
+            aliment={aliment}
+            loading={loading}
+            key={aliment['Code_AGB']}
+          />
+        ))}
       </AlimentsWrapper>
-      <Pagination
-        total={Math.floor(filteredAliments.length / perPage)}
-        page={page}
-        setPage={setPage}
-      />
+      <Pagination total={Math.floor(aliments.total)} />
     </Wrapper>
+  ) : (
+    <Loader />
   )
 }

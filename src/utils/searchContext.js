@@ -8,5 +8,9 @@ export default React.createContext({
   subCategories: [],
   setSubCategories: () => '',
   sort: [],
-  setSort: () => ''
+  setSort: () => '',
+  page: 0,
+  setPage: () => '',
+  size: 0,
+  setSize: () => ''
 })

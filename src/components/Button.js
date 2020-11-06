@@ -15,6 +15,7 @@ const Content = styled.button`
   width: ${props => (props.expand ? '100%' : 'auto')};
   height: 100%;
   padding: 0.8em 1.6em;
+  font-size: 14px;
   font-weight: 500;
   color: ${props =>
     props.white

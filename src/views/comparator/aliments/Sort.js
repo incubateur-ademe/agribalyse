@@ -18,12 +18,32 @@ export default function Sort() {
 
   return (
     <Select value={sort} onChange={e => setSort(e.currentTarget.value)}>
-      <Option value={'alph_asc'}>Ordre alphabétique (A > Z)</Option>
-      <Option value={'alph_desc'}>Ordre alphabétique (Z > A)</Option>
-      <Option value={'score_asc'}>Score (Du plus bas au plus haut)</Option>
-      <Option value={'score_desc'}>Score (Du plus haut au plus bas)</Option>
-      <Option value={'dqr_asc'}>DQR (Du plus bas au plus haut)</Option>
-      <Option value={'dqr_desc'}>DQR (Du plus haut au plus bas)</Option>
+      <Option value={'Nom_du_Produit_en_Français'}>
+        Ordre alphabétique (A > Z)
+      </Option>
+      <Option value={'-Nom_du_Produit_en_Français'}>
+        Ordre alphabétique (Z > A)
+      </Option>
+      <Option value={'Score_unique_EF_(mPt/kg_de_produit)'}>
+        Score (Du plus bas au plus haut)
+      </Option>
+      <Option value={'-Score_unique_EF_(mPt/kg_de_produit)'}>
+        Score (Du plus haut au plus bas)
+      </Option>
+      <Option
+        value={
+          'DQR_-_Note_de_qualité_de_la_donnée_(1_excellente___5_très_faible)'
+        }
+      >
+        DQR (Du plus bas au plus haut)
+      </Option>
+      <Option
+        value={
+          '-DQR_-_Note_de_qualité_de_la_donnée_(1_excellente___5_très_faible)'
+        }
+      >
+        DQR (Du plus haut au plus bas)
+      </Option>
     </Select>
   )
 }

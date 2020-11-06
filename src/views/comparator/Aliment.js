@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { useParams } from 'react-router-dom'
 
 import { mq } from 'utils/styles'
+import api from 'utils/api'
 
 import Loader from 'components/misc/Loader'
 import BreadCrumb from './aliment/BreadCrumb'
@@ -17,24 +18,34 @@ const Wrapper = styled.div`
     margin: 0 1em 2em;
   }
 `
-export default function Aliment(props) {
-  const { ciqual_code } = useParams()
-
-  const [currentAliment, setCurrentAliment] = useState(null)
-
+export default function Aliment() {
+  const { code_agb } = useParams()
+  const [aliment, setAliment] = useState(null)
+  const [indicateurs, setIndicateurs] = useState(null)
+  const [ingredients, setIngredients] = useState(null)
   useEffect(() => {
-    setCurrentAliment(
-      props.aliments.find(aliment => aliment.ciqual_code === ciqual_code)
-    )
-  }, [props.aliments, ciqual_code])
+    api
+      .fetchAliments({ code_agb })
+      .then(aliment => setAliment(aliment.results[0]))
+    api
+      .fetchIndicateurs(code_agb)
+      .then(indicateurs => setIndicateurs(indicateurs.results[0]))
+    api
+      .fetchIngredients(code_agb)
+      .then(ingredients => setIngredients(ingredients.results))
+  }, [code_agb])
 
   return (
     <Wrapper>
-      {currentAliment ? (
+      {aliment && indicateurs && ingredients ? (
         <>
-          <BreadCrumb aliment={currentAliment} />
-          <Informations aliment={currentAliment} />
-          <RelatedAliments aliments={props.aliments} aliment={currentAliment} />
+          <BreadCrumb aliment={aliment} />
+          <Informations
+            aliment={aliment}
+            indicateurs={indicateurs}
+            ingredients={ingredients}
+          />
+          <RelatedAliments aliment={aliment} />
         </>
       ) : (
         <Loader />

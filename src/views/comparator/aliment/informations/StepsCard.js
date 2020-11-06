@@ -5,7 +5,7 @@ import Step from 'components/Step'
 
 export default function StepsCard(props) {
   return (
-    <Card width={props.large ? '50%' : '33.333%'}>
+    <Card large={props.large}>
       <Card.Top>
         <Card.Title>
           Impact par
@@ -15,85 +15,61 @@ export default function StepsCard(props) {
 
         <Step
           value={
-            props.aliment['impact_environnemental']['Score unique EF'][
-              'etapes'
-            ]['Agriculture']
-          }
-          max={
-            props.aliment['impact_environnemental']['Score unique EF'][
-              'synthese'
+            props.indicateurs[
+              `Score_unique_EF_(mPt_/_kg_de_produit)_-_Agriculture`
             ]
           }
+          max={props.aliment['Score_unique_EF_(mPt/kg_de_produit)']}
           title={'Agriculture'}
           delay={0}
         />
         <Step
           value={
-            props.aliment['impact_environnemental']['Score unique EF'][
-              'etapes'
-            ]['Transformation']
-          }
-          max={
-            props.aliment['impact_environnemental']['Score unique EF'][
-              'synthese'
+            props.indicateurs[
+              `Score_unique_EF_(mPt_/_kg_de_produit)_-_Transformation`
             ]
           }
+          max={props.aliment['Score_unique_EF_(mPt/kg_de_produit)']}
           title={'Transformation'}
           delay={1}
         />
         <Step
           value={
-            props.aliment['impact_environnemental']['Score unique EF'][
-              'etapes'
-            ]['Emballage']
-          }
-          max={
-            props.aliment['impact_environnemental']['Score unique EF'][
-              'synthese'
+            props.indicateurs[
+              `Score_unique_EF_(mPt_/_kg_de_produit)_-_Emballage`
             ]
           }
+          max={props.aliment['Score_unique_EF_(mPt/kg_de_produit)']}
           title={'Emballage'}
           delay={2}
         />
         <Step
           value={
-            props.aliment['impact_environnemental']['Score unique EF'][
-              'etapes'
-            ]['Transport']
-          }
-          max={
-            props.aliment['impact_environnemental']['Score unique EF'][
-              'synthese'
+            props.indicateurs[
+              `Score_unique_EF_(mPt_/_kg_de_produit)_-_Transport`
             ]
           }
+          max={props.aliment['Score_unique_EF_(mPt/kg_de_produit)']}
           title={'Transport'}
           delay={3}
         />
         <Step
           value={
-            props.aliment['impact_environnemental']['Score unique EF'][
-              'etapes'
-            ]['Supermarché et distribution']
-          }
-          max={
-            props.aliment['impact_environnemental']['Score unique EF'][
-              'synthese'
+            props.indicateurs[
+              `Score_unique_EF_(mPt_/_kg_de_produit)_-_Supermarché_et_distribution`
             ]
           }
+          max={props.aliment['Score_unique_EF_(mPt/kg_de_produit)']}
           title={'Supermarché et distribution'}
           delay={4}
         />
         <Step
           value={
-            props.aliment['impact_environnemental']['Score unique EF'][
-              'etapes'
-            ]['Consommation']
-          }
-          max={
-            props.aliment['impact_environnemental']['Score unique EF'][
-              'synthese'
+            props.indicateurs[
+              `Score_unique_EF_(mPt_/_kg_de_produit)_-_Consommation`
             ]
           }
+          max={props.aliment['Score_unique_EF_(mPt/kg_de_produit)']}
           title={'Consommation'}
           delay={5}
         />

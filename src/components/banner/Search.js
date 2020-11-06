@@ -124,7 +124,14 @@ export default function Search(props) {
 
   const [focus, setFocus] = useState(false)
 
-  let history = useHistory()
+  const history = useHistory()
+  const navigateToResultPage = () => {
+    history.replace({
+      pathname: '/aliments',
+      search: history.location.search
+    })
+    setSearch(value)
+  }
 
   return (
     <Wrapper small={props.small}>
@@ -138,27 +145,17 @@ export default function Search(props) {
           }}
           onKeyUp={e => {
             if (value.length > 2 && (e.key === 'Enter' || e.keyCode === 13)) {
-              history.push('/aliments')
-              setSearch(value)
+              navigateToResultPage()
             }
           }}
           onFocus={() => setFocus(true)}
           onBlur={() => setFocus(false)}
           small={props.small}
         />
-        <Arrow
-          visible={value.length > 2}
-          onClick={() => {
-            history.push('/aliments')
-            setSearch(value)
-          }}
-        />
+        <Arrow visible={value.length > 2} onClick={navigateToResultPage} />
         <EnterIndicator
           visible={value.length > 2 && focus}
-          onClick={() => {
-            history.push('/aliments')
-            setSearch(value)
-          }}
+          onClick={navigateToResultPage}
         >
           Appuyez sur Entrée
         </EnterIndicator>

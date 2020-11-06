@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 import { mq } from 'utils/styles'
 import Suggestion from './suggestions/Suggestion'
+import api from 'utils/api'
 
 const Wrapper = styled.div`
   display: flex;
@@ -27,30 +28,31 @@ const Wrapper = styled.div`
   }
 `
 export default function Suggestions(props) {
-  const [suggestions, setSuggestions] = useState([])
   const [suggestionsData, setSuggestionsData] = useState([])
-
   useEffect(() => {
     fetch('/data/suggestions.json')
       .then(res => res.json())
       .then(data => setSuggestionsData(data))
   }, [])
 
+  const [suggestions, setSuggestions] = useState([])
+
+  const setLoaded = props.setLoaded
   useEffect(() => {
-    setSuggestions(
-      props.aliments.filter(aliment =>
-        suggestionsData.find(
-          suggestionData =>
-            Number(suggestionData) === Number(aliment.ciqual_code)
-        )
-      )
-    )
-  }, [props.aliments, suggestionsData])
+    if (suggestionsData.length) {
+      api
+        .fetchAliments({ code_agb: suggestionsData.join() })
+        .then(suggestion => {
+          setSuggestions(suggestion.results)
+          setLoaded(true)
+        })
+    }
+  }, [suggestionsData, setLoaded])
 
   return (
     <Wrapper small={props.small}>
-      {suggestions.map((suggestion, index) => (
-        <Suggestion key={suggestion.ciqual_code + index} aliment={suggestion} />
+      {suggestions.map(suggestion => (
+        <Suggestion key={suggestion['Code_AGB']} aliment={suggestion} />
       ))}
     </Wrapper>
   )

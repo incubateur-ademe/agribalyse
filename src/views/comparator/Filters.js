@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { mq } from 'utils/styles'
+
 import Category from './filters/Category'
 
 const Wrapper = styled.div`

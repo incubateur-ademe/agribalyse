@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { Switch, Route } from 'react-router-dom'
 
+import api from 'utils/api'
 import Aliments from './comparator/Aliments'
 import Aliment from './comparator/Aliment'
 import Filters from './comparator/Filters'
@@ -11,18 +12,21 @@ const Wrapper = styled.div`
   justify-content: space-between;
   align-items: flex-start;
 `
-export default function Comparator(props) {
+export default function Comparator() {
+  const [categories, setCategories] = useState([])
+  useEffect(() => {
+    api.fetchCategories().then(categories => setCategories(categories.aggs))
+  }, [])
+
   return (
     <Wrapper>
-      <Filters aliments={props.aliments} categories={props.categories} />
+      <Filters categories={categories} />
       <Switch>
-        <Route path='/aliments/:ciqual_code'>
-          {props.aliments.length && <Aliment aliments={props.aliments} />}
+        <Route path='/aliments/:code_agb'>
+          <Aliment />}
         </Route>
         <Route path={['/aliments']}>
-          {props.aliments.length && (
-            <Aliments aliments={props.aliments} categories={props.categories} />
-          )}
+          <Aliments categories={categories} />
         </Route>
       </Switch>
     </Wrapper>

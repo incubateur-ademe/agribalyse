@@ -1,51 +1,40 @@
-import React, { useState, useEffect } from 'react'
-import { useLocation, useHistory } from 'react-router-dom'
+import React, { useState } from 'react'
+
+import {
+  useQueryParam,
+  NumberParam,
+  StringParam,
+  ArrayParam,
+  withDefault
+} from 'use-query-params'
 
 import SearchContext from 'utils/searchContext'
+import usePageView from 'hooks/usePageView'
 
 export default function SearchProvider(props) {
-  let history = useHistory()
-  let location = useLocation()
-  const query = new URLSearchParams(location.search)
+  usePageView()
 
-  const [search, setSearch] = useState(
-    query.get('search') ? decodeURIComponent(query.get('search')) : ''
+  const [search, setSearch] = useQueryParam(
+    'search',
+    withDefault(StringParam, '')
   )
-  const [categories, setCategories] = useState(
-    query.get('categories') ? [decodeURIComponent(query.get('categories'))] : []
+  const [categories, setCategories] = useQueryParam(
+    'categories',
+    withDefault(ArrayParam, [])
   )
-  const [subCategories, setSubCategories] = useState(
-    query.get('subCategories')
-      ? query
-          .get('subCategories')
-          .split(',')
-          .map(subCategory => decodeURIComponent(subCategory))
-          .filter(subCategory => subCategory)
-      : []
+  const [subCategories, setSubCategories] = useQueryParam(
+    'subCategories',
+    withDefault(ArrayParam, [])
   )
-  const [sort, setSort] = useState(query.get('order') || 'alph_asc')
+  const [sort, setSort] = useQueryParam(
+    'sort',
+    withDefault(StringParam, 'Nom_du_Produit_en_Français')
+  )
+  const [page, setPage] = useQueryParam('page', withDefault(NumberParam, 1))
+  const [size, setSize] = useQueryParam('size', withDefault(NumberParam, 20))
 
-  useEffect(() => {
-    let tempSearch = '?'
+  const [loading, setLoading] = useState(false)
 
-    if (search) {
-      tempSearch += `search=${encodeURIComponent(search)}&`
-    }
-    if (categories.length) {
-      tempSearch += `categories=${encodeURIComponent(categories[0])}&`
-    }
-    if (subCategories.length) {
-      tempSearch += `subCategories=${encodeURIComponent(
-        subCategories.concat(',')
-      )}&`
-    }
-    if (sort) {
-      tempSearch += `order=${encodeURIComponent(sort)}`
-    }
-    history.replace({
-      search: tempSearch
-    })
-  }, [search, categories, subCategories, sort, history])
   return (
     <SearchContext.Provider
       value={{
@@ -55,8 +44,14 @@ export default function SearchProvider(props) {
         setCategories,
         subCategories,
         setSubCategories,
+        setSort,
         sort,
-        setSort
+        page,
+        size,
+        setPage,
+        setSize,
+        loading,
+        setLoading
       }}
     >
       {props.children}
