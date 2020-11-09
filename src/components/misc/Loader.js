@@ -8,5 +8,5 @@ const Wrapper = styled.div`
   font-weight: 900;
 `
 export default function Loader() {
-  return <Wrapper>Loading...</Wrapper>
+  return <Wrapper></Wrapper>
 }

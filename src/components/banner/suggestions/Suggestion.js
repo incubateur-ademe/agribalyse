@@ -41,7 +41,11 @@ const Wrapper = styled(Link)`
 
 export default function Suggestion(props) {
   return (
-    <Wrapper to={`/aliments/${props.aliment['Code_AGB']}`}>
+    <Wrapper
+      to={`/aliments/${props.aliment['Code_AGB']}#${props.aliment[
+        'Nom_du_Produit_en_Français'
+      ].replaceAll(' ', '_')}`}
+    >
       {props.aliment['Nom_du_Produit_en_Français']}
     </Wrapper>
   )

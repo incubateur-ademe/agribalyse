@@ -23,10 +23,15 @@ export default function Aliment() {
   const [aliment, setAliment] = useState(null)
   const [indicateurs, setIndicateurs] = useState(null)
   const [ingredients, setIngredients] = useState(null)
+  const [error, setError] = useState(false)
   useEffect(() => {
-    api
-      .fetchAliments({ code_agb })
-      .then(aliment => setAliment(aliment.results[0]))
+    api.fetchAliments({ code_agb }).then(aliment => {
+      if (aliment.results && aliment.results.length) {
+        setAliment(aliment.results[0])
+      } else {
+        setError(true)
+      }
+    })
     api
       .fetchIndicateurs(code_agb)
       .then(indicateurs => setIndicateurs(indicateurs.results[0]))
