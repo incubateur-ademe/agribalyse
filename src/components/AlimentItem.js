@@ -76,7 +76,7 @@ export default function AlimentItem(props) {
       small
       to={`/aliments/${props.aliment['Code_AGB']}#${props.aliment[
         'Nom_du_Produit_en_Français'
-      ].replaceAll(' ', '_')}`}
+      ].replace(/ /g, '_')}`}
       disabled={props.loading}
     >
       <Card.Top>

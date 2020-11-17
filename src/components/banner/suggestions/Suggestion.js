@@ -44,7 +44,7 @@ export default function Suggestion(props) {
     <Wrapper
       to={`/aliments/${props.aliment['Code_AGB']}#${props.aliment[
         'Nom_du_Produit_en_Français'
-      ].replaceAll(' ', '_')}`}
+      ].replace(/ /g, '_')}`}
     >
       {props.aliment['Nom_du_Produit_en_Français']}
     </Wrapper>
