@@ -5,7 +5,9 @@ import { Link, useLocation, useRouteMatch } from 'react-router-dom'
 import { colors, breakpoints, mq } from 'utils/styles'
 import SearchContext from 'utils/searchContext'
 import useWindowSize from 'hooks/useWindowSize'
+
 import logo from 'assets/logo.png'
+
 import Carrot from './banner/Carrot'
 import Search from './banner/Search'
 import Suggestions from './banner/Suggestions'
@@ -112,7 +114,7 @@ export default function Banner() {
   const { setSearch, setCategories, setSubCategories } = useContext(
     SearchContext
   )
-  let resultsPage = useRouteMatch('/aliments/:code_agb?')
+  let resultsPage = useRouteMatch('/app/aliments/:code_agb?')
   const [small, setSmall] = useState(resultsPage && resultsPage.isExact)
   useEffect(() => {
     setSmall(resultsPage && resultsPage.isExact)
@@ -120,16 +122,12 @@ export default function Banner() {
 
   return (
     <Wrapper windowHeight={windowSize.height} small={small}>
-      <a
-        href='https://ecolab.ademe.fr/agribalyse'
-        target='_blank'
-        rel='noopener noreferrer'
-      >
-        <Logo src={logo} alt={'Agrybalise'} small={small} />
-      </a>
+      <Link to='/'>
+        <Logo src={logo} alt={'Agribalyse'} small={small} />
+      </Link>
       <Carrot small={small} />
       <ContentWrapper visible={loaded}>
-        <StyledLink to='/' small={small}>
+        <StyledLink to='/app' small={small}>
           <Title>Découvrez l’impact environnemental de votre assiette</Title>
         </StyledLink>
         <Search small={small} />

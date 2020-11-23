@@ -1,5 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
+
+import { mq } from 'utils/styles'
+import I18nContext from 'utils/i18nContext'
 
 import Button from 'components/Button'
 
@@ -17,6 +20,10 @@ const Title = styled.h2`
 const Columns = styled.div`
   display: flex;
   margin: 0 -2em;
+
+  ${mq.small} {
+    flex-direction: column;
+  }
 `
 const Column = styled.div`
   flex: 1;
@@ -33,27 +40,29 @@ const Buttons = styled.div`
     flex: 1;
     margin: 0 2em 2em;
   }
+
+  ${mq.small} {
+    flex-direction: column;
+  }
 `
 export default function Presentation() {
+  const { translate } = useContext(I18nContext)
+
   return (
     <Wrapper>
       <Sizer>
         <Title>
-          Agribalyse, la base de données environnementale de référence sur des
-          produits agricoles et alimentaires
+          {translate(`Agribalyse, la base de données environnementale de référence sur des produits agricoles et alimentaires`)}
         </Title>
         <Columns>
           <Column>
-            2500 produits, 14 indicateurs construits selon l’approche
-            scientifique de l’Analyse de Cycle de Vie
+            {translate(`2500 produits, 14 indicateurs construits selon l’approche scientifique de l’Analyse de Cycle de Vie`)}
           </Column>
           <Column>
-            Un programme collaboratif associant des scientifiques et experts des
-            secteurs agricoles, agroalimentaires et de l’environnement
+            {translate(`Un programme collaboratif associant des scientifiques et experts des secteurs agricoles, agroalimentaires et de l’environnement`)}
           </Column>
           <Column>
-            Un outil au service des professionnels agricoles et alimentaires, et
-            des consommateurs
+            {translate(`Un outil au service des professionnels agricoles et alimentaires, et des consommateurs`)}
           </Column>
         </Columns>
         <Buttons>
@@ -61,14 +70,14 @@ export default function Presentation() {
             expand
             href='https://ecolab.gitbook.io/documentation-agribalyse/acces-donnees'
           >
-            Télécharger les données
+            {translate(`Télécharger les données`)}
           </Button>
           <Button
             expand
             hollow
             href='https://ecolab.gitbook.io/documentation-agribalyse'
           >
-            Information, conditions d’usage et documentation
+            {translate(`Informations, conditions d’usages et documentation`)}
           </Button>
         </Buttons>
       </Sizer>

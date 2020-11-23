@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
+
+import I18nContext from 'utils/i18nContext'
 
 import Button from 'components/Button'
 
@@ -19,13 +21,17 @@ const ButtonWrapper = styled.div`
   justify-content: center;
 `
 export default function Video() {
+  const { translate } = useContext(I18nContext)
+
   return (
     <Wrapper>
       <Sizer>
-        <Title>Vous avez des questions sur le programme Agribalyse ?</Title>
+        <Title>
+          {translate(`Vous avez des questions sur le programme Agribalyse ?`)}
+        </Title>
         <ButtonWrapper>
           <Button href='https://ecolab.gitbook.io/documentation-agribalyse/nous-contactez/contact'>
-            Contactez-nous
+            {translate(`Contactez-nous`)}
           </Button>
         </ButtonWrapper>
       </Sizer>

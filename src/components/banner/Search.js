@@ -127,7 +127,7 @@ export default function Search(props) {
   const history = useHistory()
   const navigateToResultPage = () => {
     history.replace({
-      pathname: '/aliments',
+      pathname: '/app/aliments',
       search: history.location.search
     })
     setSearch(value)

@@ -2,6 +2,8 @@ import React, { useContext } from 'react'
 import styled from 'styled-components'
 
 import SearchContext from 'utils/searchContext'
+import I18nContext from 'utils/i18nContext'
+
 import boissons from 'assets/groupes/boissons.jpg'
 import condiments from 'assets/groupes/condiments.jpg'
 import confiseries from 'assets/groupes/confiseries.jpg'
@@ -27,97 +29,99 @@ const CategoryWrapper = styled.div`
 export default function Categories() {
   const { setCategories, setSubCategories } = useContext(SearchContext)
 
+  const { translate } = useContext(I18nContext)
+
   return (
     <Wrapper>
       <Sizer>
         <CategoryWrapper>
           <Card
             small
-            to={`/aliments`}
+            to={`/app/aliments`}
             onClick={() => {
               setCategories(['entrées et plats composés'])
               setSubCategories(['plats composés'])
             }}
           >
             <Card.Image src={platscomposes} />
-            <Card.Legend>Plats composés</Card.Legend>
+            <Card.Legend>{translate(`Plats composés`)}</Card.Legend>
           </Card>
           <Card
             small
-            to={`/aliments`}
+            to={`/app/aliments`}
             onClick={() => {
               setCategories(['fruits, légumes, légumineuses et oléagineux'])
               setSubCategories([])
             }}
           >
             <Card.Image src={fruitslegumes} />
-            <Card.Legend>Fruits et légumes</Card.Legend>
+            <Card.Legend>{translate(`Fruits et légumes`)}</Card.Legend>
           </Card>
           <Card
             small
-            to={`/aliments`}
+            to={`/app/aliments`}
             onClick={() => {
               setCategories(['viandes, œufs, poissons'])
               setSubCategories([])
             }}
           >
             <Card.Image src={viandespoissons} />
-            <Card.Legend>Viandes et poissons</Card.Legend>
+            <Card.Legend>{translate(`Viandes et poissons`)}</Card.Legend>
           </Card>
           <Card
             small
-            to={`/aliments`}
+            to={`/app/aliments`}
             onClick={() => {
               setCategories(['produits sucrés'])
               setSubCategories([])
             }}
           >
             <Card.Image src={confiseries} />
-            <Card.Legend>Confiseries</Card.Legend>
+            <Card.Legend>{translate(`Confiseries`)}</Card.Legend>
           </Card>
           <Card
             small
-            to={`/aliments`}
+            to={`/app/aliments`}
             onClick={() => {
               setCategories(['aides culinaires et ingrédients divers'])
               setSubCategories(['condiments'])
             }}
           >
             <Card.Image src={condiments} />
-            <Card.Legend>Condiments</Card.Legend>
+            <Card.Legend>{translate(`Condiments`)}</Card.Legend>
           </Card>
           <Card
             small
-            to={`/aliments`}
+            to={`/app/aliments`}
             onClick={() => {
               setCategories(['boissons'])
               setSubCategories([])
             }}
           >
             <Card.Image src={boissons} />
-            <Card.Legend>Boissons</Card.Legend>
+            <Card.Legend>{translate(`Boissons`)}</Card.Legend>
           </Card>
           <Card
             small
-            to={`/aliments`}
+            to={`/app/aliments`}
             onClick={() => {
               setCategories(['produits céréaliers'])
               setSubCategories(['gâteaux et pâtisseries'])
             }}
           >
             <Card.Image src={desserts} />
-            <Card.Legend>Desserts</Card.Legend>
+            <Card.Legend>{translate(`Desserts`)}</Card.Legend>
           </Card>
           <Card
             small
-            to={`/aliments`}
+            to={`/app/aliments`}
             onClick={() => {
               setCategories(['lait et produits laitiers'])
               setSubCategories([])
             }}
           >
             <Card.Image src={laitoeuf} />
-            <Card.Legend>Produits laitiers</Card.Legend>
+            <Card.Legend>{translate(`Produits laitiers`)}</Card.Legend>
           </Card>
         </CategoryWrapper>
       </Sizer>

@@ -3,12 +3,10 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { QueryParamProvider } from 'use-query-params'
 
 import { GlobalStyle } from 'utils/styles'
-import SearchProvider from 'components/providers/SearchProvider'
 
 import OutdatedBrowser from 'components/OutdatedBrowser'
-import Banner from 'components/Banner'
 import Home from 'views/Home'
-import Comparator from 'views/Comparator'
+import Search from 'views/Search'
 
 function App() {
   const outdatedBrowser = uaString => {
@@ -24,19 +22,14 @@ function App() {
         {outdatedBrowser() ? (
           <OutdatedBrowser />
         ) : (
-          <>
-            <SearchProvider>
-              <Banner />
-              <Switch>
-                <Route path='/aliments/:code_agb?'>
-                  <Comparator />
-                </Route>
-                <Route path={['/']}>
-                  <Home />
-                </Route>
-              </Switch>
-            </SearchProvider>
-          </>
+          <Switch>
+            <Route path='/app'>
+              <Search />
+            </Route>
+            <Route path='/'>
+              <Home />
+            </Route>
+          </Switch>
         )}
       </QueryParamProvider>
     </Router>
