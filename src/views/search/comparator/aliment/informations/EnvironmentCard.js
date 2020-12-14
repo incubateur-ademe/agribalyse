@@ -66,7 +66,7 @@ export default function EnvironmentCard(props) {
               plus le score est bas plus son impact sur l'environnement est
               faible
             </b>
-            . Ce score unique est une moyenne pondérée des <b>14 indicateurs</b>{' '}
+            . Ce score unique est une moyenne pondérée des <b>16 indicateurs</b>{' '}
             (voir tableau ci-dessous), calculé selon la méthodologie européenne
             « PEF » <b>(Product Environmental Footprint)</b>.
           </p>
