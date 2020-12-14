@@ -63,7 +63,7 @@ export default function DQR(props) {
         le niveau de confiance que l'on peut avoir dans le score. Plus le DQR
         est proche de 1, plus la donnée est fiable; plus la valeur se rapproche
         de 5, plus le score rend compte d'une incertitude importante.{' '}
-        <b>Une donnée avec un DQR >= 4 est considérée comme peu fiable. </b>
+        <b>Une donnée avec un DQR >= 3 est considérée comme peu fiable. </b>
       </Tooltip>
     </Wrapper>
   )
