@@ -96,7 +96,7 @@ export default function Landing() {
       <Content>
         <Logo src={logo} alt={'Agribalyse'} />
         <Title>
-          {translate(`Découvrez l’impact environnemental de votre assiette`)}
+          {translate(`Découvrez l’impact environnemental de votre assiette selon les indicateurs ACV`)}
         </Title>
         <ButtonWrapper>
           <Button to='/app' size='big'>
