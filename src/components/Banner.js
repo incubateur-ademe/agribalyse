@@ -128,7 +128,7 @@ export default function Banner() {
       <Carrot small={small} />
       <ContentWrapper visible={loaded}>
         <StyledLink to='/app' small={small}>
-          <Title>Découvrez l’impact environnemental de votre assiette</Title>
+          <Title>Découvrez l’impact environnemental de votre assiette selon les indicateurs ACV</Title>
         </StyledLink>
         <Search small={small} />
         <Suggestions small={small} setLoaded={setLoaded} />
