@@ -1,5 +1,5 @@
 
-l'application en production : http://app.agribalyse.fr/
+l'application en production : https://agribalyse.fr/app
 
 
 
