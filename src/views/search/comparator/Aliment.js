@@ -17,6 +17,10 @@ const Wrapper = styled.div`
   ${mq.small} {
     margin: 0 1em 2em;
   }
+  ${mq.large} {
+    max-width: 1200px;
+    margin: 0 auto 2em;
+  }
 `
 export default function Aliment() {
   const { code_agb } = useParams()

@@ -24,6 +24,9 @@ const Score = styled.div`
     ${mq.small} {
       font-size: 30vw;
     }
+    ${mq.large} {
+      font-size: ${props => (props.large ? '150px' : '120px')};
+    }
   }
 `
 const Unit = styled.div`
