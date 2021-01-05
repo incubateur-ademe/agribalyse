@@ -115,7 +115,7 @@ export default function Landing() {
       <Partners>
         <Partner src={repufrancaise} />
         <Partner src={ademe} />
-        <Partner src={inrae} />
+        // <Partner src={inrae} />
       </Partners>
     </Wrapper>
   )
