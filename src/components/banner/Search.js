@@ -20,6 +20,8 @@ const Wrapper = styled.div`
   }
 
   ${mq.small} {
+    flex-direction: column;
+    align-items: center;
     width: auto;
     opacity: ${props => (props.small ? 0 : 1)};
     pointer-events: ${props => (props.small ? 'none' : 'inherit')};
@@ -31,8 +33,8 @@ const InputWrapper = styled.div`
   margin-right: 2vw;
 
   ${mq.mediumPortrait} {
-    flex: 1;
-    margin-right: 3vw;
+    width: 100%;
+    margin: 0 0 3vw;
   }
 `
 const Input = styled.input`
@@ -51,12 +53,12 @@ const Input = styled.input`
   }
 
   ${mq.mediumPortrait} {
-    width: 100%;
     font-size: ${props => (props.small ? '2vw' : '3vw')};
   }
 
   ${mq.small} {
     font-size: 4vw;
+    width: 100%;
   }
   ${mq.large} {
     width: 40vw;
@@ -103,9 +105,6 @@ const Button = styled.a`
   }
 
   ${mq.small} {
-    position: absolute;
-    bottom: 5vw;
-    left: 3vw;
     padding: 0.5em 1em;
     font-size: 3.5vw;
   }

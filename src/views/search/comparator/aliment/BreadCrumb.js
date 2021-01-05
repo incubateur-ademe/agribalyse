@@ -13,6 +13,11 @@ const Wrapper = styled.div`
   ${mq.small} {
     display: none;
   }
+
+  ${mq.large} {
+    max-width: 1200px;
+    margin: 0.5rem auto 1rem;
+  }
 `
 const Item = styled.div`
   font-weight: 500;

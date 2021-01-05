@@ -1,13 +1,27 @@
 {
-  "Découvrez l’impact environnemental de votre assiette selon les indicateurs ACV": { "en": "Discover the environmental impact for food consumed products" },
+  "Découvrez l’impact environnemental de votre assiette selon les indicateurs ACV": {
+    "en": "Discover the environmental impact for food consumed products"
+  },
   "Parcourir les données": { "en": "Browse data (in french)" },
-  "Informations, conditions d’usages et documentation": { "en": "Information, terms of use and documentation" },
-  "Agribalyse, la base de données environnementale de référence sur des produits agricoles et alimentaires": { "en": "AGRIBALYSE database of environmental impact indicators for food items produced and consumed in France." },
-  "2500 produits, 14 indicateurs construits selon l’approche scientifique de l’Analyse de Cycle de Vie": { "en": "AGRIBALYSE provides reference data on 2,500 food products consumed in France (including imported products) based on the Life Cycle Assessment (LCA) method." },
-  "Un programme collaboratif associant des scientifiques et experts des secteurs agricoles, agroalimentaires et de l’environnement": { "en": "Co-piloted by ADEME and INRAE, relying on the collaboration of agricultural and agrifood technical institutes, the AGRIBALYSE program has existed for over 10 years." },
-  "Un outil au service des professionnels agricoles et alimentaires, et des consommateurs": { "en": "One of the main purposes of the AGRIBALYSE® program is to provide data useful for professionals in the agricultural and agrifood sectors (agricultural profession, agrifood industry, mass distribution,...) and final consumers." },
+  "Informations, conditions d’usages et documentation": {
+    "en": "Information, terms of use and documentation"
+  },
+  "Agribalyse, la base de données environnementale de référence sur des produits agricoles et alimentaires": {
+    "en": "AGRIBALYSE database of environmental impact indicators for food items produced and consumed in France."
+  },
+  "2500 produits, 16 indicateurs construits selon l’approche scientifique de l’Analyse de Cycle de Vie": {
+    "en": "AGRIBALYSE provides reference data on 2,500 food products consumed in France (including imported products) based on the Life Cycle Assessment (LCA) method."
+  },
+  "Un programme collaboratif associant des scientifiques et experts des secteurs agricoles, agroalimentaires et de l’environnement": {
+    "en": "Co-piloted by ADEME and INRAE, relying on the collaboration of agricultural and agrifood technical institutes, the AGRIBALYSE program has existed for over 10 years."
+  },
+  "Un outil au service des professionnels agricoles et alimentaires, et des consommateurs": {
+    "en": "One of the main purposes of the AGRIBALYSE® program is to provide data useful for professionals in the agricultural and agrifood sectors (agricultural profession, agrifood industry, mass distribution,...) and final consumers."
+  },
   "Télécharger les données": { "en": "Download the data" },
-  "Vidéo explicative du programme": { "en": "Agribalyse video program tutorial" },
+  "Vidéo explicative du programme": {
+    "en": "Agribalyse video program tutorial"
+  },
   "Plats composés": { "en": "Composed dishes" },
   "Fruits et légumes": { "en": "Fruits and vegetables" },
   "Viandes et poissons": { "en": "Meats and fishes" },
@@ -18,11 +32,21 @@
   "Produits laitiers": { "en": "Dairies" },
   "Exemples de cas d'usage": { "en": "Use cases examples" },
   "Ecoconception": { "en": "Ecodesign" },
-  "Améliorer vos systèmes de productions et votre gamme de produits alimentaires": { "en": "Improve your production systems and your range of food products" },
+  "Améliorer vos systèmes de productions et votre gamme de produits alimentaires": {
+    "en": "Improve your production systems and your range of food products"
+  },
   "Restauration collective": { "en": "Catering sector" },
-  "Aider vos convives dans leurs choix": { "en": "Improve your menus and help your guests in their choices" },
-  "Informations environnementales applications web et mobiles": { "en": "Environmental labelling in apps" },
-  "Communiquer les données environnementales à vos utilisateurs": { "en": "Educate consumers about the sustainability of their food" },
-  "Vous avez des questions sur le programme Agribalyse ?": { "en": "You have a question about AGRIBALYSE?" },
+  "Aider vos convives dans leurs choix": {
+    "en": "Improve your menus and help your guests in their choices"
+  },
+  "Informations environnementales applications web et mobiles": {
+    "en": "Environmental labelling in apps"
+  },
+  "Communiquer les données environnementales à vos utilisateurs": {
+    "en": "Educate consumers about the sustainability of their food"
+  },
+  "Vous avez des questions sur le programme Agribalyse ?": {
+    "en": "You have a question about AGRIBALYSE?"
+  },
   "Contactez-nous": { "en": "Contact us" }
 }

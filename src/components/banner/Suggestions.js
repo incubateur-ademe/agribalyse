@@ -9,11 +9,14 @@ const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   width: 49vw;
+  max-height: ${props => (props.small ? 0 : '10vw')};
   margin: 0 -0.5vw;
+  opacity: ${props => (props.small ? 0 : 1)};
+  pointer-events: ${props => (props.small ? 'none' : 'inherit')};
+  transition: all 600ms;
 
   ${mq.medium} {
     width: 70vw;
-    display: ${props => (props.small ? 'none' : 'flex')};
   }
   ${mq.mediumPortrait} {
     width: auto;
@@ -22,6 +25,7 @@ const Wrapper = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    max-height: none;
   }
   ${mq.large} {
     width: 55vw;

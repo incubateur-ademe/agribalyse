@@ -52,17 +52,25 @@ export default function Presentation() {
     <Wrapper>
       <Sizer>
         <Title>
-          {translate(`Agribalyse, la base de données environnementale de référence sur des produits agricoles et alimentaires`)}
+          {translate(
+            `Agribalyse, la base de données environnementale de référence sur des produits agricoles et alimentaires`
+          )}
         </Title>
         <Columns>
           <Column>
-            {translate(`2500 produits, 14 indicateurs construits selon l’approche scientifique de l’Analyse de Cycle de Vie`)}
+            {translate(
+              `2500 produits, 16 indicateurs construits selon l’approche scientifique de l’Analyse de Cycle de Vie`
+            )}
           </Column>
           <Column>
-            {translate(`Un programme collaboratif associant des scientifiques et experts des secteurs agricoles, agroalimentaires et de l’environnement`)}
+            {translate(
+              `Un programme collaboratif associant des scientifiques et experts des secteurs agricoles, agroalimentaires et de l’environnement`
+            )}
           </Column>
           <Column>
-            {translate(`Un outil au service des professionnels agricoles et alimentaires, et des consommateurs`)}
+            {translate(
+              `Un outil au service des professionnels agricoles et alimentaires, et des consommateurs`
+            )}
           </Column>
         </Columns>
         <Buttons>

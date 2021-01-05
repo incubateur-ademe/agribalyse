@@ -11,6 +11,11 @@ import Indicateurs from './informations/Indicateurs'
 
 const Wrapper = styled.div`
   margin-bottom: 4em;
+
+  ${mq.large} {
+    max-width: 1200px;
+    margin: 0 auto 4em;
+  }
 `
 const TitleWrapper = styled.div`
   flex: 1;

@@ -20,7 +20,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   overflow: hidden;
-  height: ${props => (props.small ? '26vw' : props.windowHeight + 'px')};
+  height: ${props => (props.small ? '21vw' : props.windowHeight + 'px')};
   margin-bottom: 2em;
   padding: 0 3vw;
   background-color: ${colors.main};
@@ -68,6 +68,34 @@ const Title = styled.h1`
   ${mq.large} {
     width: 40vw;
     font-size: 2vw;
+  }
+`
+const Subtitle = styled.div`
+  position: absolute;
+  bottom: ${props => (props.small ? '2vw' : '3vw')};
+  left: 3vw;
+  width: 70vw;
+  font-size: ${props => (props.small ? '0.8vw' : '1vw')};
+  font-weight: 700;
+  color: ${colors.white};
+  transition: all 600ms ease-in-out;
+
+  ${mq.medium} {
+    display: ${props => (props.small ? 'none' : 'block')};
+    font-size: 1vw;
+  }
+  ${mq.mediumPortrait} {
+    font-size: 1.5vw;
+  }
+  ${mq.small} {
+    font-size: 3vw;
+  }
+  ${mq.large} {
+    font-size: 0.6vw;
+  }
+
+  a {
+    color: ${colors.white};
   }
 `
 const Logo = styled.img`
@@ -135,7 +163,19 @@ export default function Banner() {
         </StyledLink>
         <Search small={small} />
         <Suggestions small={small} setLoaded={setLoaded} />
+        <Subtitle small={small}>
+          Ceci correspond aux données brutes ACV "Agribalyse" et ne correspond
+          pas à un{' '}
+          <a
+            href='https://ecolab.gitbook.io/documentation-agribalyse/usage-des-donnees/information-environnementale'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            "affichage environnemental"
+          </a>
+        </Subtitle>
       </ContentWrapper>
+
       <Loader visible={!loaded && !small} />
       <MobileBackButton small={small} />
     </Wrapper>
