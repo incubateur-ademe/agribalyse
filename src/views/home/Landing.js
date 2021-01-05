@@ -9,7 +9,6 @@ import logo from 'assets/logo.png'
 import background from 'assets/background.jpg'
 import repufrancaise from 'assets/repufrancaise.jpg'
 import ademe from 'assets/ademe.jpg'
-import inrae from 'assets/inrae.jpg'
 
 import LanguageSelector from './landing/LanguageSelector'
 import Button from 'components/Button'
@@ -96,7 +95,9 @@ export default function Landing() {
       <Content>
         <Logo src={logo} alt={'Agribalyse'} />
         <Title>
-          {translate(`Découvrez l’impact environnemental de votre assiette selon les indicateurs ACV`)}
+          {translate(
+            `Découvrez l’impact environnemental de votre assiette selon les indicateurs ACV`
+          )}
         </Title>
         <ButtonWrapper>
           <Button to='/app' size='big'>
@@ -115,7 +116,6 @@ export default function Landing() {
       <Partners>
         <Partner src={repufrancaise} />
         <Partner src={ademe} />
-        // <Partner src={inrae} />
       </Partners>
     </Wrapper>
   )
