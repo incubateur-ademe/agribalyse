@@ -6,7 +6,7 @@ import I18nContext from 'utils/i18nContext'
 const Wrapper = styled.div`
   position: absolute;
   top: 2vw;
-  left: 2vw;
+  right: 2vw;
   display: flex;
   margin-bottom: 2em;
 `
