@@ -20,7 +20,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   overflow: hidden;
-  height: ${props => (props.small ? '24vw' : props.windowHeight + 'px')};
+  height: ${props => (props.small ? '26vw' : props.windowHeight + 'px')};
   margin-bottom: 2em;
   padding: 0 3vw;
   background-color: ${colors.main};
@@ -128,7 +128,10 @@ export default function Banner() {
       <Carrot small={small} />
       <ContentWrapper visible={loaded}>
         <StyledLink to='/app' small={small}>
-          <Title>Découvrez l’impact environnemental de votre assiette selon les indicateurs ACV</Title>
+          <Title>
+            Découvrez l’impact environnemental de votre assiette selon les
+            indicateurs ACV
+          </Title>
         </StyledLink>
         <Search small={small} />
         <Suggestions small={small} setLoaded={setLoaded} />
