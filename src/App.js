@@ -5,6 +5,7 @@ import { QueryParamProvider } from 'use-query-params'
 import { GlobalStyle } from 'utils/styles'
 
 import OutdatedBrowser from 'components/OutdatedBrowser'
+import Footer from 'components/Footer'
 import Home from 'views/Home'
 import Search from 'views/Search'
 
@@ -22,14 +23,17 @@ function App() {
         {outdatedBrowser() ? (
           <OutdatedBrowser />
         ) : (
-          <Switch>
-            <Route path='/app'>
-              <Search />
-            </Route>
-            <Route path='/'>
-              <Home />
-            </Route>
-          </Switch>
+          <>
+            <Switch>
+              <Route path='/app'>
+                <Search />
+              </Route>
+              <Route path='/'>
+                <Home />
+              </Route>
+            </Switch>
+            <Footer />
+          </>
         )}
       </QueryParamProvider>
     </Router>

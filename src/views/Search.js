@@ -1,5 +1,5 @@
 import React from 'react'
-import { Switch, Route } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 
 import SearchProvider from 'components/providers/SearchProvider'
 
@@ -10,11 +10,9 @@ export default function Search() {
   return (
     <SearchProvider>
       <Banner />
-      <Switch>
-        <Route path='/app/aliments/:code_agb?'>
-          <Comparator />
-        </Route>
-      </Switch>
+      <Route path='/app/aliments/:code_agb?'>
+        <Comparator />
+      </Route>
     </SearchProvider>
   )
 }
