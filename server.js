@@ -14,7 +14,7 @@ app.get('/', function (req, res) {
     res.status(301).send()
   }
   res.send('/')
-  //res.sendFile(path.join(__dirname, 'build', 'index.html'))
+  res.sendFile(path.join(__dirname, 'build', 'index.html'))
 })
 app.get('/*', function (req, res) {
   if (req.get('host').includes('app.agribalyse.fr')) {
@@ -24,7 +24,6 @@ app.get('/*', function (req, res) {
     )
     res.status(301).send()
   }
-  res.send('/*')
-  // res.sendFile(path.join(__dirname, 'build', 'index.html'))
+  res.sendFile(path.join(__dirname, 'build', 'index.html'))
 })
 app.listen(port)
