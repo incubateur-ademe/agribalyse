@@ -1,0 +1,6 @@
+Redirect 301 https://app.agribalyse.fr https://www.agribalyse.fr/app
+Redirect 301 http://app.agribalyse.fr https://www.agribalyse.fr/app
+
+RewriteEngine on
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule (.*) https://www.agribalyse.fr/$1 [R=301,L]
