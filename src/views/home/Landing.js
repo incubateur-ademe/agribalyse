@@ -19,7 +19,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: ${props => props.windowHeight + 'px'};
+  height: ${(props) => props.windowHeight + 'px'};
   background-image: url(${background});
   background-size: cover;
   background-position: center;
@@ -28,7 +28,7 @@ const Content = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 2vw 2vw 5vw;
+  margin: 2vw 2vw 10vw;
 `
 const Title = styled.h1`
   width: 48vw;
@@ -58,7 +58,7 @@ const Partners = styled.div`
   position: absolute;
   display: flex;
   justify-content: center;
-  bottom: 2vw;
+  bottom: 1vw;
   width: 100%;
 `
 const Partner = styled.img`
