@@ -106,7 +106,9 @@ export default function Landing() {
         </ButtonWrapper>
         <ButtonWrapper>
           <Button
-            href='https://ecolab.gitbook.io/documentation-agribalyse'
+            href={translate(
+              'https://ecolab.gitbook.io/documentation-agribalyse'
+            )}
             hollow
           >
             {translate(`Informations, conditions d’usages et documentation`)}

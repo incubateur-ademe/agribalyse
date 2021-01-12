@@ -76,14 +76,18 @@ export default function Presentation() {
         <Buttons>
           <Button
             expand
-            href='https://ecolab.gitbook.io/documentation-agribalyse/acces-donnees'
+            href={translate(
+              'https://ecolab.gitbook.io/documentation-agribalyse/acces-donnees'
+            )}
           >
             {translate(`Télécharger les données`)}
           </Button>
           <Button
             expand
             hollow
-            href='https://ecolab.gitbook.io/documentation-agribalyse'
+            href={translate(
+              'https://ecolab.gitbook.io/documentation-agribalyse'
+            )}
           >
             {translate(`Informations, conditions d’usages et documentation`)}
           </Button>

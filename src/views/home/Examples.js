@@ -40,23 +40,37 @@ export default function Examples() {
       <Sizer>
         <Title>{translate(`Exemples de cas d'usage`)}</Title>
         <Cards>
-          <Card href='https://ecolab.gitbook.io/documentation-agribalyse/usage-des-donnees/ecoconception'>
+          <Card
+            href={translate(
+              'https://ecolab.gitbook.io/documentation-agribalyse/usage-des-donnees/ecoconception'
+            )}
+          >
             <Card.Image src={usecasevaches} />
             <Card.Top>
               <Card.Title>{translate(`Ecoconception`)}</Card.Title>
               <Text>
-                {translate(`Améliorer vos systèmes de productions et votre gamme de produits alimentaires`)}
+                {translate(
+                  `Améliorer vos systèmes de productions et votre gamme de produits alimentaires`
+                )}
               </Text>
             </Card.Top>
           </Card>
-          <Card href='https://ecolab.gitbook.io/documentation-agribalyse/usage-des-donnees/restauration-collective'>
+          <Card
+            href={translate(
+              'https://ecolab.gitbook.io/documentation-agribalyse/usage-des-donnees/restauration-collective'
+            )}
+          >
             <Card.Image src={usecaserie} />
             <Card.Top>
               <Card.Title>{translate(`Restauration collective`)}</Card.Title>
               <Text>{translate(`Aider vos convives dans leurs choix`)}</Text>
             </Card.Top>
           </Card>
-          <Card href='https://ecolab.gitbook.io/documentation-agribalyse/usage-des-donnees/information-environnementale'>
+          <Card
+            href={translate(
+              'https://ecolab.gitbook.io/documentation-agribalyse/usage-des-donnees/information-environnementale'
+            )}
+          >
             <Card.Image src={usecaseyuka} />
             <Card.Top>
               <Card.Title>

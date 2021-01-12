@@ -20,33 +20,33 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   overflow: hidden;
-  height: ${props => (props.small ? '21vw' : props.windowHeight + 'px')};
+  height: ${(props) => (props.small ? '21vw' : props.windowHeight + 'px')};
   margin-bottom: 2em;
   padding: 0 3vw;
   background-color: ${colors.main};
   transition: all 700ms ease-in-out;
 
   ${mq.mediumLandscape} {
-    height: ${props => (props.small ? '5.5vw' : props.windowHeight + 'px')};
-    padding: 0 ${props => (props.small ? '2em' : '3vw')};
+    height: ${(props) => (props.small ? '5.5vw' : props.windowHeight + 'px')};
+    padding: 0 ${(props) => (props.small ? '2em' : '3vw')};
   }
   ${mq.mediumPortrait} {
-    height: ${props => (props.small ? '10vw' : props.windowHeight + 'px')};
+    height: ${(props) => (props.small ? '10vw' : props.windowHeight + 'px')};
   }
   ${mq.large} {
-    height: ${props => (props.small ? '20vw' : props.windowHeight + 'px')};
+    height: ${(props) => (props.small ? '20vw' : props.windowHeight + 'px')};
   }
 `
 const ContentWrapper = styled.div`
-  opacity: ${props => (props.visible ? 1 : 0)};
-  pointer-events: ${props => (props.visible ? 'inherit' : 'none')};
+  opacity: ${(props) => (props.visible ? 1 : 0)};
+  pointer-events: ${(props) => (props.visible ? 'inherit' : 'none')};
   transition: opacity 1000ms linear 300ms;
 `
 const StyledLink = styled(Link)`
   text-decoration: none;
 
   ${mq.medium} {
-    display: ${props => (props.small ? 'none' : 'block')};
+    display: ${(props) => (props.small ? 'none' : 'block')};
   }
 `
 const Title = styled.h1`
@@ -72,16 +72,16 @@ const Title = styled.h1`
 `
 const Subtitle = styled.div`
   position: absolute;
-  bottom: ${props => (props.small ? '2vw' : '3vw')};
+  bottom: ${(props) => (props.small ? '2vw' : '3vw')};
   left: 3vw;
   width: 70vw;
-  font-size: ${props => (props.small ? '0.8vw' : '1vw')};
+  font-size: ${(props) => (props.small ? '0.8vw' : '1vw')};
   font-weight: 700;
   color: ${colors.white};
   transition: all 600ms ease-in-out;
 
   ${mq.medium} {
-    display: ${props => (props.small ? 'none' : 'block')};
+    display: ${(props) => (props.small ? 'none' : 'block')};
     font-size: 1vw;
   }
   ${mq.mediumPortrait} {
@@ -106,19 +106,19 @@ const Logo = styled.img`
   transition: all 300ms ease-out;
 
   ${mq.mediumPortrait} {
-    top: ${props => (props.small ? '2vw' : '2vw')};
-    right: ${props => (props.small ? '2vw' : '2vw')};
-    width: ${props => (props.small ? '6vw' : '100px')};
+    top: ${(props) => (props.small ? '2vw' : '2vw')};
+    right: ${(props) => (props.small ? '2vw' : '2vw')};
+    width: ${(props) => (props.small ? '6vw' : '100px')};
   }
   ${mq.mediumLandscape} {
-    top: ${props => (props.small ? '0.5vw' : '2vw')};
-    right: ${props => (props.small ? '0.5vw' : '2vw')};
-    width: ${props => (props.small ? '4.5vw' : '100px')};
+    top: ${(props) => (props.small ? '0.5vw' : '2vw')};
+    right: ${(props) => (props.small ? '0.5vw' : '2vw')};
+    width: ${(props) => (props.small ? '4.5vw' : '100px')};
   }
   ${mq.small} {
-    top: ${props => (props.small ? '1vw' : '2vw')};
-    right: ${props => (props.small ? '1vw' : '2vw')};
-    width: ${props => (props.small ? '8vw' : '20vw')};
+    top: ${(props) => (props.small ? '1vw' : '2vw')};
+    right: ${(props) => (props.small ? '1vw' : '2vw')};
+    width: ${(props) => (props.small ? '8vw' : '20vw')};
   }
 `
 

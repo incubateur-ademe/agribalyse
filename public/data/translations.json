@@ -48,5 +48,23 @@
   "Vous avez des questions sur le programme Agribalyse ?": {
     "en": "You have a question about AGRIBALYSE?"
   },
-  "Contactez-nous": { "en": "Contact us" }
+  "Contactez-nous": { "en": "Contact us" },
+  "https://ecolab.gitbook.io/documentation-agribalyse": {
+    "en": "https://ecolab.gitbook.io/agribalyse-documentation-en/"
+  },
+  "https://ecolab.gitbook.io/documentation-agribalyse/acces-donnees": {
+    "en": "https://ecolab.gitbook.io/agribalyse-documentation-en/agribalyse-data/data-access"
+  },
+  "https://ecolab.gitbook.io/documentation-agribalyse/usage-des-donnees/ecoconception": {
+    "en": "https://ecolab.gitbook.io/agribalyse-documentation-en/data-use/eco-design"
+  },
+  "https://ecolab.gitbook.io/documentation-agribalyse/usage-des-donnees/restauration-collective": {
+    "en": "https://ecolab.gitbook.io/agribalyse-documentation-en/data-use/catering-sector"
+  },
+  "https://ecolab.gitbook.io/documentation-agribalyse/usage-des-donnees/information-environnementale": {
+    "en": "https://ecolab.gitbook.io/agribalyse-documentation-en/data-use/environmental-labelling"
+  },
+  "https://ecolab.gitbook.io/documentation-agribalyse/nous-contactez/contact": {
+    "en": "https://ecolab.gitbook.io/agribalyse-documentation-en/contact-us-and-contribute/contact"
+  }
 }
