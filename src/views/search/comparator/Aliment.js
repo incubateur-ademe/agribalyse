@@ -23,21 +23,19 @@ export default function Aliment() {
   const [aliment, setAliment] = useState(null)
   const [indicateurs, setIndicateurs] = useState(null)
   const [ingredients, setIngredients] = useState(null)
-  const [error, setError] = useState(false)
+
   useEffect(() => {
-    api.fetchAliments({ code_agb }).then(aliment => {
+    api.fetchAliments({ code_agb }).then((aliment) => {
       if (aliment.results && aliment.results.length) {
         setAliment(aliment.results[0])
-      } else {
-        setError(true)
       }
     })
     api
       .fetchIndicateurs(code_agb)
-      .then(indicateurs => setIndicateurs(indicateurs.results[0]))
+      .then((indicateurs) => setIndicateurs(indicateurs.results[0]))
     api
       .fetchIngredients(code_agb)
-      .then(ingredients => setIngredients(ingredients.results))
+      .then((ingredients) => setIngredients(ingredients.results))
   }, [code_agb])
 
   return (
