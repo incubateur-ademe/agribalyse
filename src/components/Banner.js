@@ -164,9 +164,7 @@ export default function Banner() {
         <Subtitle
           small={small}
           dangerouslySetInnerHTML={{
-            __html: translate(
-              `Cette application présente les résultats de la base de données Agribalyse, selon les indicateurs ACV. Ceci ne correspond pas à un <a href='https://ecolab.gitbook.io/documentation-agribalyse/usage-des-donnees/information-environnementale' target='_blank'>affichage environnemental</a> ou un « éco-score » pour le grand-public.`
-            ),
+            __html: `Cette application présente les résultats de la base de données Agribalyse, selon les indicateurs ACV. Ceci ne correspond pas à un <a href='https://ecolab.gitbook.io/documentation-agribalyse/usage-des-donnees/information-environnementale' target='_blank'>affichage environnemental</a> ou un « éco-score » pour le grand-public.`,
           }}
         />
       </ContentWrapper>
