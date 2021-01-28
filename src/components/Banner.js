@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Link, useLocation, useRouteMatch } from 'react-router-dom'
 
 import { colors, breakpoints, mq } from 'utils/styles'
+import I18nContext from 'utils/i18nContext'
 import SearchContext from 'utils/searchContext'
 import useWindowSize from 'hooks/useWindowSize'
 
@@ -71,27 +72,22 @@ const Title = styled.h1`
   }
 `
 const Subtitle = styled.div`
-  position: absolute;
-  bottom: ${(props) => (props.small ? '2vw' : '3vw')};
-  left: 3vw;
-  width: 70vw;
-  font-size: ${(props) => (props.small ? '0.8vw' : '1vw')};
+  width: 49vw;
+  font-size: 14px;
   font-weight: 700;
   color: ${colors.white};
   transition: all 600ms ease-in-out;
 
   ${mq.medium} {
     display: ${(props) => (props.small ? 'none' : 'block')};
-    font-size: 1vw;
+    width: 70vw;
   }
   ${mq.mediumPortrait} {
-    font-size: 1.5vw;
+    width: auto;
   }
+
   ${mq.small} {
-    font-size: 3vw;
-  }
-  ${mq.large} {
-    font-size: 0.6vw;
+    font-size: 10px;
   }
 
   a {
@@ -123,6 +119,8 @@ const Logo = styled.img`
 `
 
 export default function Banner() {
+  const { translate } = useContext(I18nContext)
+
   const windowSize = useWindowSize()
 
   const [loaded, setLoaded] = useState(false)
@@ -163,17 +161,14 @@ export default function Banner() {
         </StyledLink>
         <Search small={small} />
         <Suggestions small={small} setLoaded={setLoaded} />
-        <Subtitle small={small}>
-          Ceci correspond aux données brutes ACV "Agribalyse" et ne correspond
-          pas à un{' '}
-          <a
-            href='https://ecolab.gitbook.io/documentation-agribalyse/usage-des-donnees/information-environnementale'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            "affichage environnemental"
-          </a>
-        </Subtitle>
+        <Subtitle
+          small={small}
+          dangerouslySetInnerHTML={{
+            __html: translate(
+              `Cette application présente les résultats de la base de données Agribalyse, selon les indicateurs ACV. Ceci ne correspond pas à un <a href='https://ecolab.gitbook.io/documentation-agribalyse/usage-des-donnees/information-environnementale' target='_blank'>affichage environnemental</a> ou un « éco-score » pour le grand-public.`
+            ),
+          }}
+        />
       </ContentWrapper>
 
       <Loader visible={!loaded && !small} />

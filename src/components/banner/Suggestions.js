@@ -9,10 +9,10 @@ const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   width: 49vw;
-  max-height: ${props => (props.small ? 0 : '10vw')};
-  margin: 0 -0.5vw;
-  opacity: ${props => (props.small ? 0 : 1)};
-  pointer-events: ${props => (props.small ? 'none' : 'inherit')};
+  max-height: ${(props) => (props.small ? 0 : '15vw')};
+  margin: 0 -0.5vw 1vw;
+  opacity: ${(props) => (props.small ? 0 : 1)};
+  pointer-events: ${(props) => (props.small ? 'none' : 'inherit')};
   transition: all 600ms;
 
   ${mq.medium} {
@@ -35,8 +35,8 @@ export default function Suggestions(props) {
   const [suggestionsData, setSuggestionsData] = useState([])
   useEffect(() => {
     fetch('/data/suggestions.json')
-      .then(res => res.json())
-      .then(data => setSuggestionsData(data))
+      .then((res) => res.json())
+      .then((data) => setSuggestionsData(data))
   }, [])
 
   const [suggestions, setSuggestions] = useState([])
@@ -46,7 +46,7 @@ export default function Suggestions(props) {
     if (suggestionsData.length) {
       api
         .fetchAliments({ code_agb: suggestionsData.join() })
-        .then(suggestion => {
+        .then((suggestion) => {
           setSuggestions(suggestion.results)
           setLoaded(true)
         })
@@ -55,7 +55,7 @@ export default function Suggestions(props) {
 
   return (
     <Wrapper small={props.small}>
-      {suggestions.map(suggestion => (
+      {suggestions.map((suggestion) => (
         <Suggestion key={suggestion['Code_AGB']} aliment={suggestion} />
       ))}
     </Wrapper>

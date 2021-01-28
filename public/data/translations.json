@@ -66,5 +66,8 @@
   },
   "https://ecolab.gitbook.io/documentation-agribalyse/nous-contactez/contact": {
     "en": "https://ecolab.gitbook.io/agribalyse-documentation-en/contact-us-and-contribute/contact"
+  },
+  "Cette application présente les résultats de la base de données Agribalyse, selon les indicateurs ACV. Ceci ne correspond pas à un <a href='https://ecolab.gitbook.io/documentation-agribalyse/usage-des-donnees/information-environnementale' target='_blank'>affichage environnemental</a> ou un « éco-score » pour le grand-public.": {
+    "en": "This application shows the results of the Agribalyse database, according to LCA indicators. It does not show an <a href='https://ecolab.gitbook.io/agribalyse-documentation-en/data-use/environmental-labelling' target='_blank'>environmental labelling</a> nor an “eco-score” for the general public."
   }
 }

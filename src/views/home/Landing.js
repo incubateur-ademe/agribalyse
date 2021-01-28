@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
 
-import { mq } from 'utils/styles'
+import { colors, mq } from 'utils/styles'
 import useWindowSize from 'hooks/useWindowSize'
 import I18nContext from 'utils/i18nContext'
 
@@ -63,11 +63,7 @@ const Partners = styled.div`
 `
 const Partner = styled.img`
   width: auto;
-  height: 10vw;
-
-  ${mq.mediumPortrait} {
-    height: 20vw;
-  }
+  height: 12vh;
 `
 const Logo = styled.img`
   width: 10vw;
@@ -83,7 +79,19 @@ const Logo = styled.img`
     margin-bottom: 3vw;
   }
 `
+const Subtitle = styled.div`
+  position: relative;
+  z-index: 10;
+  max-width: 53em;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  transition: all 600ms ease-in-out;
 
+  ${mq.small} {
+    font-size: 10px;
+  }
+`
 export default function Landing() {
   const windowSize = useWindowSize()
 
@@ -114,6 +122,13 @@ export default function Landing() {
             {translate(`Informations, conditions d’usages et documentation`)}
           </Button>
         </ButtonWrapper>
+        <Subtitle
+          dangerouslySetInnerHTML={{
+            __html: translate(
+              `Cette application présente les résultats de la base de données Agribalyse, selon les indicateurs ACV. Ceci ne correspond pas à un <a href='https://ecolab.gitbook.io/documentation-agribalyse/usage-des-donnees/information-environnementale' target='_blank'>affichage environnemental</a> ou un « éco-score » pour le grand-public.`
+            ),
+          }}
+        />
       </Content>
       <Partners>
         <Partner src={repufrancaise} />
