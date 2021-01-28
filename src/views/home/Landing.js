@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
 
-import { colors, mq } from 'utils/styles'
+import { mq } from 'utils/styles'
 import useWindowSize from 'hooks/useWindowSize'
 import I18nContext from 'utils/i18nContext'
 
