@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { Link, useLocation, useRouteMatch } from 'react-router-dom'
 
 import { colors, breakpoints, mq } from 'utils/styles'
-import I18nContext from 'utils/i18nContext'
 import SearchContext from 'utils/searchContext'
 import useWindowSize from 'hooks/useWindowSize'
 
@@ -119,8 +118,6 @@ const Logo = styled.img`
 `
 
 export default function Banner() {
-  const { translate } = useContext(I18nContext)
-
   const windowSize = useWindowSize()
 
   const [loaded, setLoaded] = useState(false)
