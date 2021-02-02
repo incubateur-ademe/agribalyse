@@ -10,7 +10,7 @@ const Wrapper = styled.div`
   flex-wrap: wrap;
   width: 49vw;
   max-height: ${(props) => (props.small ? 0 : '15vw')};
-  margin: 0 -0.5vw 1vw;
+  margin: 0 -0.5vw;
   opacity: ${(props) => (props.small ? 0 : 1)};
   pointer-events: ${(props) => (props.small ? 'none' : 'inherit')};
   transition: all 600ms;

@@ -20,7 +20,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   overflow: hidden;
-  height: ${(props) => (props.small ? '21vw' : props.windowHeight + 'px')};
+  height: ${(props) => (props.small ? '23vw' : props.windowHeight + 'px')};
   margin-bottom: 2em;
   padding: 0 3vw;
   background-color: ${colors.main};
@@ -51,6 +51,7 @@ const StyledLink = styled(Link)`
 `
 const Title = styled.h1`
   width: 48vw;
+  margin-bottom: 2vw;
   font-size: 2.4vw;
   font-weight: 900;
   color: ${colors.white};
@@ -72,7 +73,8 @@ const Title = styled.h1`
 `
 const Subtitle = styled.div`
   width: 49vw;
-  font-size: 14px;
+  margin-bottom: 2vw;
+  font-size: 1vw;
   font-weight: 700;
   color: ${colors.white};
   transition: all 600ms ease-in-out;
@@ -83,10 +85,12 @@ const Subtitle = styled.div`
   }
   ${mq.mediumPortrait} {
     width: auto;
+    font-size: 2vw;
   }
 
   ${mq.small} {
-    font-size: 10px;
+    font-size: 3vw;
+    text-align: center;
   }
 
   a {
@@ -156,14 +160,14 @@ export default function Banner() {
             indicateurs ACV
           </Title>
         </StyledLink>
-        <Search small={small} />
-        <Suggestions small={small} setLoaded={setLoaded} />
         <Subtitle
           small={small}
           dangerouslySetInnerHTML={{
             __html: `Cette application présente les résultats de la base de données Agribalyse, selon les indicateurs ACV. Ceci ne correspond pas à un <a href='https://ecolab.gitbook.io/documentation-agribalyse/usage-des-donnees/information-environnementale' target='_blank'>affichage environnemental</a> ou un « éco-score » pour le grand-public.`,
           }}
         />
+        <Search small={small} />
+        <Suggestions small={small} setLoaded={setLoaded} />
       </ContentWrapper>
 
       <Loader visible={!loaded && !small} />
