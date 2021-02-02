@@ -160,7 +160,7 @@ export default function Search(props) {
         </EnterIndicator>
       </InputWrapper>
       <Button
-        href='https://ecolab.gitbook.io/documentation-agribalyse/acces-donnees'
+        href='https://www.agribalyse.fr/documentation/acces-donnees'
         target='_blank'
         rel='noopener noreferrer'
         small={props.small}
