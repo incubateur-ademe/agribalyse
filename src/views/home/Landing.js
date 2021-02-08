@@ -104,7 +104,7 @@ export default function Landing() {
         <Logo src={logo} alt={'Agribalyse'} />
         <Title>
           {translate(
-            `Découvrez l’impact environnemental de votre assiette selon les indicateurs ACV`
+            `Découvrez l’impact environnemental de l'alimentation selon les indicateurs ACV`
           )}
         </Title>
         <ButtonWrapper>
@@ -115,7 +115,7 @@ export default function Landing() {
         <ButtonWrapper>
           <Button
             href={translate(
-              'https://ecolab.gitbook.io/documentation-agribalyse'
+              'https://www.agribalyse.fr/documentation'
             )}
             hollow
           >
@@ -125,7 +125,7 @@ export default function Landing() {
         <Subtitle
           dangerouslySetInnerHTML={{
             __html: translate(
-              `Cette application présente les résultats de la base de données Agribalyse, selon les indicateurs ACV. Ceci ne correspond pas à un <a href='https://ecolab.gitbook.io/documentation-agribalyse/usage-des-donnees/information-environnementale' target='_blank'>affichage environnemental</a> ou un « éco-score » pour le grand-public.`
+              `Cette application présente les résultats de la base de données Agribalyse, selon les indicateurs ACV. Ceci ne correspond pas à un <a href='https://www.agribalyse.fr/documentation/usage-des-donnees/information-environnementale' target='_blank'>affichage environnemental</a> ou un « éco-score » pour le grand-public.`
             ),
           }}
         />
