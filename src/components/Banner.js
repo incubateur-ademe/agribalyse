@@ -156,14 +156,13 @@ export default function Banner() {
       <ContentWrapper visible={loaded}>
         <StyledLink to='/app' small={small}>
           <Title>
-            Découvrez l’impact environnemental de votre assiette selon les
-            indicateurs ACV
+            Explorer la base Agribalyse
           </Title>
         </StyledLink>
         <Subtitle
           small={small}
           dangerouslySetInnerHTML={{
-            __html: `Cette application présente les résultats de la base de données Agribalyse, selon les indicateurs ACV. Ceci ne correspond pas à un <a href='https://ecolab.gitbook.io/documentation-agribalyse/usage-des-donnees/information-environnementale' target='_blank'>affichage environnemental</a> ou un « éco-score » pour le grand-public.`,
+            __html: `Cette application présente les résultats de la base de données Agribalyse, selon les indicateurs ACV. Ceci ne correspond pas à un <a href='https://www.agribalyse.fr/documentation/usage-des-donnees/information-environnementale' target='_blank'>affichage environnemental</a> ou un « éco-score » pour le grand-public.`,
           }}
         />
         <Search small={small} />
