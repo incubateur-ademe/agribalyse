@@ -1,0 +1,5 @@
+https://agribalyse.fr/service-worker.js https://agribalyse.fr/service-worker-killer.js 200!
+
+https://agribalyse.fr/* https://www.agribalyse.fr/ 301!
+
+/*  /index.html  200
