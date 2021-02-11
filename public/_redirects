@@ -1,5 +1,1 @@
-https://agribalyse.fr/service-worker.js https://agribalyse.fr/service-worker.js 301!
-https://www.agribalyse.fr/service-worker.js https://www.agribalyse.fr/service-worker.js 301!
-https://agribalyse.fr/* https://www.agribalyse.fr/ 301!
-
-/*  /index.html  200
+/*  https://www.agribalyse.fr/ 301!
