@@ -13,7 +13,7 @@ ReactDOM.render(
   document.getElementById('root')
 )
 
-if (window.location.hostname === 'https://agribalyse.fr') {
+if (window.location.hostname === 'agribalyse.fr') {
   window.location.replace('https://www.agribalyse.fr')
 }
 // If you want your app to work offline and load faster, you can change
