@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { mq } from 'utils/styles'
+import { colors, mq } from 'utils/styles'
 
 import MobileBack from './informations/MobileBack'
 import EnvironmentCard from './informations/EnvironmentCard'
@@ -33,8 +33,9 @@ const Title = styled.h1`
 const Ciqual = styled.div`
   margin-bottom: 1em;
 `
-const Code = styled.span`
+const Code = styled.a`
   font-weight: 900;
+  color: ${colors.main};
 `
 const Category = styled.p`
   ${mq.small} {
@@ -54,7 +55,13 @@ export default function Informations(props) {
         <Title>{props.aliment[`Nom_du_Produit_en_Français`]}</Title>
       </TitleWrapper>
       <Ciqual>
-        Code Ciqual : <Code>{props.aliment['Code_CIQUAL']}</Code>
+        Code Ciqual :{' '}
+        <Code
+          href={`https://ciqual.anses.fr/#/aliments/${props.aliment['Code_CIQUAL']}`}
+          target='_blank'
+        >
+          {props.aliment['Code_CIQUAL']}
+        </Code>
       </Ciqual>
       <Category>
         <b>
