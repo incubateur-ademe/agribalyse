@@ -77,7 +77,7 @@ export default function Presentation() {
           <Button
             expand
             href={translate(
-              'https://www.agribalyse.fr/documentation/acces-donnees'
+              'https://doc.agribalyse.fr/documentation/acces-donnees'
             )}
           >
             {translate(`Télécharger les données`)}
