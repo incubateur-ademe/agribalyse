@@ -42,7 +42,7 @@ export default function Examples() {
         <Cards>
           <Card
             href={translate(
-              'https://www.agribalyse.fr/documentation/usage-des-donnees/ecoconception'
+              'https://doc.agribalyse.fr/documentation/usage-des-donnees/ecoconception'
             )}
           >
             <Card.Image src={usecasevaches} />
@@ -57,7 +57,7 @@ export default function Examples() {
           </Card>
           <Card
             href={translate(
-              'https://www.agribalyse.fr/documentation/usage-des-donnees/restauration-collective'
+              'https://doc.agribalyse.fr/documentation/usage-des-donnees/restauration-collective'
             )}
           >
             <Card.Image src={usecaserie} />
@@ -68,7 +68,7 @@ export default function Examples() {
           </Card>
           <Card
             href={translate(
-              'https://www.agribalyse.fr/documentation/usage-des-donnees/information-environnementale'
+              'https://doc.agribalyse.fr/documentation/usage-des-donnees/information-environnementale'
             )}
           >
             <Card.Image src={usecaseyuka} />
