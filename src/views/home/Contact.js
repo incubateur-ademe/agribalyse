@@ -32,7 +32,7 @@ export default function Video() {
         <ButtonWrapper>
           <Button
             href={translate(
-              'https://www.agribalyse.fr/documentation/nous-contactez/contact'
+              'https://doc.agribalyse.fr/documentation/nous-contactez/contact'
             )}
           >
             {translate(`Contactez-nous`)}
