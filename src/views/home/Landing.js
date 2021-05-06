@@ -125,7 +125,7 @@ export default function Landing() {
         <Subtitle
           dangerouslySetInnerHTML={{
             __html: translate(
-              `Cette application présente les résultats de la base de données Agribalyse, selon les indicateurs ACV. Ceci ne correspond pas à un <a href='https://www.agribalyse.fr/documentation/usage-des-donnees/information-environnementale' target='_blank'>affichage environnemental</a> ou un « éco-score » pour le grand-public.`
+              `Cette application présente les résultats de la base de données Agribalyse, selon les indicateurs ACV. Ceci ne correspond pas à un <a href='https://doc.agribalyse.fr/documentation/usage-des-donnees/information-environnementale' target='_blank'>affichage environnemental</a> ou un « éco-score » pour le grand-public.`
             ),
           }}
         />
