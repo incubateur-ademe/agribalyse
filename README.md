@@ -1,4 +1,4 @@
-l'application en production : https://agribalyse.fr/app
+l'application en production : https://agribalyse.ademe.fr/app
 
 ## Available Scripts
 
