@@ -156,7 +156,7 @@ export default function Banner() {
       <ContentWrapper visible={loaded}>
         <StyledLink to='/app' small={small}>
           <Title>
-            Explorer la base Agribalyse
+            Explorer la base Agribalyse 3.1
           </Title>
         </StyledLink>
         <Subtitle
