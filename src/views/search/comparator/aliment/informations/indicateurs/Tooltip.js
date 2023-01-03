@@ -11,12 +11,6 @@ const Content = styled.sup`
   font-weight: 500;
   cursor: pointer;
 `
-const Sup = styled.sup`
-  position: absolute;
-  top: 0em;
-  left: calc(100% + 0.3em);
-  font-size: 0.5em;
-`
 const Overlay = styled.div`
   position: absolute;
   bottom: calc(100%);
