@@ -15,8 +15,8 @@ export default function IngredientsCard(props) {
         {props.ingredients.map((ingredient, index) => (
           <Step
             key={ingredient['Ingredients']}
-            value={ingredient[`Score_unique_EF_(mPt/kg_de_produit)`]}
-            max={props.aliment['Score_unique_EF_(mPt/kg_de_produit)']}
+            value={ingredient[`Score_unique_EF`]}
+            max={props.aliment['Score_unique_EF']}
             title={ingredient['Ingredients']}
             delay={index + 6}
             secondary

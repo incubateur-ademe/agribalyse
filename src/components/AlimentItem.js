@@ -94,9 +94,7 @@ export default function AlimentItem(props) {
             <br />
             environnemental
             <ScoreNumber>
-              {Math.round(
-                props.aliment['Score_unique_EF_(mPt/kg_de_produit)'] * 100
-              ) / 100}
+              {Math.round(props.aliment['Score_unique_EF'] * 100) / 100}
             </ScoreNumber>
             <Unit>par kg de produit</Unit>
           </Score>
@@ -104,13 +102,7 @@ export default function AlimentItem(props) {
             + Infos
           </Button>
         </Flex>
-        <DQR
-          dqr={
-            props.aliment[
-              'DQR_-_Note_de_qualité_de_la_donnée_(1_excellente___5_très_faible)'
-            ]
-          }
-        />
+        <DQR dqr={props.aliment['DQR']} />
       </Card.Bottom>
     </Card>
   )
