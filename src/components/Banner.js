@@ -138,9 +138,8 @@ export default function Banner() {
     }
   }, [location.pathname])
 
-  const { setSearch, setCategories, setSubCategories } = useContext(
-    SearchContext
-  )
+  const { setSearch, setCategories, setSubCategories } =
+    useContext(SearchContext)
   let resultsPage = useRouteMatch('/app/aliments/:code_agb?')
   const [small, setSmall] = useState(resultsPage && resultsPage.isExact)
   useEffect(() => {
@@ -155,9 +154,7 @@ export default function Banner() {
       <Carrot small={small} />
       <ContentWrapper visible={loaded}>
         <StyledLink to='/app' small={small}>
-          <Title>
-            Explorer la base Agribalyse 3.0
-          </Title>
+          <Title>Explorer la base Agribalyse 3.1</Title>
         </StyledLink>
         <Subtitle
           small={small}
