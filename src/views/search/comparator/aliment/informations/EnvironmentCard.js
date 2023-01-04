@@ -13,7 +13,7 @@ const Score = styled.div`
   text-align: center;
 
   span {
-    font-size: ${props => (props.large ? '11vw' : '7vw')};
+    font-size: ${(props) => (props.large ? '11vw' : '7vw')};
     font-weight: 900;
     font-family: 'Montserrat', sans-serif;
     color: ${colors.main};
@@ -25,7 +25,7 @@ const Score = styled.div`
       font-size: 30vw;
     }
     ${mq.large} {
-      font-size: ${props => (props.large ? '150px' : '120px')};
+      font-size: ${(props) => (props.large ? '150px' : '120px')};
     }
   }
 `
@@ -50,11 +50,7 @@ export default function EnvironmentCard(props) {
         <Card.Title>Score environnemental "PEF"</Card.Title>
         <Score large={props.large}>
           <CountUp
-            end={
-              Math.round(
-                props.aliment['Score_unique_EF_(mPt/kg_de_produit)'] * 100
-              ) / 100
-            }
+            end={Math.round(props.aliment['Score_unique_EF'] * 100) / 100}
             decimals={2}
             duration={1}
             delay={0.25}
@@ -74,23 +70,13 @@ export default function EnvironmentCard(props) {
             « PEF » <b>(Product Environmental Footprint)</b>.
           </p>
         </Callout>
-        <DQR
-          large
-          dqr={
-            props.aliment[
-              'DQR_-_Note_de_qualité_de_la_donnée_(1_excellente___5_très_faible)'
-            ]
-          }
-        />
+        <DQR large dqr={props.aliment['DQR']} />
       </Card.Top>
       <Card.Bottom>
         <CO2>
           <CO2Title>Détail changement climatique :</CO2Title>
           <CO2Number>
-            {Math.round(
-              props.aliment[`Changement_climatique_(kg_CO2_eq/kg_de_produit)`] *
-                100
-            ) / 100}
+            {Math.round(props.aliment[`Changement_climatique`] * 100) / 100}
           </CO2Number>{' '}
           kg CO2 eq/kg de produit
         </CO2>

@@ -1,8 +1,8 @@
 const api = process.env.REACT_APP_API + '/'
 
-const aliments = api + 'agribalyse-synthese/lines'
-const indicateurs = api + 'agribalyse-detail-etape/lines'
-const ingredients = api + 'agribalyse-detail-ingredient/lines'
+const aliments = api + 'agribalyse-31-synthese/lines'
+const indicateurs = api + 'agribalyse-31-detail-par-etape/lines'
+const ingredients = api + 'agribalyse-31-detail-par-ingredient/lines'
 
 const categories =
   api +
@@ -22,11 +22,11 @@ export default {
 
       {
         method: 'GET',
-        headers: headers
+        headers: headers,
       }
     )
       .then(this.handleErrors)
-      .then(res => res.json())
+      .then((res) => res.json())
   },
   fetchAliments({
     code_agb,
@@ -35,7 +35,7 @@ export default {
     search,
     categories,
     subCategories,
-    sort
+    sort,
   }) {
     let request = aliments + '?'
 
@@ -58,44 +58,44 @@ export default {
     if (categories && categories.length) {
       if (subCategories && subCategories.length) {
         request += `&qs=Sous-groupe_d'aliment:(${subCategories
-          .map(subCategory => `"${subCategory}"`)
+          .map((subCategory) => `"${subCategory}"`)
           .join(' OR ')})`
       } else {
         request += `&qs=Groupe_d'aliment:(${categories
-          .map(category => `"${category}"`)
+          .map((category) => `"${category}"`)
           .join(' OR ')})`
       }
     }
 
     return this.get(request).then(
-      result => result,
-      error => {
+      (result) => result,
+      (error) => {
         console.log(error)
       }
     )
   },
   fetchIndicateurs(code_agb) {
     return this.get(`${indicateurs}?Code_AGB_in=${code_agb}`).then(
-      result => result,
-      error => {
+      (result) => result,
+      (error) => {
         console.log(error)
       }
     )
   },
   fetchIngredients(code_agb) {
-    return this.get(`${ingredients}?qs=Ciqual_AGB:${code_agb}`).then(
-      result => result,
-      error => {
+    return this.get(`${ingredients}?qs=Ciqual__AGB:${code_agb}`).then(
+      (result) => result,
+      (error) => {
         console.log(error)
       }
     )
   },
   fetchCategories() {
     return this.get(categories).then(
-      result => result,
-      error => {
+      (result) => result,
+      (error) => {
         console.log(error)
       }
     )
-  }
+  },
 }
