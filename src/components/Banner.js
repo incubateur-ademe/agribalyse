@@ -154,7 +154,7 @@ export default function Banner() {
       <Carrot small={small} />
       <ContentWrapper visible={loaded}>
         <StyledLink to='/app' small={small}>
-          <Title>Explorer la base Agribalyse 3.1</Title>
+          <Title>Explorer la base Agribalyse 3.1.1</Title>
         </StyledLink>
         <Subtitle
           small={small}
