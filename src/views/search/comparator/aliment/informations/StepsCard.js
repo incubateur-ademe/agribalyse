@@ -8,7 +8,7 @@ export default function StepsCard(props) {
     <Card large={props.large}>
       <Card.Top>
         <Card.Title>
-          Impact par
+          Impact (PEF) par
           <br />
           étapes du cycle de vie
         </Card.Title>

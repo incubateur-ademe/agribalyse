@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import {
   useQueryParam,
@@ -10,6 +10,7 @@ import {
 
 import SearchContext from 'utils/searchContext'
 import usePageView from 'hooks/usePageView'
+import api from 'utils/api'
 
 export default function SearchProvider(props) {
   usePageView()
@@ -28,12 +29,27 @@ export default function SearchProvider(props) {
   )
   const [sort, setSort] = useQueryParam(
     'sort',
-    withDefault(StringParam, 'Nom_du_Produit_en_Français')
+    withDefault(StringParam, 'Pertinence')
   )
   const [page, setPage] = useQueryParam('page', withDefault(NumberParam, 1))
   const [size, setSize] = useQueryParam('size', withDefault(NumberParam, 20))
 
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
+
+  const [aliments, setAliments] = useState([])
+  useEffect(() => {
+    setLoading(true)
+    api
+      .fetchEveryAliments()
+      .then(aliments => {
+        setAliments(aliments)
+        setLoading(false)
+      })
+  }, [])
+
+  if (aliments.length === 0) {
+    return null
+  }
 
   return (
     <SearchContext.Provider
@@ -51,7 +67,8 @@ export default function SearchProvider(props) {
         setPage,
         setSize,
         loading,
-        setLoading
+        setLoading,
+        aliments
       }}
     >
       {props.children}

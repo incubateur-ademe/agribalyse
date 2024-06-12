@@ -52,7 +52,7 @@ export default function DQR(props) {
         onMouseEnter={() => setVisible(true)}
         onMouseLeave={() => setVisible(false)}
       >
-        DQR : <DQRNumber>{props.dqr}</DQRNumber> <Sup>(?)</Sup>
+        DQR : <DQRNumber>{Math.round(props.dqr * 100) / 100}</DQRNumber> <Sup>(?)</Sup>
       </Content>
       <Tooltip
         visible={visible}

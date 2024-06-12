@@ -140,20 +140,32 @@ export default function Banner() {
 
   const { setSearch, setCategories, setSubCategories } =
     useContext(SearchContext)
+
   let resultsPage = useRouteMatch('/app/aliments/:code_agb?')
-  const [small, setSmall] = useState(resultsPage && resultsPage.isExact)
+  let accessibilityPage = useRouteMatch('/accessibilite')
+
+  const [small, setSmall] = useState(
+    resultsPage?.isExact || accessibilityPage?.isExact
+  )
+
   useEffect(() => {
-    setSmall(resultsPage && resultsPage.isExact)
-  }, [resultsPage, setSearch, setCategories, setSubCategories])
+    setSmall(resultsPage?.isExact || accessibilityPage?.isExact)
+  }, [
+    resultsPage,
+    accessibilityPage,
+    setSearch,
+    setCategories,
+    setSubCategories,
+  ])
 
   return (
     <Wrapper windowHeight={windowSize.height} small={small}>
-      <Link to='/'>
+      <Link to="/">
         <Logo src={logo} alt={'Agribalyse'} small={small} />
       </Link>
       <Carrot small={small} />
       <ContentWrapper visible={loaded}>
-        <StyledLink to='/app' small={small}>
+        <StyledLink to="/app" small={small}>
           <Title>Explorer la base Agribalyse 3.1.1</Title>
         </StyledLink>
         <Subtitle

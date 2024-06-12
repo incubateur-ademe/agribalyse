@@ -8,7 +8,7 @@ export default function IngredientsCard(props) {
     <Card>
       <Card.Top>
         <Card.Title>
-          Impact par
+          Impact (PEF) par
           <br />
           ingrédients
         </Card.Title>

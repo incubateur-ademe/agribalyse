@@ -8,9 +8,10 @@ import OutdatedBrowser from 'components/OutdatedBrowser'
 import Footer from 'components/Footer'
 import Home from 'views/Home'
 import Search from 'views/Search'
+import Accessibility from 'views/Accessibility'
 
 function App() {
-  const outdatedBrowser = uaString => {
+  const outdatedBrowser = (uaString) => {
     uaString = uaString || window.navigator.userAgent
     var match = /\b(MSIE |Trident.*?rv:|Edge\/)(\d+)/.exec(uaString)
     return match && parseInt(match[2]) < 12
@@ -25,10 +26,13 @@ function App() {
         ) : (
           <>
             <Switch>
-              <Route path='/app'>
+              <Route path="/app">
                 <Search />
               </Route>
-              <Route path='/'>
+              <Route path="/accessibilite">
+                <Accessibility />
+              </Route>
+              <Route path="/">
                 <Home />
               </Route>
             </Switch>

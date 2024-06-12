@@ -13,7 +13,7 @@ import Bottom from './card/Bottom'
 
 const StyledLink = styled(Link)`
   display: block;
-  width: calc(${props => (props.large ? '50%' : '33.333%')} - 2em);
+  width: calc(${props => (props.large ? '50%' : '25%')} - 2em);
   margin: 0 1em 2em;
   text-decoration: none;
   border-radius: 1em;
