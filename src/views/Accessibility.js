@@ -28,14 +28,16 @@ export default function Accessibility() {
           <li>
             <a
               href="https://librairie.ademe.fr/institutionnel/6794-schema-pluriannuel-de-mise-en-accessibilite-des-sites-web-de-l-ademe.html"
-              target="_blank">
+              target="_blank"
+              rel="noopener noreferrer">
               Schéma pluriannuel en cours
             </a>
           </li>
           <li>
             <a
               href="https://librairie.ademe.fr/institutionnel/6823-plan-annuel-de-mise-en-accessibilite-des-sites-web-de-l-ademe.html"
-              target="_blank">
+              target="_blank"
+              rel="noopener noreferrer">
               Plan d’action de l’année en cours
             </a>
           </li>

@@ -2,8 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-import { colors } from 'utils/styles'
-
 const Wrapper = styled.div`
   padding: 2em;
   text-align: center;
