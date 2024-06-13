@@ -83,7 +83,7 @@ export default function Accessibility() {
           Contacter Estelle Ribot, ADEME, DEMTE — 20 avenue du Grésillé BP 90
           406 – 49 004 Angers Cedex 01
         </p>
-        <h2>OIES DE RECOURS</h2>
+        <h2>VOIES DE RECOURS</h2>
         <p>
           Cette procédure est à utiliser dans le cas suivant. Vous avez signalé
           au responsable du site internet un défaut d’accessibilité qui vous
