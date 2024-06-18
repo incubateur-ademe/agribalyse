@@ -12,5 +12,6 @@ export default React.createContext({
   page: 0,
   setPage: () => '',
   size: 0,
-  setSize: () => ''
+  setSize: () => '',
+  aliments: [],
 })

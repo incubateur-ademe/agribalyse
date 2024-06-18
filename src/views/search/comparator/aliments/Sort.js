@@ -18,31 +18,34 @@ export default function Sort() {
 
   return (
     <Select value={sort} onChange={e => setSort(e.currentTarget.value)}>
+      <Option value={'Pertinence'}>
+        Pertinence
+      </Option>
       <Option value={'Nom_du_Produit_en_Français'}>
-        Ordre alphabétique (A > Z)
+        Ordre alphabétique (↑)
       </Option>
       <Option value={'-Nom_du_Produit_en_Français'}>
-        Ordre alphabétique (Z > A)
+        Ordre alphabétique (↓)
       </Option>
-      <Option value={'Score_unique_EF_(mPt/kg_de_produit)'}>
-        Score (Du plus bas au plus haut)
+      <Option value={'Changement_climatique'}>
+        Changement climatique (↑)
       </Option>
-      <Option value={'-Score_unique_EF_(mPt/kg_de_produit)'}>
-        Score (Du plus haut au plus bas)
-      </Option>
-      <Option
-        value={
-          'DQR_-_Note_de_qualité_de_la_donnée_(1_excellente___5_très_faible)'
-        }
-      >
-        DQR (Du plus bas au plus haut)
+      <Option value={'-Changement_climatique'}>
+        Changement climatique (↓)
       </Option>
       <Option
         value={
-          '-DQR_-_Note_de_qualité_de_la_donnée_(1_excellente___5_très_faible)'
+          'DQR'
         }
       >
-        DQR (Du plus haut au plus bas)
+        DQR (↑)
+      </Option>
+      <Option
+        value={
+          '-DQR'
+        }
+      >
+        DQR (↓)
       </Option>
     </Select>
   )
