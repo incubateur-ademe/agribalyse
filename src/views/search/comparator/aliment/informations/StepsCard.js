@@ -40,7 +40,7 @@ export default function StepsCard(props) {
           <Pef
             onMouseEnter={() => setVisible(true)}
             onMouseLeave={() => setVisible(false)}>
-            (PEF)
+            (Score Unique PEF)
             <Tooltip
               visible={visible}
               onMouseEnter={() => setVisible(true)}

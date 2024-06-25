@@ -38,7 +38,7 @@ export default function IngredientsCard(props) {
           <Pef
             onMouseEnter={() => setVisible(true)}
             onMouseLeave={() => setVisible(false)}>
-            (PEF)
+            (Score Unique PEF)
             <Tooltip
               visible={visible}
               onMouseEnter={() => setVisible(true)}
