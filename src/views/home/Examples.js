@@ -43,8 +43,7 @@ export default function Examples() {
           <Card
             href={translate(
               'https://doc.agribalyse.fr/documentation/usage-des-donnees/ecoconception'
-            )}
-          >
+            )}>
             <Card.Image src={usecasevaches} />
             <Card.Top>
               <Card.Title>{translate(`Ecoconception`)}</Card.Title>
@@ -57,9 +56,8 @@ export default function Examples() {
           </Card>
           <Card
             href={translate(
-              'https://doc.agribalyse.fr/documentation/usage-des-donnees/restauration-collective'
-            )}
-          >
+              'https://doc.agribalyse.fr/documentation/utiliser-agribalyse/usage-des-donnees-pour-linformation-des-consommateurs'
+            )}>
             <Card.Image src={usecaserie} />
             <Card.Top>
               <Card.Title>{translate(`Restauration collective`)}</Card.Title>
@@ -68,9 +66,8 @@ export default function Examples() {
           </Card>
           <Card
             href={translate(
-              'https://doc.agribalyse.fr/documentation/usage-des-donnees/information-environnementale'
-            )}
-          >
+              'https://doc.agribalyse.fr/documentation/utiliser-agribalyse/usage-des-donnees-pour-linformation-des-consommateurs'
+            )}>
             <Card.Image src={usecaseyuka} />
             <Card.Top>
               <Card.Title>
